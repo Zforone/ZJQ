@@ -74,12 +74,15 @@ function sum() {
 
 
 //封装一个函数Swap(arr, i, j)，可以交换数组arr里下标 i 和 j 的值
-functionSwap(arr){
-    var i, j;
-    arr[i, j];
-    arr.reverse();
+var arr[i, j];
+function Swap(arr,i,j){
+    var temp = [i, j];
+    arr[i] = arr[j];
+    arr[b] = temp
 }
-console.log(arr);
+swap(arr, 0, 1);
+console.log('arr[i]=' + arr[i]);
+console.log('arr[j]=' + arr[j]);
 
 
 //删除一个数组里面重复的元素
@@ -91,4 +94,5 @@ console.log(arr);
         }
     return console.log(arr);
 }
+
 
