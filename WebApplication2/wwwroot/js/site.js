@@ -25,9 +25,6 @@ arr = students
 console.log(arr, length);
 
 
-//在上述数组头部加上小鱼老师，末尾加上大飞哥
-
-
 
 //如果一个数只能被1和它自己整除，这个数就被称之为“素数”。请找出100以内的所有素数。
 var x = 7;
@@ -40,8 +37,6 @@ for (var i = 2; i++; i <= 100)
             console.log(x + '不是质数');
         }
     }
-
-//独立完成“冒泡排序”算法
 
 
 //将之前“找出素数”的代码封装成一个函数findPrime(max)，可以打印出max以内的所有素数。
@@ -63,8 +58,9 @@ function findPrime(max) {
 
 //自行设计参数，将之前“累加求和”的代码封装成一个函数Sum()，可以计算任意起始位置、任意步长（如：1,3,5……或者0,5,10,15……）的等差数列之和。
 
-var sum = function (first, step, last) {              //设置首项，公差，末项
-    varj = 0, i = 0;
+var sum = function (first, step, last) {
+    //设置首项，公差，末项
+    var j = 0, i = 0;
     while (j < x) {
         j = j + 'step';
         i = i + j;
@@ -96,9 +92,6 @@ for (var i = 0; i < this.length; i++) {
     }
     return console.log(arr);
 }
-
-
-//统计出这段文字中有多少个单词：
 
 
 //使用JavaScript内置字符串函数，处理 “‘源栈’：飞哥小班教学，线下免费收看” ：“飞哥”改成“大神”，“线下”改成“线上”。
@@ -149,3 +142,39 @@ function getMaxNumber() {
     return result;
 
 }
+
+//构建一个函数has9(number) ，可以判断number中是否带有数字9；
+//构建一个函数has6(number) ，可以判断number中是否带有数字6；
+//构建一个函数has8(number) ，可以判断number中是否带有数字8；
+function has9(number) {
+    return hasX(number, 9);
+}
+function has8(number) {
+    return hasX(number, 8);
+}
+function has6(number) {
+    return hasX(number, 6);
+}
+function hasX(number, X) {
+        return String(number).indexOf(X) >= 0;
+}
+//使用上述函数，找出10000以内有多少个数字包含：9或者8或者6。
+var get986 = function (number) {
+    var result = 0;
+    for (var i = 0; i < number + 1; i++) {
+        if (has9(i) || has8(i) || has6(i)) {
+            result++;
+        }
+        else {
+
+        }
+    }
+    console.log(result);
+}
+
+
+//使用“模拟名称空间”技术，构建一个函数函数yz.fei.get986(number) ；
+//在yz.fei.get986(number)中包含不带参数的函数has9() / has8() / has6() ；
+//让get986()通过调用has9() / has8() / has6() ，能找出number以内有多少个数字包含：9或者8或6。
+
+
