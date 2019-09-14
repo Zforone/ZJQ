@@ -25,6 +25,10 @@ arr = students
 console.log(arr, length);
 
 
+//在上述数组头部加上小鱼老师，末尾加上大飞哥
+
+
+
 //如果一个数只能被1和它自己整除，这个数就被称之为“素数”。请找出100以内的所有素数。
 var x = 7;
 for (var i = 2; i++; i <= 100)
@@ -59,7 +63,7 @@ function findPrime(max) {
 
 //自行设计参数，将之前“累加求和”的代码封装成一个函数Sum()，可以计算任意起始位置、任意步长（如：1,3,5……或者0,5,10,15……）的等差数列之和。
 
-var sum = function (first, step, last) {
+var sum = function (first, step, last) {              //设置首项，公差，末项
     varj = 0, i = 0;
     while (j < x) {
         j = j + 'step';
@@ -97,9 +101,6 @@ for (var i = 0; i < this.length; i++) {
 //统计出这段文字中有多少个单词：
 
 
-//在上述数组头部加上小鱼老师，末尾加上大飞哥
-
-
 //使用JavaScript内置字符串函数，处理 “‘源栈’：飞哥小班教学，线下免费收看” ：“飞哥”改成“大神”，“线下”改成“线上”。
 var string = "'源站':飞哥小班教学,线下免费收看";
 newString = string.replace("飞哥", "大神");
@@ -110,7 +111,16 @@ newString = newString.replace("线下", "线上");
 //将数组['why','gIT','vs2019','community','VERSION']规范化，所有字符串：
 //首字母大写开头，其他字母小写
 //截去超过6个字符的部分，如'community'将变成'Commun'
-var string =
+function standard(str) {
+    var arr = [];
+    for (var i = 0; i < str.length; i++) {
+        arr[i] = str[i].toLowerCase().slice(0, 6);
+        arr[i] = arr[i][0].toUpperCase() + arr[i].substring(1, 6);
+    }
+    return arr;
+}
+var str = ['why', 'gIT', 'vs2019', 'community', 'VERSION'];
+var result = standard(str);
 
 //不使用JavaScript内置函数，将一个字符串顺序颠倒，比如：'hello,yuanzhan' 变成 'nahznauy,olleh'。
 function order(call) {
@@ -122,3 +132,20 @@ function order(call) {
 }
 console.log(order("hello,yuanzhan"));
 
+/*封装一个函数，建立一个函数getMaxNumber()，可以接受任意多各种类型（整数、小数、正数、负数、字符串、布尔值等）的参数，
+  并找出里面最大的数（忽略其他类型）*/
+function getMaxNumber() {
+    var result = -Infinity;
+    for (var i = 0; i < arguments.length; i++) {
+        if (typeof arguments[i] === typeof 0) {
+            if (arguments[i] > result) {
+                result = arguments[i];
+                else {
+
+                }
+            } else
+        }
+    }
+    return result;
+
+}
