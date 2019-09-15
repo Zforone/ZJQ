@@ -172,9 +172,79 @@ var get986 = function (number) {
     console.log(result);
 }
 
+/*完成猜数字的游戏：
+ *弹出游戏玩法说明，等待用户点击“确认”，开始游戏；
+ *浏览器生成一个不大于1000的随机正整数；
+ *用户输入猜测；
+ *只用了不到6次就猜到，弹出：碉堡了！
+ *只用了不到8次就猜到，弹出：666！
+ *用了8-10次猜到，弹出：猜到了。
+ *用了10次都还没猜对，弹出：^(*￣(oo)￣)^  */
+var bingo = 876;
+if (confirm(`弹出游戏玩法说明，等待用户点击“确认”，开始游戏；
+浏览器生成一个不大于1000的随机正整数；
+用户输入猜测；
+如果用户没有猜对，浏览器比较后告知结果：“大了”或者“小了”。如果用户：
+只用了不到6次就猜到，弹出：碉堡了！
+只用了不到8次就猜到，弹出：666！
+用了8-10次猜到，弹出：猜到了。
+用了10次都还没猜对，弹出：^(*￣(oo)￣)^`)) {
+    bingoGame()
+} else {
+}
+function bingoGame() {
+    for (var i = 0; i = 10; i++) {
 
-//使用“模拟名称空间”技术，构建一个函数函数yz.fei.get986(number) ；
-//在yz.fei.get986(number)中包含不带参数的函数has9() / has8() / has6() ；
-//让get986()通过调用has9() / has8() / has6() ，能找出number以内有多少个数字包含：9或者8或6。
+        var word = prompt("请输入你猜测的数字:' '");
+        if (!word) {
+            break;
+        }
+        if (!isNaN(word) && word > 0 && word.indexOf(".") === -1) {
+            if (+word < bingo) {
+                alert("小了");
+            } else if (+word > bingo) {
+                alert("大了");
+            }
+            if (+word === bingo) {
+                if (i < 6) {
+                    alert("碉堡了！");
+
+                } else if (i < 8) {
+                    alert("666!");
+
+
+                } else if (i < 10) {
+                    alert("猜到了！");
+
+                } else if (i = 10) {
+                    alert("^(*￣(oo)￣)^");
+
+                } break;
+
+                if (+word > bingo) {
+                    alert("小了");
+                } else {
+                    alert("大了");
+                }
+            }
+        }
+
+        else {
+            alert("请输入正整数！");
+
+        }
+    } return false;
+
+} 
+
+
+
+
+
+
+
+
+
+
 
 
