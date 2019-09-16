@@ -252,7 +252,39 @@ function greet() {
     } else { }
 } greet();
 
+//在函数student()中声明了函数域变量name、age和female，
+//使用闭包机制，将其暴露到函数外部
 
+}
+
+
+
+
+
+//实现铃铛（没有学bootstrap的同学用文字代替）闪烁效果
+<html>
+    <head>
+        <title>实现字体闪烁</title>
+    </head>
+    <body onload="start()">
+        <span id="name">源栈，一起帮！</span>
+
+    </body>
+    <script>
+        var flag = 0;
+    function start() {
+        var text = document.getElementById('name');
+        if (!flag) {
+            text.style.color = "red";
+        flag = 1;
+        } else {
+            text.style.color = "";
+
+        flag = 0;
+    }
+    setTimeout("start()", 1000);
+}
+</script>
 
 
 
