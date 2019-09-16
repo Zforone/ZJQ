@@ -193,7 +193,7 @@ if (confirm(`弹出游戏玩法说明，等待用户点击“确认”，开始�
 } else {
 }
 function bingoGame() {
-    for (var i = 0; i = 10; i++) {
+    for (var i = 0; i < 10; i++) {
 
         var word = prompt("请输入你猜测的数字:' '");
         if (!word) {
@@ -213,12 +213,10 @@ function bingoGame() {
                     alert("666!");
 
 
-                } else if (i < 10) {
+                } else if (i < 9) {
                     alert("猜到了！");
-
-                } else if (i = 10) {
+                } else if (i = 9) {
                     alert("^(*￣(oo)￣)^");
-
                 } break;
 
                 if (+word > bingo) {
@@ -226,6 +224,7 @@ function bingoGame() {
                 } else {
                     alert("大了");
                 }
+ 
             }
         }
 
@@ -233,6 +232,7 @@ function bingoGame() {
             alert("请输入正整数！");
 
         }
+
     } return false;
 
 } 
