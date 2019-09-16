@@ -238,6 +238,24 @@ function bingoGame() {
 } 
 
 
+//使用setTimeout() （不是setInterval() ）实现每隔1秒钟依次显示：
+//第n周，源栈同学random人。（n逐次递增，random随机）
+var n = 1;
+function greet() {
+    if (n < 30) {
+        setTimeout(function (){
+            console.log("第" + n + "周，源栈同学" +
+                Math.floor(Math.random() * 100) + "人");
+            n++;
+            greet();
+        }, 1000);
+    } else { }
+} greet();
+
+
+
+
+
 
 
 
