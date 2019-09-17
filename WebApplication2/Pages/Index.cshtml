@@ -4,3 +4,26 @@
     <script type="text/javascript" src="~/js/site.js"></script>
 </head>
 </html>
+<html>
+<head>
+    <title>实现字体闪烁</title>
+</head>
+<body onload="start()">
+    <span id="name">源栈，一起帮！</span>
+
+</body>
+<script>
+    var flag = 0;
+    function start() {
+        var text = document.getElementById('name');
+        if (!flag) {
+            text.style.color = "red";
+            flag = 1;
+        } else {
+            text.style.color = "";
+
+            flag = 0;
+        }
+        setTimeout("start()", 1000);
+    }
+</script>
