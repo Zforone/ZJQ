@@ -280,12 +280,17 @@ console.log(`boy`);
 var getAge = student();
 console.log(`22`)
 
-
-
-    //实现铃铛（没有学bootstrap的同学用文字代替）闪烁效果
 //参考用户注册页面，创建一下函数：
 //显示密码的长度
 //如果密码和确认密码不一致，弹出提示
-  
-//参考求助首页侧边栏关键字，实现：
-//        当鼠标移动到关键字上，显示关键字被使用次数
+
+var str = document.getElementById('passwprd').[0];
+//var str = 0123456;
+alert(str.substring(0));
+//var sstr = 0123456;
+var sstr = document.getElementById('passwprd').[1];
+if (str === sstr) {
+    alert("密码输入正确");
+} else {
+    alert("密码输入错误");
+}
