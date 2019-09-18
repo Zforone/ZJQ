@@ -3,7 +3,67 @@
 <head>
     <script type="text/javascript" src="~/js/site.js"></script>
 </head>
+<body>
+    @*参考用户资料页面，控制台显示出用户的：
+        性别 / 出生年月 / 关注（关键字）/ 自我介绍*@
+    <form>
+        <label>姓名：</label><input type="text" /><br />
+        <label>密码：</label><input type="password" minlenght="6" maxlength="20" /><br />
+        <label>记住密码</label><input type="checkbox" value="ture" /><br />
+        <label>性别</label>
+        <label><input type="radio" value="female" name="gender" />男</label>
+        <label><input type="radio" value="male" name="gender" />女</label><br />
+        <label>出生年月:</label>
+        <span class="input-group-addon">年</span>
+        <select>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+        </select>
+        <span class="input-group-addon">月</span>
+        <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span class="input-group-addon">日</span>
+        <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br />
+        <label>关键字：</label>
+        <span class="input-group-addon">一级</span>
+        <select>
+            <option value="编程语言开发">编程语言开发</option>
+            <option value="系统软件开发">系统软件开发</option>
+        </select>
+        <span class="input-group-addon">二级</span>
+        <select>
+            <option value="C#">C#</option>
+            <option value=".NET">C.NET</option>
+        </select><br />
+        <label>自我介绍：</label>
+        <input type="text" /><br /><br />
+        <div class="submit">
+            <input type="submit" class="btn btn-primary loading" value="提交">
+            <input type="submit" class="btn btn-primary loading" value="重置">
+        </div>
+    </form>
+
+
+</body>
 </html>
+
+
+
+@* 实现铃铛（没有学bootstrap的同学用文字代替）闪烁效果 *@
 <html>
 <head>
     <title>实现字体闪烁</title>
@@ -27,3 +87,4 @@
         setTimeout("start()", 1000);
     }
 </script>
+</html>

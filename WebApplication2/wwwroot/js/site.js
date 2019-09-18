@@ -283,96 +283,9 @@ console.log(`22`)
 
 
     //实现铃铛（没有学bootstrap的同学用文字代替）闪烁效果
-< html >
-    <head>
-        <title>实现字体闪烁</title>
-    </head>
-    <body onload="start()">
-        <span id="name">源栈，一起帮！</span>
-
-    </body>
-    <script>
-        var flag = 0;
-    function start() {
-        var text = document.getElementById('name');
-        if (!flag) {
-            text.style.color = "red";
-        flag = 1;
-        } else {
-            text.style.color = "";
-
-        flag = 0;
-    }
-    setTimeout("start()", 1000);
-}
-    </script>
-</html >
-
-//模拟求助首页，并：
-//统计有多少个悬赏大于1的求助
-//将状态为“协助中”的求助背景改成灰黑色
-//写一个函数，可以统计某个求助使用了多少关键字
-//如果总结数为0，将其从DOM树中删除
-
-
 //参考用户注册页面，创建一下函数：
 //显示密码的长度
 //如果密码和确认密码不一致，弹出提示
   
-
-
-//参考用户资料页面，控制台显示出用户的：
-//性别 / 出生年月 / 关注（关键字）/ 自我介绍
-<form>
-    <label>姓名：</label><input type="text" /><br />
-    <label>密码：</label><input type="password" minlenght="6" maxlength="20" /><br />
-    <label>记住密码</label><input type="checkbox" value="ture" /><br />
-    <label>性别</label>
-    <label><input type="radio" value="female" name="gender" />男</label>
-    <label><input type="radio" value="male" name="gender" />女</label><br />
-    <label>出生年月:</label>
-    <span class="input-group-addon">年</span>
-    <select>
-        <option value="1995">1995</option>
-        <option value="1996">1996</option>
-        <option value="1997">1997</option>
-        <option value="1998">1998</option>
-        <option value="1999">1999</option>
-    </select>
-    <span class="input-group-addon">月</span>
-    <select>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-    <span class="input-group-addon" >日</span>
-    <select>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select><br />
-    <label>关键字：</label>
-    <span class="input-group-addon">一级</span>
-    <select>
-        <option value="编程语言开发">编程语言开发</option>
-        <option value="系统软件开发">系统软件开发</option>
-    </select>
-    <span class="input-group-addon">二级</span>
-    <select>
-        <option value="C#">C#</option>
-        <option value=".NET">C.NET</option>
-    </select><br />
-    <label>自我介绍：</label>
-    <input type="text" /><br /><br />
-    <div class="submit">
-        <input type="submit" class="btn btn-primary loading" value="提交">
-            <input type="submit" class="btn btn-primary loading" value="重置">
-    </div>
-</form>
-
-
-
+//参考求助首页侧边栏关键字，实现：
+//        当鼠标移动到关键字上，显示关键字被使用次数
