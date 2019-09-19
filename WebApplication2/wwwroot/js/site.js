@@ -255,40 +255,22 @@
 
 //在函数student()中声明了函数域变量name、age和female，
 //使用闭包机制，将其暴露到函数外部
-function student() {
-    var name = '曾俊清';
-    return function () {
-        return name;
-    }
-}
-function student() {
-    var age = '22';
-    return function () {
-        return age;
-    }
-}
-function student() {
-    var female = 'boy';
-    return function () {
-        return female;
-    }
-}
-var getName = student();
-console.log(`曾俊清`);
-var getFemale = student();
-console.log(`boy`);
-var getAge = student();
-console.log(`22`)
+//function student() {
+//    var name = '曾俊清', age = 22;
+//    var obj = { name, age }
+//    return function () {
+//        return obj;
+//    }
+//}
 
 //参考用户注册页面，创建一下函数：
 //显示密码的长度
 //如果密码和确认密码不一致，弹出提示
-
-var str = document.getElementById('passwprd').[0];
+var str = document.getElementById("word");
 //var str = 0123456;
-alert(str.substring(0));
+alert(str.length);
 //var sstr = 0123456;
-var sstr = document.getElementById('passwprd').[1];
+var sstr = document.getElementsBy("sword");
 if (str === sstr) {
     alert("密码输入正确");
 } else {

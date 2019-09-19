@@ -8,7 +8,8 @@
         性别 / 出生年月 / 关注（关键字）/ 自我介绍*@
     <form>
         <label>姓名：</label><input type="text" /><br />
-        <label>密码：</label><input type="password" minlenght="6" maxlength="20" /><br />
+        <label>密码：</label><input type="password" id="word"  /><br />
+        <label>确认密码：</label><input type="password" name="sword" /><br />
         <label>记住密码</label><input type="checkbox" value="ture" /><br />
         <label>性别</label>
         <label><input type="radio" value="female" name="gender" />男</label>
@@ -64,31 +65,26 @@
 
 
 @* 实现铃铛（没有学bootstrap的同学用文字代替）闪烁效果 *@
-<html>
+@*<html>
 <head>
     <title>实现字体闪烁</title>
 </head>
 <body onload="start()">
-    <span id="name">源栈，一起帮！</span>
+    <span id="name" style="color:red">源栈，一起帮！</span>
     <script>
-        var flag = 0;
         function start() {
             var text = document.getElementById('name');
-            if (!flag) {
-                text.style.color = "red";
-                flag = 1;
+            if (text.style.color === 'red') {
+                text.style.color = 'green';
             } else {
-                text.style.color = "";
-
-                flag = 0;
+                text.style.color = 'red';
             }
-            setTimeout("start()", 1000);
+            setTimeout(start, 1000);
         }
     </script>
 </body>
 
-</html>
-
+</html>*@
 
 
 @*参考求助首页侧边栏关键字，实现：
@@ -113,3 +109,45 @@
 </body>
 
 </html>
+
+
+@*参考消息页面：完成勾选全选功能*@
+<form>
+    <label><input type="checkbox" id="allRemember" />全选</label>
+    <button type="button">已读</button><button type="button">删除</button><br /><br />
+    <label><input type="checkbox" name="remember" /></label><br />
+    <label><input type="checkbox" name="remember" /></label><br />
+    <label><input type="checkbox" name="remember" /></label><br /><br /><br />
+</form>
+<script>
+        window.onload=function () {
+        var btn = document.getElementById("allRemember");
+        btn.onclick = function() {
+            var boxs = document.getElementsByName("remember");
+            var key = this.checked
+            for (var i = 0; i < boxs.length; i++) {
+                boxs[i].checked = key;
+            }
+
+        }
+       
+        for (var i = 0; i < boxs.length; i++); {
+            boxs[i].onclick = function () {
+                var num = 0;
+                for (var j = 0; j < boxs.length; j++) {
+                    if (boxs[j].checked) {
+                        num++;
+                    }
+                }
+                document.getElementById("allRemember").checked = (boxs.length == num);
+            }
+        }
+
+    }
+</script>
+
+
+@*参考注册页面：*@
+@*提交时，如果用户名重复（已有用户名用数组保存），阻止form提交，提示“用户名重复”。*@
+@*重新输入用户名，一旦输入用户名部分没有重复，“用户名重复”的提示消失*@
+@*当用户名或密码等有值时，关闭页面前弹出确认框*@
