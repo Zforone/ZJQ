@@ -266,13 +266,29 @@
 //参考用户注册页面，创建一下函数：
 //显示密码的长度
 //如果密码和确认密码不一致，弹出提示
-var str = document.getElementById("word");
-//var str = 0123456;
-alert(str.length);
-//var sstr = 0123456;
-var sstr = document.getElementsBy("sword");
-if (str === sstr) {
-    alert("密码输入正确");
-} else {
-    alert("密码输入错误");
-}
+//var str = document.getElementById("word");
+////var str = 0123456;
+//alert(str.length);
+////var sstr = 0123456;
+//var sstr = document.getElementsBy("sword");
+//if (str === sstr) {
+//    alert("密码输入正确");
+//} else {
+//    alert("密码输入错误");
+//}
+
+
+//使用正则表达式判断某个字符串:
+//是否是合格的Email格式
+//<.+@.+\..+>
+
+//是否是小数（正负小数都可以）
+//<\d +\.\d | -\d\.\d >
+
+//将所有以zyf - 开头的属性去掉zyf -
+//（尽可能多的制造测试用例，比如：<a lzyf-old=''， 或者：<span>zyf---+---fyz</span> ……）
+//< (?<= zyf -).+>
+
+
+
+
