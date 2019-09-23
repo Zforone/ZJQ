@@ -266,11 +266,11 @@
 //参考用户注册页面，创建一下函数：
 //显示密码的长度
 //如果密码和确认密码不一致，弹出提示
-//var str = document.getElementById("word");
+//var str = document.getElemenstByClass("word");
 ////var str = 0123456;
 //alert(str.length);
 ////var sstr = 0123456;
-//var sstr = document.getElementsBy("sword");
+//var sstr = document.getElemenstByClass("sword");
 //if (str === sstr) {
 //    alert("密码输入正确");
 //} else {
@@ -288,6 +288,68 @@
 //将所有以zyf - 开头的属性去掉zyf -
 //（尽可能多的制造测试用例，比如：<a lzyf-old=''， 或者：<span>zyf---+---fyz</span> ……）
 //< (?<= zyf -).+>
+
+//参考一起帮首页，实现右侧漂浮并底对齐左侧文本框的效果
+
+//参考求助首页侧边栏“免费广告发布”弹出Modal，实现（不需要弹出Modal）：
+//根据下拉列表选中项，填充“文字内容”和“链接”文本框
+//勾选修改的checkbox，实现“文字内容”和“链接”文本框的禁用和启用
+
+var selectobj = document.getElementsByClassName("selectContent");
+selectobj[0].addEventListener('click', assign);
+function assign() {
+    var sIndex = selectobj[0].selectedIndex;
+    var assignContent = selectobj[0].children[sIndex].innerHTML;
+    document.getElementsByClassName("textContentDiv")[0].value = assignContent;
+    var obj = document.getElementsByClassName("modifier")[0];
+    obj.addEventListener('click', noModifier);
+}
+    function noModifier() {
+        if (obj.checked) {
+            selectobj[0].removeEventListener('click', assign);
+            for (var i = 0; i < 2; i++) {
+                document.getElementsByClassName("textContentDiv")[i].value = "";
+                document.getElementsByClassName("textContentDiv")[i].setAttribute('readonly', 'readonly');
+
+            }
+        }
+            else {
+                selectobj[0].addEventListener('click', assign);
+                for (vari = 0; i < 2; i++) {
+                    document.getElementsByClassName("textContentDiv")[i].removeAttribute('readonly');
+                
+
+           
+        }
+    }
+
+
+
+//参考注册页面：
+//提交时，如果用户名重复（已有用户名用数组保存），阻止form提交，提示“用户名重复”。
+//重新输入用户名，一旦输入用户名部分没有重复，“用户名重复”的提示消失
+//当用户名或密码等有值时，关闭页面前弹出确认框
+
+var document.getElementsByName('username') = new Array;
+function check() {
+    if (doucment.getElementsByName('username') == Array) {
+        alert("用户名重复");
+    } else {
+        return ture;
+    }
+}
+//JSON生成和解析：
+//按自己的情况，生成一个JSON字符串，包括真实姓名、QQ昵称、年龄、性别、兴趣爱好、自我介绍……，上传到QQ群：一起帮·有意向（729600626）
+//根据其他同学的JSON获得其个人资料，生成一个表格显示。
+var zjq = {
+    name: '曾俊清',
+    age: 22,
+    isfemale: true,
+    hobby: ['basketball', 'sleep', 'eat'],
+    sourse: {
+        'C#': 88, 'js': 88, 'asp.net': 88
+    }
+}
 
 
 
