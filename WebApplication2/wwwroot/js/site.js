@@ -304,6 +304,7 @@ function assign() {
     var obj = document.getElementsByClassName("modifier")[0];
     obj.addEventListener('click', noModifier);
 }
+
     function noModifier() {
         if (obj.checked) {
             selectobj[0].removeEventListener('click', assign);
@@ -316,10 +317,7 @@ function assign() {
             else {
                 selectobj[0].addEventListener('click', assign);
                 for (vari = 0; i < 2; i++) {
-                    document.getElementsByClassName("textContentDiv")[i].removeAttribute('readonly');
-                
-
-           
+                    document.getElementsByClassName("textContentDiv")[i].removeAttribute('readonly');                          
         }
     }
 
@@ -330,14 +328,31 @@ function assign() {
 //重新输入用户名，一旦输入用户名部分没有重复，“用户名重复”的提示消失
 //当用户名或密码等有值时，关闭页面前弹出确认框
 
-var document.getElementsByName('username') = new Array;
-function check() {
-    if (doucment.getElementsByName('username') == Array) {
-        alert("用户名重复");
-    } else {
-        return ture;
-    }
-}
+        var user = ['A', 'B', 'C', 'D'];
+        a = 0;
+        document.getElementsByTagName('button')[0].addEventListener('click', validation);
+        function validation(event) {
+            var username = document.getElementsByTagName('input')[0].value;
+            for (var i = 0; i < user.length; i++) {
+                if (user[i] === username) {
+                    document.querySelector('p'.setAttribute)('style', 'color: #ff0000; display: inline; fort - size: 15px;');
+                    a = 1;
+                    if (a === 1) {
+                        document.getElementsByTagName('input')[0].addEventListener('keyup', caneHint);
+
+                    }
+                    else {}
+                }
+            }
+        }
+        function caneHint() {
+            var username = document.getElementsByTagName('input')[0].value;
+            if (user.indexOf(username) === -1) {
+                document.querySelector('p').removeAttribute('style');                
+                document.querySelector('p'.setAttribute)('style', 'color: #ff0000; display: inline; fort - size: 15px;');
+
+            }
+        }
 //JSON生成和解析：
 //按自己的情况，生成一个JSON字符串，包括真实姓名、QQ昵称、年龄、性别、兴趣爱好、自我介绍……，上传到QQ群：一起帮·有意向（729600626）
 //根据其他同学的JSON获得其个人资料，生成一个表格显示。
