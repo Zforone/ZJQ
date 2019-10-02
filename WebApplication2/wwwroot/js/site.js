@@ -392,9 +392,11 @@
 //}
 
 
-    //JSON生成和解析：
-    //按自己的情况，生成一个JSON字符串，包括真实姓名、QQ昵称、年龄、性别、兴趣爱好、自我介绍……，上传到QQ群：一起帮·有意向（729600626）
-    //根据其他同学的JSON获得其个人资料，生成一个表格显示。
+//JSON生成和解析：
+//按自己的情况，生成一个JSON字符串，
+//包括真实姓名、QQ昵称、年龄、性别、兴趣爱好、自我介绍……，
+//上传到QQ群：一起帮·有意向（729600626）
+//根据其他同学的JSON获得其个人资料，生成一个表格显示。
     var zjq = {
         name: '曾俊清',
         age: 22,
@@ -420,6 +422,21 @@ console.log(JSON.stringify(zjq));
 //< (?<= zyf -).+>
 
 
-//用class声明一个课程（Course），
-//包含属性：name，startDate，endDate，students，
-//以及方法：begin()和end()
+//已有如下代码：
+//请用不同的方式调用fn()函数，能分别打印出‘飞哥’和‘老程’
+//不改变上述代码，分别使用call()和apply() ，打印出‘文轩’和‘两开花’
+//将fn()永久拷贝到showName() ，始终打印‘源栈最棒！^ _ ^’
+
+var sname = "飞哥";
+var a = {
+    sname: '老程',
+    fn: function () {
+        console.log(this.sname);
+    }
+}
+a.fn();
+a.fn.call({ sname: '飞哥' });
+a.fn.call({ sname: '文轩' });
+a.fn.apply({ sname: '两开花' });
+let showName = a.fn.bind({ sname: '源栈最棒！^_^' });
+showName();
