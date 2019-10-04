@@ -397,16 +397,16 @@
 //包括真实姓名、QQ昵称、年龄、性别、兴趣爱好、自我介绍……，
 //上传到QQ群：一起帮·有意向（729600626）
 //根据其他同学的JSON获得其个人资料，生成一个表格显示。
-    var zjq = {
-        name: '曾俊清',
-        age: 22,
-        isfemale: true,
-        hobby: ['basketball', 'sleep', 'eat'],
-        sourse: {
-            'C#': 88, 'js': 88, 'asp.net': 88
-        }
-    }
-console.log(JSON.stringify(zjq));
+//    var zjq = {
+//        name: '曾俊清',
+//        age: 22,
+//        isfemale: true,
+//        hobby: ['basketball', 'sleep', 'eat'],
+//        sourse: {
+//            'C#': 88, 'js': 88, 'asp.net': 88
+//        }
+//    }
+//console.log(JSON.stringify(zjq));
 
 
 
@@ -427,16 +427,16 @@ console.log(JSON.stringify(zjq));
 //不改变上述代码，分别使用call()和apply() ，打印出‘文轩’和‘两开花’
 //将fn()永久拷贝到showName() ，始终打印‘源栈最棒！^ _ ^’
 
-var sname = "飞哥";
-var a = {
-    sname: '老程',
-    fn: function () {
-        console.log(this.sname);
-    }
-}
-a.fn();
-a.fn.call({ sname: '飞哥' });
-a.fn.call({ sname: '文轩' });
-a.fn.apply({ sname: '两开花' });
-let showName = a.fn.bind({ sname: '源栈最棒！^_^' });
-showName();
+//var sname = "飞哥";
+//var a = {
+//    sname: '老程',
+//    fn: function () {
+//        console.log(this.sname);
+//    }
+//}
+//a.fn();
+//a.fn.call({ sname: '飞哥' });
+//a.fn.call({ sname: '文轩' });
+//a.fn.apply({ sname: '两开花' });
+//let showName = a.fn.bind({ sname: '源栈最棒！^_^' });
+//showName();

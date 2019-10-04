@@ -5,175 +5,199 @@
 </body>
 <head>
     <script type="text/javascript" src="~/js/site.js"></script>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script ></script>
 </head>
-   </html>
+</html>
 
-    @*参考用户资料页面，控制台显示出用户的：
-        性别 / 出生年月 / 关注（关键字）/ 自我介绍*@
-    @*<form>
-        <label>姓名：</label><input type="text" /><br />
-        <label>密码：</label><input type="password" id="word"  /><br />
-        <label>确认密码：</label><input type="password" name="sword" /><br />
-        <label>记住密码</label><input type="checkbox" value="ture" /><br />
-        <label>性别</label>
-        <label><input type="radio" value="female" name="gender" />男</label>
-        <label><input type="radio" value="male" name="gender" />女</label><br />
-        <label>出生年月:</label>
-        <span class="input-group-addon">年</span>
-        <select>
-            <option value="1995">1995</option>
-            <option value="1996">1996</option>
-            <option value="1997">1997</option>
-            <option value="1998">1998</option>
-            <option value="1999">1999</option>
-        </select>
-        <span class="input-group-addon">月</span>
-        <select>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <span class="input-group-addon">日</span>
-        <select>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select><br />
-        <label>关键字：</label>
-        <span class="input-group-addon">一级</span>
-        <select>
-            <option value="编程语言开发">编程语言开发</option>
-            <option value="系统软件开发">系统软件开发</option>
-        </select>
-        <span class="input-group-addon">二级</span>
-        <select>
-            <option value="C#">C#</option>
-            <option value=".NET">C.NET</option>
-        </select><br />
-        <label>自我介绍：</label>
-        <input type="text" /><br /><br />
-        <div class="submit">
-            <input type="submit" class="btn btn-primary loading" value="提交">
-            <input type="submit" class="btn btn-primary loading" value="重置">
-        </div>
-    </form>
+@*参考用户资料页面，控制台显示出用户的：
+    性别 / 出生年月 / 关注（关键字）/ 自我介绍*@
+@*<form>
+            <label>姓名：</label><input type="text" /><br />
+            <label>密码：</label><input type="password" id="word"  /><br />
+            <label>确认密码：</label><input type="password" name="sword" /><br />
+            <label>记住密码</label><input type="checkbox" value="ture" /><br />
+            <label>性别</label>
+            <label><input type="radio" value="female" name="gender" />男</label>
+            <label><input type="radio" value="male" name="gender" />女</label><br />
+            <label>出生年月:</label>
+            <span class="input-group-addon">年</span>
+            <select>
+                <option value="1995">1995</option>
+                <option value="1996">1996</option>
+                <option value="1997">1997</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+            </select>
+            <span class="input-group-addon">月</span>
+            <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <span class="input-group-addon">日</span>
+            <select>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select><br />
+            <label>关键字：</label>
+            <span class="input-group-addon">一级</span>
+            <select>
+                <option value="编程语言开发">编程语言开发</option>
+                <option value="系统软件开发">系统软件开发</option>
+            </select>
+            <span class="input-group-addon">二级</span>
+            <select>
+                <option value="C#">C#</option>
+                <option value=".NET">C.NET</option>
+            </select><br />
+            <label>自我介绍：</label>
+            <input type="text" /><br /><br />
+            <div class="submit">
+                <input type="submit" class="btn btn-primary loading" value="提交">
+                <input type="submit" class="btn btn-primary loading" value="重置">
+            </div>
+        </form>
 
 
-</body>
-</html>*@
+    </body>
+    </html>*@
 
 
 
 @* 实现铃铛（没有学bootstrap的同学用文字代替）闪烁效果 *@
 @*<html>
-<head>
-    <title>实现字体闪烁</title>
-</head>
-<body onload="start()">
-    <span id="name" style="color:red">源栈，一起帮！</span>
-    <script>
-        function start() {
-            var text = document.getElementById('name');
-            if (text.style.color === 'red') {
-                text.style.color = 'green';
-            } else {
-                text.style.color = 'red';
+    <head>
+        <title>实现字体闪烁</title>
+    </head>
+    <body onload="start()">
+        <span id="name" style="color:red">源栈，一起帮！</span>
+        <script>
+            function start() {
+                var text = document.getElementById('name');
+                if (text.style.color === 'red') {
+                    text.style.color = 'green';
+                } else {
+                    text.style.color = 'red';
+                }
+                setTimeout(start, 1000);
             }
-            setTimeout(start, 1000);
-        }
-    </script>
-</body>
+        </script>
+    </body>
 
-</html>*@
+    </html>*@
 
 
 @*参考求助首页侧边栏关键字，实现：
     当鼠标移动到关键字上，显示关键字被使用次数*@
 @*<html>
-<body>
-    <div class="user-tags">
-        <span id="badge" used="123" style="font-size:50px; background-color:red">
-            编程开发语言
-        </span>
+    <body>
+        <div class="user-tags">
+            <span id="badge" used="123" style="font-size:50px; background-color:red">
+                编程开发语言
+            </span>
 
-    </div>
-    <script>
-        var father = document.getElementById('badge');
-        father.addEventListener('click', function (event) {
+        </div>
+        <script>
+            var father = document.getElementById('badge');
+            father.addEventListener('click', function (event) {
 
-            console.log(this.getAttribute('used'));
+                console.log(this.getAttribute('used'));
 
-        }, true);
+            }, true);
 
-    </script>
-</body>
+        </script>
+    </body>
 
-</html>*@
+    </html>*@
 
 
 @*参考消息页面：完成勾选全选功能*@
 @*<form>
-    <label><input type="checkbox" id="allRemember" />全选</label>
-    <button type="button">已读</button><button type="button">删除</button><br /><br />
-    <label><input type="checkbox" name="remember" /></label><br />
-    <label><input type="checkbox" name="remember" /></label><br />
-    <label><input type="checkbox" name="remember" /></label><br /><br /><br />
-</form>
-<script>
-        window.onload=function () {
-        var btn = document.getElementById("allRemember");
-        btn.onclick = function() {
-            var boxs = document.getElementsByName("remember");
-            var key = this.checked
-            for (var i = 0; i < boxs.length; i++) {
-                boxs[i].checked = key;
-            }
-
-        }
-       
-        for (var i = 0; i < boxs.length; i++); {
-            boxs[i].onclick = function () {
-                var num = 0;
-                for (var j = 0; j < boxs.length; j++) {
-                    if (boxs[j].checked) {
-                        num++;
-                    }
+        <label><input type="checkbox" id="allRemember" />全选</label>
+        <button type="button">已读</button><button type="button">删除</button><br /><br />
+        <label><input type="checkbox" name="remember" /></label><br />
+        <label><input type="checkbox" name="remember" /></label><br />
+        <label><input type="checkbox" name="remember" /></label><br /><br /><br />
+    </form>
+    <script>
+            window.onload=function () {
+            var btn = document.getElementById("allRemember");
+            btn.onclick = function() {
+                var boxs = document.getElementsByName("remember");
+                var key = this.checked
+                for (var i = 0; i < boxs.length; i++) {
+                    boxs[i].checked = key;
                 }
-                document.getElementById("allRemember").checked = (boxs.length == num);
-            }
-        }
 
-    }
-</script>*@
+            }
+
+            for (var i = 0; i < boxs.length; i++); {
+                boxs[i].onclick = function () {
+                    var num = 0;
+                    for (var j = 0; j < boxs.length; j++) {
+                        if (boxs[j].checked) {
+                            num++;
+                        }
+                    }
+                    document.getElementById("allRemember").checked = (boxs.length == num);
+                }
+            }
+
+        }
+    </script>*@
 
 
 
 @*<div class="optionSelect">
-    <select id="firstLevel" class="starters">
-        <option value="" disabled selected hidden>第一级</option>
-        <option value="value">编程语言</option>
-        <option value="value">工具软件</option>
-        <option value="value">操作系统</option>
-    </select>
-    <select id="secondLevel" class="secondLevenl">
-        <option value="" disabled selected hidden>第二级</option>
-        <option value="value">C#</option>
-        <option value="value">HTML</option>
-        <option value="value">CSS</option>
-        <option value="value">JS</option>
-        <option value="value">SQL</option>
-        <option value="value">VS</option>
-        <option value="value">PS</option>
-        <option value="value">CAD</option>
-        <option value="value">IDEA</option>
-        <option value="value">Linux</option>
-        <option value="value">unix</option>
-        <option value="value">windows</option>
+        <select id="firstLevel" class="starters">
+            <option value="" disabled selected hidden>第一级</option>
+            <option value="value">编程语言</option>
+            <option value="value">工具软件</option>
+            <option value="value">操作系统</option>
+        </select>
+        <select id="secondLevel" class="secondLevenl">
+            <option value="" disabled selected hidden>第二级</option>
+            <option value="value">C#</option>
+            <option value="value">HTML</option>
+            <option value="value">CSS</option>
+            <option value="value">JS</option>
+            <option value="value">SQL</option>
+            <option value="value">VS</option>
+            <option value="value">PS</option>
+            <option value="value">CAD</option>
+            <option value="value">IDEA</option>
+            <option value="value">Linux</option>
+            <option value="value">unix</option>
+            <option value="value">windows</option>
 
-    </select>
-    <input class="customWord" style="width:300px;" type="text" value=""disabled selected hidden />
-</div>*@
+        </select>
+        <input class="customWord" style="width:300px;" type="text" value=""disabled selected hidden />
+    </div>*@
+
+@*参考求助列表页面，使用iframe，不刷新页面，动态加载不同的关键字*@
+
+
+<body style="padding-top:100px;">
+
+    <iframe zjq-iframe src="/Iframe1" id="keywords"></iframe>
+    <button zjq-change-iframe type="button">换一个</button>
+
+    <script>
+        $(document).ready(function () {
+            $('[zjq-change-iframe]').click(function () {
+                //$('[zjq-iframe]').attr('src', '/iframe2');  //两个页面之间
+                $(frames[0].document.getElementsByTagName('p')).text('后端');  //父页面调用子页面
+            });
+            
+        });
+    </script>
+    <p>
+
+    </p>
+</body>
