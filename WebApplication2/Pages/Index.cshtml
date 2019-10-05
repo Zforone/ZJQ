@@ -6,7 +6,7 @@
 <head>
     <script type="text/javascript" src="~/js/site.js"></script>
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
-    <script ></script>
+    <script></script>
 </head>
 </html>
 
@@ -194,10 +194,36 @@
                 //$('[zjq-iframe]').attr('src', '/iframe2');  //两个页面之间
                 $(frames[0].document.getElementsByTagName('p')).text('后端');  //父页面调用子页面
             });
-            
+
         });
     </script>
     <p>
 
     </p>
+</body>
+
+
+@*绘制一个canvas画布，当鼠标移到上面，显示鼠标所在位置的canvas坐标*@
+<style type="text/css">
+    #mole {
+        border: dashed;
+        border-color: red;
+    }
+</style>
+<body style="margin:3px;">
+    <p>鼠标悬停显示坐标</p>
+    <canvas id="mole" width="200" height="200" style="background-color:yellow;"
+            onmousemove="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()"></canvas>
+    <script type="text/javascript">
+        function cnvs_getCoordinates(e) {
+            x = e.clientX;
+            y = e.clientY;
+            document.getElementById("address").innerHTML = "Coordinates: (" + x + "," + y + ")";
+        }
+        function cnvs_clearCoordinates() {
+            document.getElementById("address").innerHTML = "";
+        }
+    </script>
+    <br />
+    <div id="address"></div>
 </body>
