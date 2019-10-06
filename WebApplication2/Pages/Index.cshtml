@@ -181,8 +181,6 @@
     </div>*@
 
 @*参考求助列表页面，使用iframe，不刷新页面，动态加载不同的关键字*@
-
-
 <body style="padding-top:100px;">
 
     <iframe zjq-iframe src="/Iframe1" id="keywords"></iframe>
@@ -226,4 +224,50 @@
     </script>
     <br />
     <div id="address"></div>
+</body>
+
+
+@*通过拖放调整文章的顺序*@
+<body>
+    <style type="text/css">
+        #div1 {
+            color: red;
+            font-weight: 100;
+        }
+
+        #div2 {
+            color: black;
+            font-weight: 100;
+        }
+
+        #div3 {
+            color: blue;
+            font-weight: 100;
+        }
+    </style>
+    <div id="div1" draggable="true" ondragstart="drag(event, this)" ondrop="drop(event, this)" ondragover="allowDrop(event)">第一帅</div>
+    <br />
+    <div id="div2" draggable="true" ondragstart="drag(event, this)" ondrop="drop(event, this)" ondragover="allowDrop(event)">第二帅</div>
+    <br />
+    <div id="div3" draggable="true" ondragstart="drag(event, this)" ondrop="drop(event, this)" ondragover="allowDrop(event)">第三帅</div>
+    <script type="text/javascript">
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        var srcdiv = null;
+        function drag(event, divdom) {
+            srcdiv = divdom;
+            event.dataTransfer.setData("text", event.target.innerHTML, divdom.innerHTML);
+        }
+        function drop(event, divdom) {
+            event.preventDefault();
+            if (srcdiv != divdom) {
+                srcdiv.innerHTML = divdom.innerHTML;
+                divdom.innerHTML = event.dataTransfer.getData("text");
+            } else {
+
+            }
+        }
+    </script>
 </body>
