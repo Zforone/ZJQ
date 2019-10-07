@@ -440,3 +440,21 @@
 //a.fn.apply({ sname: '两开花' });
 //let showName = a.fn.bind({ sname: '源栈最棒！^_^' });
 //showName();
+
+
+//生成一个函数toChinese() ，
+//可将传入的日期参数（如：new Date() ）转换成中文日期格式（如：2019年10月4日 16点54分）
+//生成一个函数addDays(number) ，可在当前日期的基础上增加number天
+
+var date = new Date(2019, 10, 01);
+function toChinese() {
+    this.date = date;
+    console.log(date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日");
+}
+toChinese(date);
+function addDays(number) {
+    date.setDate(date.getDate() + number);
+    console.log(date.getFullYear() + "年" + date.getMonth() + "月" + date.getDate() + "日");
+}
+addDays(1);
+
