@@ -56,10 +56,22 @@ namespace ConsoleApp1
             {
                 //不做任何事
             }
-            
 
-           
-
+            //将源栈同学姓名 / 昵称分别：
+            //按进栈时间装入一维数组，
+            //按座位装入二维数组，
+            //并输出共有多少名同学
+            string[] studentName = { "王新", "陈百万", "阿泰" };
+            Console.WriteLine(studentName.Length);
+            Console.WriteLine(studentName[0] + "," + studentName[1] + "," + studentName[2]);
+            string[,] studentNumber = { 
+                { "于维谦", "彭志强", "陈百万" }, 
+                { "赵敬春", "王新", "刘江平" } ,
+                { "幸龙泰", "曾俊清", "杨进文" }
+            };
+            Console.WriteLine(studentNumber.Length);
+            Console.WriteLine(studentNumber[2,1]);
+            Console.ReadLine();
         }
     }
 }
