@@ -65,60 +65,156 @@ namespace ConsoleApp1
             //按进栈时间装入一维数组，
             //按座位装入二维数组，
             //并输出共有多少名同学
-            string[] studentName = { "王新", "陈百万", "阿泰" };
-            Console.WriteLine(studentName.Length);
-            Console.WriteLine(studentName[0] + "," + studentName[1] + "," + studentName[2]);
-            string[,] studentNumber = {
-                { "于维谦", "彭志强", "陈百万" },
-                { "赵敬春", "王新", "刘江平" } ,
-                { "幸龙泰", "曾俊清", "杨进文" }
-            };
-            Console.WriteLine(studentNumber.Length);
-            Console.WriteLine(studentNumber[2, 1]);
+            //    string[] studentName = { "王新", "陈百万", "阿泰" };
+            //    Console.WriteLine(studentName.Length);
+            //    Console.WriteLine(studentName[0] + "," + studentName[1] + "," + studentName[2]);
+            //    string[,] studentNumber = {
+            //        { "于维谦", "彭志强", "陈百万" },
+            //        { "赵敬春", "王新", "刘江平" } ,
+            //        { "幸龙泰", "曾俊清", "杨进文" }
+            //    };
+            //    Console.WriteLine(studentNumber.Length);
+            //    Console.WriteLine(studentNumber[2, 1]);
 
 
-            //分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
-            for (int forNum = 1; forNum < 6;)
-            {
-                Console.WriteLine(forNum);
-                forNum++;
-            }
-            int whileNum = 1;
-            while (whileNum < 10)
-            {
-                Console.WriteLine(whileNum);
-                whileNum += 2;
-            }
-            //用for循环输出存储在一维 / 二维数组里的源栈所有同学姓名 / 昵称
-            for (int for1d = 0; for1d < studentName.Length;)
-            {
-                Console.WriteLine(studentName[for1d]);
-                for1d++;
-            }
-            int rowLength = studentNumber.GetLength(0);
-            int colunmLength = studentNumber.GetLength(1);
-            for (int for2DRow = 0; for2DRow < rowLength;)
-            {
-                for (int for2DColunm = 0; for2DColunm < colunmLength;)
-                {
-                    Console.WriteLine(studentNumber[for2DRow, for2DColunm]);
-                    for2DColunm++;
-                }
-                for2DRow++;
-            }
+            //    //分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
+            //    for (int forNum = 1; forNum < 6;)
+            //    {
+            //        Console.WriteLine(forNum);
+            //        forNum++;
+            //    }
+            //    int whileNum = 1;
+            //    while (whileNum < 10)
+            //    {
+            //        Console.WriteLine(whileNum);
+            //        whileNum += 2;
+            //    }
+            //    //用for循环输出存储在一维 / 二维数组里的源栈所有同学姓名 / 昵称
+            //    for (int for1d = 0; for1d < studentName.Length;)
+            //    {
+            //        Console.WriteLine(studentName[for1d]);
+            //        for1d++;
+            //    }
+            //    int rowLength = studentNumber.GetLength(0);
+            //    int colunmLength = studentNumber.GetLength(1);
+            //    for (int for2DRow = 0; for2DRow < rowLength;)
+            //    {
+            //        for (int for2DColunm = 0; for2DColunm < colunmLength;)
+            //        {
+            //            Console.Write(studentNumber[for2DRow, for2DColunm]);
+            //            for2DColunm++;
+            //        }
+            //        for2DRow++;
+            //        Console.WriteLine();
+            //    }
 
-            //让电脑计算并输出：99 + 97 + 95 + 93 +...+ 1的值
-            int sun = 0;
-            for (int sunNum = 99; sunNum > 0;)
-            {
+            //    //让电脑计算并输出：99 + 97 + 95 + 93 +...+ 1的值
+            //    int sun = 0;
+            //    for (int sunNum = 99; sunNum > 0;)
+            //    {
 
-                //Console.WriteLine(sunNum );
-                sun += sunNum;
-                sunNum -= 2;
-            }
-            Console.WriteLine(sun);
-            //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
-            double[] score = { 98, 78, 88.5, 86, 99, 75, 92.5, 75 };
+            //        //Console.WriteLine(sunNum );
+            //        sun += sunNum;
+            //        sunNum -= 2;
+            //    }
+            //    Console.WriteLine(sun);
+            //    //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
+            //    double[] score = { 98, 78, 88.5, 86, 99, 75, 92.5, 75 };
+            //    double maxScore;
+            //    if (score[0] > score[1])
+            //    {
+            //        maxScore = score[0];
+            //    }
+            //    else
+            //    {
+            //        maxScore = score[1];
+            //    }
+            //    for (int i = 0; i < score.Length - 1;)
+            //    {
+            //        double j = score[i + 1];
+            //        if (maxScore < j)
+            //        {
+            //            maxScore = j;
+            //        }
+            //        else
+            //        {
+            //            //nothing
+            //        }
+            //        i++;
+            //    }
+            //    Console.WriteLine(maxScore);
+
+            //    //找到100以内的所有质数（只能被1和它自己整除的数）
+
+            //    Console.WriteLine(1);
+            //    Console.WriteLine(2);
+            //    for (int n = 1; n < 100; n++)
+            //    { 
+            //        for (int m = 2; m < n; m++)
+            //        {
+            //            if (n % m == 0)
+            //            {
+            //                break;
+            //            }
+            //            else if (n - 1 == m)
+            //            {
+            //                Console.WriteLine(n);
+            //            }
+            //            else
+            //            {
+            //                //nothing
+            //            }  
+            //        }  
+            //    }
+            Add(1, 1);
+            Minus(2,1);
+            Mutiply(2,2);
+            Divide(8,2);
+            SelfIntroduce(18, true, 1.80, "江西");
+            GetUnicode('帅');
+            GetMax(new double[] { 58, 48, 59, 59 });
+            GetAverage(new double[] {80,90,80 });
+            Console.ReadLine();
+        }
+        //将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
+        //自我介绍：SelfIntroduce()
+        static void  SelfIntroduce(int age,bool isFemale,double height,string fromCity)
+        {
+            
+            Console.WriteLine("年龄: " + age  + "\n是否男生：" + isFemale + "\n身高：" + height + "米" + "\n来自: " + fromCity);
+            Console.ReadLine();        
+        }
+        //加减乘除：Add() / Minus() / Mutiply() / Divide()
+            static void Add(double fristnum,double secendnum)
+        {
+            Console.WriteLine(fristnum + secendnum);
+            Console.ReadLine(); 
+        }
+        static void Minus(double fristnum, double secendnum)
+        {
+            Console.WriteLine(fristnum - secendnum);
+            Console.ReadLine();
+        }
+        static void Mutiply(double fristnum, double secendnum)
+        {
+            Console.WriteLine(fristnum * secendnum);
+            Console.ReadLine();
+        }
+        static void Divide(double fristnum, double secendnum)
+        {
+            Console.WriteLine(fristnum / secendnum);
+            Console.ReadLine();
+        }
+
+        //取字符值：GetUnicode()
+        static void GetUnicode(char unicode)
+        {
+            Console.WriteLine((int)unicode);
+            Console.ReadLine();
+        }
+        //取最高分：GetMax()
+        static void GetMax(double [] score)
+        {
             double maxScore;
             if (score[0] > score[1])
             {
@@ -142,34 +238,28 @@ namespace ConsoleApp1
                 i++;
             }
             Console.WriteLine(maxScore);
-
-            //找到100以内的所有质数（只能被1和它自己整除的数）
-
-            Console.WriteLine(1);
-            Console.WriteLine(2);
-            for (int n = 1; n < 100; n++)
-            { 
-                for (int m = 2; m < n; m++)
-                {
-                    if (n % m == 0)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        if (n - 1 == m)
-                        {
-                            Console.WriteLine(n);
-                        }
-                        else
-                        {
-                            //nothing
-                        }
-                    }
-                   
-                }  
-            }
             Console.ReadLine();
         }
+        //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
+        static void GetAverage(double [] score)
+        {
+            int i;
+            double j=0 ;
+            for (i = 0; i <score .Length;i++)
+            {  
+                j += score[i]; 
+            }
+            Console.WriteLine(Math.Round( j /score .Length+1 ,2) );
+            Console.ReadLine();
+        }
+        //完成“猜数字”游戏，方法名GuessMe()
+
+        //利用ref调用Swap()方法交换两个同学的床位号
+        //定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
+        //最小值（默认为1）
+        //相邻两个元素之间的最大差值（默认为5）
+        //元素个数（默认为10个）
+        //重载GetArray()，使其返回一个string[]
+        //实现二分查找，方法名BinarySeek()
     }
 }
