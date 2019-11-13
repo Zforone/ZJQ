@@ -166,93 +166,185 @@ namespace ConsoleApp1
             //            }  
             //        }  
             //    }
-            Add(1, 1);
-            Minus(2,1);
-            Mutiply(2,2);
-            Divide(8,2);
-            SelfIntroduce(18, true, 1.80, "江西");
-            GetUnicode('帅');
-            GetMax(new double[] { 58, 48, 59, 59 });
-            GetAverage(new double[] {80,90,80 });
+            //Add(1, 1);
+            //Minus(2, 1);
+            //Mutiply(2, 2);
+            //Divide(8, 2);
+            //SelfIntroduce(18, true, 1.80, "江西");
+            //GetUnicode('帅');
+            //GetMax(new double[] { 58, 48, 59.5, 59 });
+            //GetAverage(new double[] { 80, 80, 80 });
+            GuessMe();
             Console.ReadLine();
-        }
-        //将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
-        //自我介绍：SelfIntroduce()
-        static void  SelfIntroduce(int age,bool isFemale,double height,string fromCity)
-        {
-            
-            Console.WriteLine("年龄: " + age  + "\n是否男生：" + isFemale + "\n身高：" + height + "米" + "\n来自: " + fromCity);
-            Console.ReadLine();        
-        }
-        //加减乘除：Add() / Minus() / Mutiply() / Divide()
-            static void Add(double fristnum,double secendnum)
-        {
-            Console.WriteLine(fristnum + secendnum);
-            Console.ReadLine(); 
-        }
-        static void Minus(double fristnum, double secendnum)
-        {
-            Console.WriteLine(fristnum - secendnum);
-            Console.ReadLine();
-        }
-        static void Mutiply(double fristnum, double secendnum)
-        {
-            Console.WriteLine(fristnum * secendnum);
-            Console.ReadLine();
-        }
-        static void Divide(double fristnum, double secendnum)
-        {
-            Console.WriteLine(fristnum / secendnum);
-            Console.ReadLine();
-        }
+            }
+        ////将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
+        ////自我介绍：SelfIntroduce()
+        //static void  SelfIntroduce(int age,bool isFemale,double height,string fromCity)
+        //{
 
-        //取字符值：GetUnicode()
-        static void GetUnicode(char unicode)
+        //    Console.WriteLine("年龄: " + age  + "\n是否男生：" + isFemale + "\n身高：" + height + "米" + "\n来自: " + fromCity);
+        //    Console.ReadLine();        
+        //}
+        ////加减乘除：Add() / Minus() / Mutiply() / Divide()
+        //    static void Add(double fristnum,double secendnum)
+        //{
+        //    Console.WriteLine(fristnum + secendnum);
+        //    Console.ReadLine(); 
+        //}
+        //static void Minus(double fristnum, double secendnum)
+        //{
+        //    Console.WriteLine(fristnum - secendnum);
+        //    Console.ReadLine();
+        //}
+        //static void Mutiply(double fristnum, double secendnum)
+        //{
+        //    Console.WriteLine(fristnum * secendnum);
+        //    Console.ReadLine();
+        //}
+        //static void Divide(double fristnum, double secendnum)
+        //{
+        //    Console.WriteLine(fristnum / secendnum);
+        //    Console.ReadLine();
+        //}
+
+        ////取字符值：GetUnicode()
+        //static void GetUnicode(char unicode)
+        //{
+        //    Console.WriteLine((int)unicode);
+        //    Console.ReadLine();
+        //}
+        ////取最高分：GetMax()
+        //static void GetMax(double [] score)
+        //{
+        //    double maxScore;
+        //    if (score[0] > score[1])
+        //    {
+        //        maxScore = score[0];
+        //    }
+        //    else
+        //    {
+        //        maxScore = score[1];
+        //    }
+        //    for (int i = 0; i < score.Length - 1;)
+        //    {
+        //        double j = score[i + 1];
+        //        if (maxScore < j)
+        //        {
+        //            maxScore = j;
+        //        }
+        //        else
+        //        {
+        //            //nothing
+        //        }
+        //        i++;
+        //    }
+        //    Console.WriteLine(maxScore);
+        //    Console.ReadLine();
+        //}
+        ////计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
+        //static void GetAverage(double [] score)
+        //{
+        //    int i;
+        //    double j=0 ;
+        //    for (i = 0; i <score .Length;i++)
+        //    {  
+        //        j += score[i]; 
+        //    }
+        //    Console.WriteLine(Math .Round ( j /score .Length,2)  );
+        //    Console.ReadLine();
+        //}
+        //完成“猜数字”游戏，方法名GuessMe()
+        /*完成猜数字的游戏：
+        *弹出游戏玩法说明，等待用户点击“确认”，开始游戏；
+        *浏览器生成一个不大于1000的随机正整数；
+        *用户输入猜测；
+        *只用了不到6次就猜到，弹出：碉堡了！
+        *只用了不到8次就猜到，弹出：666！
+        *用了8-10次猜到，弹出：猜到了。
+        *用了10次都还没猜对，弹出：^(*￣(oo)￣)^  */
+        static void GuessMe()
         {
-            Console.WriteLine((int)unicode);
-            Console.ReadLine();
-        }
-        //取最高分：GetMax()
-        static void GetMax(double [] score)
-        {
-            double maxScore;
-            if (score[0] > score[1])
+            Random num = new Random();
+            int randomNum = num.Next(1000)/*666*/;
+            for (int i = 0; i < 10; i++)
             {
-                maxScore = score[0];
-            }
-            else
-            {
-                maxScore = score[1];
-            }
-            for (int i = 0; i < score.Length - 1;)
-            {
-                double j = score[i + 1];
-                if (maxScore < j)
+                Console.WriteLine("第" +(i+1)  +"次," + "请输入一个整数：");
+                string input = Console.ReadLine();
+                int a = 0;
+                bool result=int.TryParse(input,out a); 
+                if (result ==true)
                 {
-                    maxScore = j;
+                    int inputNum = int.Parse(input);
+                    if (inputNum > randomNum)
+                    {
+                        Console.WriteLine("大了！");
+                        if (i >= 9)
+                        {
+                            Console.WriteLine("^(*￣(oo)￣)^ ！");
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (inputNum < randomNum)
+                    {
+                        Console.WriteLine("小了！");
+                        if (i >= 9)
+                        {
+                            Console.WriteLine("^(*￣(oo)￣)^ ！");
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (inputNum ==randomNum )
+                    {
+                        if (i < 5)
+                        {
+                            Console.WriteLine("碉堡了！"); 
+                        }
+                        else if (i < 7)
+                        {
+                            Console.WriteLine("666！");                        
+                        }
+                        else if (i <= 9)
+                        {
+                            Console.WriteLine("猜到了！");
+                        }
+                        else 
+                        {
+                           //nothing to do                        
+                        }
+                        break;                   
+                    }
+                    else 
+                    {
+                        //nothing to do  
+                    }
+                }
+                else if(i <9)
+                {
+                    Console.WriteLine("请输入一个数字！");                   
                 }
                 else
                 {
-                    //nothing
+                    if (i >= 9)
+                    {
+                        Console.WriteLine("^(*￣(oo)￣)^ ！");
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }                    
                 }
-                i++;
             }
-            Console.WriteLine(maxScore);
-            Console.ReadLine();
-        }
-        //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
-        static void GetAverage(double [] score)
-        {
-            int i;
-            double j=0 ;
-            for (i = 0; i <score .Length;i++)
-            {  
-                j += score[i]; 
-            }
-            Console.WriteLine(Math.Round( j /score .Length+1 ,2) );
-            Console.ReadLine();
-        }
-        //完成“猜数字”游戏，方法名GuessMe()
+        }   
+
 
         //利用ref调用Swap()方法交换两个同学的床位号
         //定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
