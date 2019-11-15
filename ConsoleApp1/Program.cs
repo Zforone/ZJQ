@@ -181,8 +181,14 @@ namespace ConsoleApp1
             //Console.WriteLine("交换：" + frist + " ," + secend);
             //int[] a = GetArray(100, 100, 10);
             //string[] b = GetArray("100", "100", " 10");
-            double [] arr ={ 99, 88, 77, 66, 55 };
-            BinarySeek(arr ,88,arr .Length );
+            double [] arr ={ 99,111,222,333,400,444,555 };
+            BinarySeek(arr ,444,arr .Length );
+            int age = 8;
+            bool isFemale = true;
+            double height = 55.22;
+            string fromCity = "jjj";
+            SelfIntroduce((age, isFemale, height, fromCity));
+            SelfIntroduce(SelfIntroduce: (age, isFemale, height, fromCity));
             //Console.WriteLine( a );
             //Console.WriteLine("数组："+ arr); 
             Console.ReadLine();
@@ -436,7 +442,7 @@ namespace ConsoleApp1
                 {
                     if (arr[k] == num)
                     {
-                        Console.WriteLine("找出的数字："+arr[k]);
+                        Console.WriteLine("找出的数字："+arr[k] + ",第"+ (k + 1) + "个数字。");
                         return;
                     }
                     else if (arr[k] < num)
@@ -452,7 +458,7 @@ namespace ConsoleApp1
                 {
                     if (arr[k] == num)
                     {
-                        Console.WriteLine("找出的数字：" + arr[k]);
+                        Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k +1) + "个数字。");
                         return; 
 
                     }
@@ -471,11 +477,18 @@ namespace ConsoleApp1
 
 
         //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
-
+        static void SelfIntroduce((int age, bool isFemale, double height, string fromCity) SelfIntroduce)
+        {
+            Console.WriteLine(SelfIntroduce .age );
+            Console.WriteLine(SelfIntroduce.isFemale );
+            Console.WriteLine(SelfIntroduce.height );
+            Console.WriteLine(SelfIntroduce.fromCity );
+        }
 
         //实现方法：
         //IndexOf()，通过遍历在无序数组中
         //BinarySearch()，通过二分查找法在一个有序数组中
         //找到某个值的下标，找不到返回-1
+
     }
 }
