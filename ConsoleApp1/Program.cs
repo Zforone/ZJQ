@@ -179,8 +179,10 @@ namespace ConsoleApp1
             //int secend = 2;
             //Swap(ref frist, ref secend);
             //Console.WriteLine("交换：" + frist + " ," + secend);
-            int[] a = GetArray(100, 100, 10);
-            string[] b = GetArray("100", "100", " 10");
+            //int[] a = GetArray(100, 100, 10);
+            //string[] b = GetArray("100", "100", " 10");
+            double [] arr ={ 99, 88, 77, 66, 55 };
+            BinarySeek(arr ,88,arr .Length );
             //Console.WriteLine( a );
             //Console.WriteLine("数组："+ arr); 
             Console.ReadLine();
@@ -426,5 +428,54 @@ namespace ConsoleApp1
         }
 
         //实现二分查找，方法名BinarySeek()
+        static void  BinarySeek(double[] arr, double num, int j, int i = 0)//传入数组，查找的数字，     
+        {            
+            int k;           
+            k = (i+j )/ 2;
+                if (arr[0] > arr[arr.Length - 1])
+                {
+                    if (arr[k] == num)
+                    {
+                        Console.WriteLine("找出的数字："+arr[k]);
+                        return;
+                    }
+                    else if (arr[k] < num)
+                    {
+                        BinarySeek(arr, num, k, i);
+                    }
+                    else
+                    {
+                        BinarySeek(arr, num, k, j);
+                    }
+                }
+                else
+                {
+                    if (arr[k] == num)
+                    {
+                        Console.WriteLine("找出的数字：" + arr[k]);
+                        return; 
+
+                    }
+                    else if (arr[k] < num)
+                    {
+                        BinarySeek(arr, num, k, j);
+                    }
+                    else
+                    {
+                        BinarySeek(arr, num, k, i);
+                    }
+                }
+                    Console.WriteLine("输入的数字："+num );            
+        }
+
+
+
+        //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
+
+
+        //实现方法：
+        //IndexOf()，通过遍历在无序数组中
+        //BinarySearch()，通过二分查找法在一个有序数组中
+        //找到某个值的下标，找不到返回-1
     }
 }
