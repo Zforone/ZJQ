@@ -174,14 +174,21 @@ namespace ConsoleApp1
             //GetUnicode('帅');
             //GetMax(new double[] { 58, 48, 59.5, 59 });
             //GetAverage(new double[] { 80, 80, 80 });
-            GuessMe();
+            //GuessMe();
+            //int frist = 1;
+            //int secend = 2;
+            //Swap(ref frist, ref secend);
+            //Console.WriteLine("交换：" + frist + " ," + secend);
+            int[] a = GetArray(100, 100, 10);
+            string[] b = GetArray("100", "100", " 10");
+            //Console.WriteLine( a );
+            //Console.WriteLine("数组："+ arr); 
             Console.ReadLine();
-            }
+        }
         ////将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
         ////自我介绍：SelfIntroduce()
         //static void  SelfIntroduce(int age,bool isFemale,double height,string fromCity)
         //{
-
         //    Console.WriteLine("年龄: " + age  + "\n是否男生：" + isFemale + "\n身高：" + height + "米" + "\n来自: " + fromCity);
         //    Console.ReadLine();        
         //}
@@ -262,96 +269,162 @@ namespace ConsoleApp1
         *只用了不到8次就猜到，弹出：666！
         *用了8-10次猜到，弹出：猜到了。
         *用了10次都还没猜对，弹出：^(*￣(oo)￣)^  */
-        static void GuessMe()
-        {
-            Random num = new Random();
-            int randomNum = num.Next(1000)/*666*/;
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine("第" +(i+1)  +"次," + "请输入一个整数：");
-                string input = Console.ReadLine();
-                int a = 0;
-                bool result=int.TryParse(input,out a); 
-                if (result ==true)
-                {
-                    int inputNum = int.Parse(input);
-                    if (inputNum > randomNum)
-                    {
-                        Console.WriteLine("大了！");
-                        if (i >= 9)
-                        {
-                            Console.WriteLine("^(*￣(oo)￣)^ ！");
-                            break;
-                        }
-                        else
-                        {
-                            continue;
-                        }
-                    }
-                    else if (inputNum < randomNum)
-                    {
-                        Console.WriteLine("小了！");
-                        if (i >= 9)
-                        {
-                            Console.WriteLine("^(*￣(oo)￣)^ ！");
-                            break;
-                        }
-                        else
-                        {
-                            continue;
-                        }
-                    }
-                    else if (inputNum ==randomNum )
-                    {
-                        if (i < 5)
-                        {
-                            Console.WriteLine("碉堡了！"); 
-                        }
-                        else if (i < 7)
-                        {
-                            Console.WriteLine("666！");                        
-                        }
-                        else if (i <= 9)
-                        {
-                            Console.WriteLine("猜到了！");
-                        }
-                        else 
-                        {
-                           //nothing to do                        
-                        }
-                        break;                   
-                    }
-                    else 
-                    {
-                        //nothing to do  
-                    }
-                }
-                else if(i <9)
-                {
-                    Console.WriteLine("请输入一个数字！");                   
-                }
-                else
-                {
-                    if (i >= 9)
-                    {
-                        Console.WriteLine("^(*￣(oo)￣)^ ！");
-                        break;
-                    }
-                    else
-                    {
-                        continue;
-                    }                    
-                }
-            }
-        }   
+        //static void GuessMe()
+        //{
+        //    Random num = new Random();
+        //    int randomNum = num.Next(1000);  /*666*/
+        //    for (int i = 0; i < 10; i++) 
+        //    {
+        //        Console.WriteLine("第" + (i + 1) + "次," + "请输入一个整数：");
+        //        string input = Console.ReadLine();
+        //        int a = 0;
+        //        bool result = int.TryParse(input, out a);
+        //        if (result == true)
+        //        {
+        //            int inputNum = int.Parse(input);
+        //            if (inputNum > randomNum)
+        //            {
+        //                Console.WriteLine("大了！");
+        //                if (i >= 9)
+        //                {
+        //                    Console.WriteLine("^(*￣(oo)￣)^ ！");
+        //                    break;
+        //                }
+        //                else
+        //                {
+        //                    continue;
+        //                }
+        //            }
+        //            else if (inputNum < randomNum)
+        //            {
+        //                Console.WriteLine("小了！");
+        //                if (i >= 9)
+        //                {
+        //                    Console.WriteLine("^(*￣(oo)￣)^ ！");
+        //                    break;
+        //                }
+        //                else
+        //                {
+        //                    continue;
+        //                }
+        //            }
+        //            else if (inputNum == randomNum)
+        //            {
+        //                if (i < 5)
+        //                {
+        //                    Console.WriteLine("碉堡了！");
+        //                }
+        //                else if (i < 7)
+        //                {
+        //                    Console.WriteLine("666！");
+        //                }
+        //                else if (i <= 9)
+        //                {
+        //                    Console.WriteLine("猜到了！");
+        //                }
+        //                else
+        //                {
+        //                    //nothing to do                        
+        //                }
+        //                break;
+        //            }
+        //            else
+        //            {
+        //                //nothing to do  
+        //            }
+        //        }
+        //        else if (i < 9)
+        //        {
+        //            Console.WriteLine("请输入一个数字！");
+        //        }
+        //        else
+        //        {
+        //            if (i >= 9)
+        //            {
+        //                Console.WriteLine("^(*￣(oo)￣)^ ！");
+        //                break;
+        //            }
+        //            else
+        //            {
+        //                continue;
+        //            }
+        //        }
+        //    }
+        //}
 
 
         //利用ref调用Swap()方法交换两个同学的床位号
+        //static void Swap(ref int i, ref int j)
+        //{
+        //    int k = i;
+        //    i = j;
+        //    j = k;
+        //}
+
         //定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
         //最小值（默认为1）
         //相邻两个元素之间的最大差值（默认为5）
         //元素个数（默认为10个）
+        static int[] GetArray(int min = 1, int i = 5, int j = 10)
+        {
+            int[] arr = new int[j];
+            arr[0] = min;
+            Console.Write(arr[0] + ",");
+            for (int k = 1; k < arr.Length; k++)
+            {
+                Random num = new Random();
+                int randomNum = num.Next(arr[k - 1], (arr[k - 1] + i));
+                if (randomNum >= arr[k - 1])
+                {
+                    arr[k] = randomNum;
+                    Console.Write(arr[k] + ",");
+                }
+                else
+                {
+                    k--;
+                }
+            }
+            return arr;
+        }
         //重载GetArray()，使其返回一个string[]
+        static string[] GetArray(string min = "1", string i = "5", string j = "10")
+        {
+            int a = 0;
+            bool result = int.TryParse(min, out a) && int.TryParse(i, out a) && int.TryParse(j, out a);
+            string[] arr1 = null;
+            if (result)
+            {
+                int Min = int.Parse(min);
+                int I = int.Parse(i);
+                int J = int.Parse(j);
+                int[] arr = new int[J];
+                arr[0] = Min;
+                arr1 = new string[J];
+                arr1[0] = arr[0].ToString();
+                Console.Write(arr[0] + ",");
+                for (int k = 1; k < arr.Length; k++)
+                {
+                    Random num = new Random();
+                    int randomNum = num.Next(arr[k - 1], (arr[k - 1] + I));
+                    if (randomNum >= arr[k - 1])
+                    {
+                        arr[k] = randomNum;
+                        arr1[k] = arr[k].ToString();
+                        Console.Write(arr1[k] + ",");
+                    }
+                    else
+                    {
+                        k--;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("参数输入错误！");
+            }
+            return arr1;
+        }
+
         //实现二分查找，方法名BinarySeek()
     }
 }
