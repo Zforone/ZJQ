@@ -179,16 +179,23 @@ namespace ConsoleApp1
             //int secend = 2;
             //Swap(ref frist, ref secend);
             //Console.WriteLine("交换：" + frist + " ," + secend);
+            
+
             //int[] a = GetArray(100, 100, 10);
             //string[] b = GetArray("100", "100", " 10");
-            double [] arr ={ 99,111,222,333,400,444,555 };
-            BinarySeek(arr ,444,arr .Length );
-            int age = 8;
-            bool isFemale = true;
-            double height = 55.22;
-            string fromCity = "jjj";
-            SelfIntroduce((age, isFemale, height, fromCity));
-            SelfIntroduce(SelfIntroduce: (age, isFemale, height, fromCity));
+            double [] arr ={ 99,111,222,333,400,400,555 };
+            Random num = new Random();
+            int randomNum = num.Next(0, 6);
+            double i = arr[randomNum];
+            BinarySeek(arr ,i ,arr .Length );
+            Console.WriteLine("输入的数字：" + i );
+            //int age = 8;
+            //bool isFemale = true;
+            //double height = 55.22;
+            //string fromCity = "jjj";
+            //SelfIntroduce((age, isFemale, height, fromCity));
+            //SelfIntroduce(SelfIntroduce: (age, isFemale, height, fromCity));
+            IndexOf(arr, 333);
             //Console.WriteLine( a );
             //Console.WriteLine("数组："+ arr); 
             Console.ReadLine();
@@ -460,7 +467,6 @@ namespace ConsoleApp1
                     {
                         Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k +1) + "个数字。");
                         return; 
-
                     }
                     else if (arr[k] < num)
                     {
@@ -470,8 +476,7 @@ namespace ConsoleApp1
                     {
                         BinarySeek(arr, num, k, i);
                     }
-                }
-                    Console.WriteLine("输入的数字："+num );            
+                }                               
         }
 
 
@@ -489,6 +494,29 @@ namespace ConsoleApp1
         //IndexOf()，通过遍历在无序数组中
         //BinarySearch()，通过二分查找法在一个有序数组中
         //找到某个值的下标，找不到返回-1
-
+        static void IndexOf(double [] arr, double num)
+        {
+            int j = 0;
+            for (int i = 0; i <arr .Length;i++)
+            {                
+                if (arr [i ]==num)
+                {
+                    Console.WriteLine("第"+(i+1)+"位" );
+                    Console.WriteLine(arr [i ]);
+                }
+                else 
+                {                    
+                    j++;
+                    if (j ==arr .Length)
+                    {
+                        Console.WriteLine(-1);
+                    }
+                    else
+                    {
+                        //nothing to do 
+                    }                    
+                }                
+            }
+        }
     }
 }
