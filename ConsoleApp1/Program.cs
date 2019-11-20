@@ -3,7 +3,7 @@
 namespace ConsoleApp1
 {
     class Program
-    {
+    {       
         static void Main(string[] args)
         {
             // const string name = "曾俊清";
@@ -179,25 +179,29 @@ namespace ConsoleApp1
             //int secend = 2;
             //Swap(ref frist, ref secend);
             //Console.WriteLine("交换：" + frist + " ," + secend);
-            
+
 
             //int[] a = GetArray(100, 100, 10);
             //string[] b = GetArray("100", "100", " 10");
-            double [] arr ={ 99,111,222,333,400,400,555 };
-            Random num = new Random();
-            int randomNum = num.Next(0, 6);
-            double i = arr[randomNum];
-            BinarySeek(arr ,i ,arr .Length );
-            Console.WriteLine("输入的数字：" + i );
+            //double [] arr ={ 99,111,222,333,400,400,555 };
+            //Random num = new Random();
+            //int randomNum = num.Next(0, 6);
+            //double i = arr[randomNum];
+            //BinarySeek(arr ,i ,arr .Length );
+            //Console.WriteLine("输入的数字：" + i );
             //int age = 8;
             //bool isFemale = true;
             //double height = 55.22;
             //string fromCity = "jjj";
             //SelfIntroduce((age, isFemale, height, fromCity));
             //SelfIntroduce(SelfIntroduce: (age, isFemale, height, fromCity));
-            IndexOf(arr, 333);
+            //IndexOf(arr, 333);
             //Console.WriteLine( a );
             //Console.WriteLine("数组："+ arr); 
+            //User i = new User();
+            //User j = new User(""); 
+            
+            new Stack().stack(false  );
             Console.ReadLine();
         }
         ////将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
@@ -492,7 +496,6 @@ namespace ConsoleApp1
 
         //实现方法：
         //IndexOf()，通过遍历在无序数组中
-        //BinarySearch()，通过二分查找法在一个有序数组中
         //找到某个值的下标，找不到返回-1
         static void IndexOf(double [] arr, double num)
         {
