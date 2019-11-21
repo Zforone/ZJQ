@@ -200,8 +200,10 @@ namespace ConsoleApp1
             //Console.WriteLine("数组："+ arr); 
             //User i = new User();
             //User j = new User(""); 
-            
-            new Stack().stack(false  );
+            //new Stack().stack(false  );
+            //new Problem().Reward = -5;
+            new User().Name = "admin";
+            //Console.WriteLine();
             Console.ReadLine();
         }
         ////将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
