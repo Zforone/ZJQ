@@ -9,13 +9,16 @@ namespace ConsoleApp1
     //法: Register()、 Login()
     //调用这些类的有参/无参构造函数，生成这些类的对象，调用他们的方法
     //这些类的字段和方法设置合适的访问修饰符。
+
     //将之前User/Problem/HelpMoney类的字段封装成属性，其中：
     //user.Password在类的外部只能读不能改，且为User类添加ChangePasword()方法，以修改其密码
     //如果user.Name为“admin”，输入时修改为“系统管理员”
 
+    //让User类无法被继承
 
 
-    class User
+
+    sealed class User :Entity 
     {
         //internal User(string name)
         //{

@@ -179,8 +179,6 @@ namespace ConsoleApp1
             //int secend = 2;
             //Swap(ref frist, ref secend);
             //Console.WriteLine("交换：" + frist + " ," + secend);
-
-
             //int[] a = GetArray(100, 100, 10);
             //string[] b = GetArray("100", "100", " 10");
             //double [] arr ={ 99,111,222,333,400,400,555 };
@@ -202,8 +200,9 @@ namespace ConsoleApp1
             //User j = new User(""); 
             //new Stack().stack(false  );
             //new Problem().Reward = -5;
-            new User().Name = "admin";
+            //new User().Name = "admin";
             //Console.WriteLine();
+
             Console.ReadLine();
         }
         ////将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
@@ -523,5 +522,8 @@ namespace ConsoleApp1
                 }                
             }
         }
+
+
+       
     }
 }

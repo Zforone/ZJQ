@@ -9,7 +9,7 @@ namespace ConsoleApp1
     //一个静态只读的字符串connection，
     //以后可用于连接数据库,思考Respoitory应该是static类还是实例类更好
     
-    static class Repoistory
+    static class Repoistory 
     {
         const int version = 99;
         static readonly string connection;
