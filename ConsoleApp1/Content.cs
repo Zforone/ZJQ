@@ -11,6 +11,10 @@ namespace ConsoleApp1
     //其他方法和属性请自行考虑，尽量贴近一起帮的功能实现
     class Content :Entity 
     {
+        public Content(string thekind)
+        {
+            kind = thekind;
+        }
         protected string kind;
 
         public DateTime _PublishDateTime;

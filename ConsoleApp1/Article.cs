@@ -11,7 +11,6 @@ namespace ConsoleApp1
     {
         public int Reward;
 
-        public string _keyword;
-        public string keyWord { get; set; }
+        
     }
 }

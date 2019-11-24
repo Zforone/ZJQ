@@ -16,13 +16,6 @@ namespace ConsoleApp1
         //repoistory：可用于在底层实现上述方法和数据库的连接操作等
         //problem.Reward不能为负数
 
-
-        //internal Problem(string title)
-        //{
-
-        //}
-
-
         public string _keyword;
         public string keyWord { get; set; }
 
@@ -30,7 +23,7 @@ namespace ConsoleApp1
         {
 
         }
-        internal void Load(int Id)
+        internal static void Load(int Id)
         {
 
         }
