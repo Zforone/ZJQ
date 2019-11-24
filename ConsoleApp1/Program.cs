@@ -198,7 +198,10 @@ namespace ConsoleApp1
             //Console.WriteLine("数组："+ arr); 
             //User i = new User();
             //User j = new User(""); 
-            //new Stack().stack(false  );
+            Stack put = new Stack(3);
+            put.Push("A", "B", "C");
+            put.Pop("A", "B", "C");
+
             //new Problem().Reward = -5;
             //new User().Name = "admin";
             //Console.WriteLine();

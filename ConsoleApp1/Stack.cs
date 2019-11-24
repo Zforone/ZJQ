@@ -13,84 +13,50 @@ namespace ConsoleApp1
         //。如果压入的数据已超过栈的深度(最大容量)，提示“栈溢出”
         //。如果已弹出所有数据，提示“栈已空”
 
-        public int[] arr = new int[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
-        public void Pop(int i)
+        private string [] _arr;
+        private int top;
+        public Stack(int length)
         {
-            if (i < arr.Length)
-            {
-                Console.WriteLine(arr[i]);
-            }
-            else
-            {
-                //
-            }
-            if (i == arr.Length)
-            {
-                Console.WriteLine("栈溢出");
-            }
-            else if (i == 0)
-            {
-                Console.WriteLine("栈已空");                
-            }
-            else
-            {
-                //
-            }
+            //top = arr.Length-1;
+            _arr = new string[length];
+
         }
-        public void Push(int j)
-        {            
-            if (j == arr.Length)
+        public void Push(params string[] elements)
+        {
+            for (int i = 0; i < elements.Length; i++)
             {
-                Console.WriteLine("栈溢出");
+                if (top >= _arr.Length)
+                {
+                    Console.WriteLine("栈满！");
+                }
+                else
+                {
+                    _arr[top] = elements[top];
+                    Console.WriteLine(_arr[top]);
+                    top++;
+                }
                 
             }
-            else if (j == 0)
-            {
-                Console.WriteLine("栈已空");
-            }
-            else
-            {
-                //
-            }
-            if (j < arr.Length)
-            {
-                Console.WriteLine(arr[j]);
-            }
-            else
-            {
-                //
-            }
         }
-        public void stack(bool a= true)
+        public void Pop(params string [] elements)
         {
-            for (int k = arr.Length; k > -arr.Length-1; k--)
+            _arr = (string[])elements.Clone();
+            top = elements.Length - 1;
+            for (int i=0;i <=_arr .Length;i++)
             {
-                bool n = (k > 0);
-                if (n)
+                if (_arr[0] == null)
                 {
-                    int i = k;
-                    Pop(i);
-                }               
-                else if (k == 0)
-                {
-                    Pop(k);
-                    Push(k);
+                    Console.WriteLine("栈空！");
                 }
-                else if (!a)
+                else
                 {
-                    int j = -k;
-                    Push(j);                   
-                    Push(j);
-                    k -= 1;                   
+                    string temp = _arr[top];
+                    _arr[top] = null;
+                    Console.WriteLine(temp);
                 }
-                else  
-                {
-                    int j = -k;
-                    Push(j);                     
-                }
-            }
+                top--;
+            }  
         }
-
-       
     }
 }
+
