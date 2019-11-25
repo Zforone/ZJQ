@@ -11,7 +11,7 @@ namespace ConsoleApp1
     //如果发布Suggest，不需要消耗帮帮币
     class ContentService
     {
-        private void Publish()
+        private void Publish(string content )
         {
             
         }

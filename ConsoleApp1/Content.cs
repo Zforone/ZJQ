@@ -9,7 +9,10 @@ namespace ConsoleApp1
     //确保每个Content对象都有kind的非空值
     //Content中的createTime，不能被子类使用，但只读属性PublishTime使用它为外部提供内容的发布时间
     //其他方法和属性请自行考虑，尽量贴近一起帮的功能实现
-    class Content :Entity 
+
+    //思考之前的Content类，该将其抽象成抽象类还是接口？为什么？并按你的想法实现。
+
+    abstract class Content :Entity 
     {
         public Content(string thekind)
         {

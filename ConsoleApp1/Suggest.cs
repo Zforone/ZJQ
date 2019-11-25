@@ -8,8 +8,14 @@ namespace ConsoleApp1
     //继承自父类Content的属性和方法
     //自己的属性和方法
 
-    class Suggest : Content
+    internal class Suggest : Content
     {
+        private static string thekind;
+
+        public Suggest(string skind):base(thekind )
+        {
+
+        }
         public int Id { get; }
     }
 }

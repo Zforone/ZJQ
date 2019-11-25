@@ -16,6 +16,12 @@ namespace ConsoleApp1
         //repoistory：可用于在底层实现上述方法和数据库的连接操作等
         //problem.Reward不能为负数
 
+        private static string thekind;
+        public Problem(string pkind):base (thekind )
+        {
+
+        }
+
         public string _keyword;
         public string keyWord { get; set; }
 

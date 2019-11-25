@@ -18,12 +18,16 @@ namespace ConsoleApp1
 
 
 
-    sealed class User :Entity 
+    sealed class User :Entity ,ISendMessage ,IChat 
     {
-        //internal User(string name)
-        //{
-            
-        //}
+        void ISendMessage.Send() 
+        {
+            Console.WriteLine("ISendMessage");
+        }
+        void IChat.Send()
+        {
+            Console.WriteLine("IChat");
+        }
         internal string _name; 
         internal string Name
         {
@@ -64,5 +68,7 @@ namespace ConsoleApp1
         {
             
         }
+
+        
     }
 }
