@@ -6,6 +6,10 @@ namespace ConsoleApp1
     {       
         static void Main(string[] args)
         {
+            Problem p = new Problem();
+            Suggest s = new Suggest();
+            Article a = new Article();
+            new ContentService().Publish(/*a*/ /*s*/ p);  
             // const string name = "曾俊清";
             // string clause = "爱学习，一天不学习就浑身难受！";
             // Console.WriteLine(name + clause);
@@ -198,9 +202,9 @@ namespace ConsoleApp1
             //Console.WriteLine("数组："+ arr); 
             //User i = new User();
             //User j = new User(""); 
-            Stack put = new Stack(3);
-            put.Push("A", "B", "C");
-            put.Pop("A", "B", "C");
+            //Stack put = new Stack(3);
+            //put.Push("A", "B", "C");
+            //put.Pop("A", "B", "C");
 
             //new Problem().Reward = -5;
             //new User().Name = "admin";

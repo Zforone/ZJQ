@@ -9,11 +9,12 @@ namespace ConsoleApp1
     //如果发布Article，需要消耗一个帮帮币
     //如果发布Problem，需要消耗其设置悬赏数量的帮帮币
     //如果发布Suggest，不需要消耗帮帮币
-    class ContentService
-    {
-        private void Publish(string content )
+    internal class ContentService  
+    { 
+        public  void Publish(Content content )
         {
-            
+            content.Publish();
+            Console.WriteLine("保存至数据库");
         }
     }
 }

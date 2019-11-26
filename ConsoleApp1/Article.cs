@@ -9,12 +9,16 @@ namespace ConsoleApp1
     //自己的属性和方法
     internal class Article : Content
     {
-        private static string thekind;
-        public Article(string akind):base (thekind )
-        {
+        //private static string thekind;
+        //public Article(string akind) : base(thekind)
+        //{
 
-        }
-        public int Reward;
+        //}
         
+
+        public override void Publish()
+        {
+            Author.HelpMoney -= 1;
+        }
     }
 }

@@ -12,21 +12,24 @@ namespace ConsoleApp1
 
     //思考之前的Content类，该将其抽象成抽象类还是接口？为什么？并按你的想法实现。
 
-    abstract class Content :Entity 
+    internal abstract class Content :Entity 
     {
-        public Content(string thekind)
-        {
-            kind = thekind;
-        }
-        protected string kind;
+        //protected Content(string thekind)
+        //{
+        //    kind = thekind;
+        //}
+        //protected string kind;
+
+        public abstract void Publish();
+        
 
         public DateTime _PublishDateTime;
         public DateTime PublishDateTime { get;private set; }
 
         private DateTime createTime;
 
-        public string _Author;
-        public string Author { get; set; }
+        public User _Author;
+        public User Author { get; set; }
 
         public string _Title;
         public string Title { get; set; }
@@ -37,21 +40,6 @@ namespace ConsoleApp1
         private string _Keyword;
         private string keyWord { get; set; }
 
-        public int _Reward;
-        public int Reward
-        {
-            get { return _Reward; }
-            set
-            {
-                if (value < 0)
-                {
-                    Console.WriteLine("奖赏不能少于零！");
-                }
-                else
-                {
-                    _Reward = value;
-                }
-            }
-        }
+       
     }
 }

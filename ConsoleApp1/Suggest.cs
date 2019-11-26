@@ -12,10 +12,15 @@ namespace ConsoleApp1
     {
         private static string thekind;
 
-        public Suggest(string skind):base(thekind )
-        {
+        //public Suggest(string skind):base(thekind )
+        //{
 
-        }
+        //}
         public int Id { get; }
+
+        public override void Publish()
+        {
+            
+        }
     }
 }

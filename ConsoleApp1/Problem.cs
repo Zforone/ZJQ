@@ -16,14 +16,31 @@ namespace ConsoleApp1
         //repoistory：可用于在底层实现上述方法和数据库的连接操作等
         //problem.Reward不能为负数
 
-        private static string thekind;
-        public Problem(string pkind):base (thekind )
-        {
+        //private static string thekind;
+        //public Problem(string pkind) : base(thekind)
+        //{
 
-        }
+        //}
 
         public string _keyword;
         public string keyWord { get; set; }
+
+        public int _Reward;
+        public int Reward
+        {
+            get { return _Reward; }
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("奖赏不能少于零！");
+                }
+                else
+                {
+                    _Reward = value;
+                }
+            }
+        }
 
         internal void Publish(int Id)
         {
@@ -40,6 +57,11 @@ namespace ConsoleApp1
         internal static void repoistory()
         {
 
+        }
+
+        public override void Publish()
+        {
+            Author.HelpMoney -= Reward;
         }
     }
 }

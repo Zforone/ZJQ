@@ -18,7 +18,7 @@ namespace ConsoleApp1
 
 
 
-    sealed class User :Entity ,ISendMessage ,IChat 
+    internal sealed class User :Entity  ,ISendMessage ,IChat 
     {
         void ISendMessage.Send() 
         {
@@ -28,6 +28,8 @@ namespace ConsoleApp1
         {
             Console.WriteLine("IChat");
         }
+        
+        
         internal string _name; 
         internal string Name
         {
@@ -53,6 +55,8 @@ namespace ConsoleApp1
 
         internal User _invitedby;
         internal User InvitedBy { get; set; }
+
+        public int HelpMoney { get; internal set; }
 
         internal void Register(string name,int password,User invitedby)
         {
