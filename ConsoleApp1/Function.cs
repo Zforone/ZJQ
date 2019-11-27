@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ConsoleApp1
 {
@@ -21,6 +22,11 @@ namespace ConsoleApp1
             _arr = new string[length];
 
         }
+
+        public Stack()
+        {
+        }
+
         public void Push(params string[] elements)
         {
             for (int i = 0; i < elements.Length; i++)
@@ -57,6 +63,41 @@ namespace ConsoleApp1
                 top--;
             }  
         }
+
+        
     }
+    public class Function
+    {
+        
+        //函数GetDate()，能计算一个日期若干（日/周/月）后的日期
+        public void GetDate(DateTime inputDate)
+        { 
+                string dateTime = inputDate.ToString("yyyy年MM月dd日");
+                DateTime beforeDate = inputDate;
+                string input = Console.ReadLine();
+                string inputStr = Regex.Replace(input, @"[^\d.\d]", "");
+
+                int inputNum = int.Parse(inputStr);
+                if (input == (inputStr + "日"))
+                {
+                    beforeDate = beforeDate.AddDays(inputNum);
+                }
+                else if (input == (inputStr + "周"))
+                {
+                    beforeDate = beforeDate.AddDays(inputNum * 7);
+                }
+                else if (input == (inputStr + "月"))
+                {
+                    beforeDate = beforeDate.AddMonths(inputNum);
+                }
+                else
+                {
+                    //
+                }
+                string afterDate = beforeDate.ToString("yyyy年MM月dd日");
+                Console.WriteLine("当前日期：" + dateTime + ",请输入：XX日/周/月,然后回车");
+                Console.WriteLine(input + "后的日期是：" + afterDate);
+        }
+    }    
 }
 
