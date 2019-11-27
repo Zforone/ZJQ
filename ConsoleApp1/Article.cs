@@ -14,11 +14,31 @@ namespace ConsoleApp1
         //{
 
         //}
-        
 
         public override void Publish()
         {
             Author.HelpMoney -= 1;
         }
+
+        public override void Agree()
+        {
+            Author.HelpPoint += 1;
+            Executor.HelpPoint += 1;
+            Console.WriteLine("Article点赞！");
+        }
+
+        public override void Disagree()
+        {
+            Author.HelpPoint -= 1;
+            Executor.HelpPoint += 1;
+            Console.WriteLine("Article我踩！");
+        }
+
+        public override void Commentary()
+        {
+            Author.HelpPoint += 1;
+            Executor.HelpPoint += 1;
+            Console.WriteLine("Article评论！");
+        }       
     }
 }

@@ -28,8 +28,7 @@ namespace ConsoleApp1
         {
             Console.WriteLine("IChat");
         }
-        
-        
+
         internal string _name; 
         internal string Name
         {
@@ -55,8 +54,12 @@ namespace ConsoleApp1
 
         internal User _invitedby;
         internal User InvitedBy { get; set; }
-
-        public int HelpMoney { get; internal set; }
+        public uint _HelpMoney=100;
+        public uint HelpMoney { get { return  _HelpMoney ; } set { _HelpMoney =value ; } }
+        public uint _HelpPoint=100;
+        public uint HelpPoint { get { return _HelpPoint; } set { _HelpPoint = value; } }
+        public uint _HelpBeans=100;
+        public uint HelpBeans { get { return _HelpBeans; } set { _HelpBeans = value; } }
 
         internal void Register(string name,int password,User invitedby)
         {

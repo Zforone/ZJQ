@@ -22,11 +22,8 @@ namespace ConsoleApp1
 
         //}
 
-        public string _keyword;
-        public string keyWord { get; set; }
-
-        public int _Reward;
-        public int Reward
+        public uint _Reward;
+        public uint Reward
         {
             get { return _Reward; }
             set
@@ -62,6 +59,23 @@ namespace ConsoleApp1
         public override void Publish()
         {
             Author.HelpMoney -= Reward;
+        }
+
+        public override void Agree()
+        {
+            //
+        }
+
+        public override void Disagree()
+        {
+            //
+        }
+
+        public override void Commentary()
+        {
+            Author.HelpPoint += 1;
+            Executor.HelpPoint += 1;
+            Console.WriteLine("Problem评论！");
         }
     }
 }

@@ -21,15 +21,21 @@ namespace ConsoleApp1
         //protected string kind;
 
         public abstract void Publish();
-        
+
+        public abstract void Agree();
+        public abstract void Disagree();
+        public abstract void Commentary();
 
         public DateTime _PublishDateTime;
         public DateTime PublishDateTime { get;private set; }
 
         private DateTime createTime;
 
-        public User _Author;
-        public User Author { get; set; }
+        public User _Author=new User ();
+        public User Author { get { return _Author; } set { _Author = value; } }
+        
+        public User _Executor = new User();//执行者
+        public User Executor { get { return _Executor; } set { _Executor = value; } }
 
         public string _Title;
         public string Title { get; set; }

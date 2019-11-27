@@ -5,11 +5,15 @@ namespace ConsoleApp1
     class Program
     {       
         static void Main(string[] args)
+
         {
             Problem p = new Problem();
             Suggest s = new Suggest();
             Article a = new Article();
-            new ContentService().Publish(/*a*/ /*s*/ p);  
+            //new ContentService().Publish(/*a*/ /*s*/ p);  
+            new ContentService().Agree(/*s*//*p*/a);
+            new ContentService().Disagree(/*s*//*p*/a);
+            new ContentService().Commentary(/*s*//*p*/a);
             // const string name = "曾俊清";
             // string clause = "爱学习，一天不学习就浑身难受！";
             // Console.WriteLine(name + clause);

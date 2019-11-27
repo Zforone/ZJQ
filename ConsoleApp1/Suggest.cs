@@ -22,5 +22,26 @@ namespace ConsoleApp1
         {
             
         }
+
+        public override void Agree()
+        {
+            Author.HelpPoint += 1;
+            Executor.HelpPoint += 1;
+            Console.WriteLine("Suggest点赞！");
+        }
+
+        public override void Disagree()
+        {
+            Author.HelpPoint -= 1;
+            Executor.HelpPoint += 1;
+            Console.WriteLine("Suggest我踩！");
+        }
+
+        public override void Commentary()
+        {
+            Author.HelpPoint += 1;
+            Executor.HelpPoint += 1;
+            Console.WriteLine("Suggest评论！");
+        }
     }
 }
