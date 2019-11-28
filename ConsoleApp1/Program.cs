@@ -14,8 +14,9 @@ namespace ConsoleApp1
             //new ContentService().Agree(/*s*//*p*/a);
             //new ContentService().Disagree(/*s*//*p*/a);
             //new ContentService().Commentary(/*s*//*p*/a);
-            DateTime time = new DateTime(2019,11,27);
+            DateTime time = new DateTime(2019,11,28);
             new Function().GetDate(time);
+            //new Function().Date();
             // const string name = "曾俊清";
             // string clause = "爱学习，一天不学习就浑身难受！";
             // Console.WriteLine(name + clause);

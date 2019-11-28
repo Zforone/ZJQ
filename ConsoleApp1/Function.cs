@@ -14,7 +14,7 @@ namespace ConsoleApp1
         //。如果压入的数据已超过栈的深度(最大容量)，提示“栈溢出”
         //。如果已弹出所有数据，提示“栈已空”
 
-        private string [] _arr;
+        private string[] _arr;
         private int top;
         public Stack(int length)
         {
@@ -41,14 +41,14 @@ namespace ConsoleApp1
                     Console.WriteLine(_arr[top]);
                     top++;
                 }
-                
+
             }
         }
-        public void Pop(params string [] elements)
+        public void Pop(params string[] elements)
         {
             _arr = (string[])elements.Clone();
             top = elements.Length - 1;
-            for (int i=0;i <=_arr .Length;i++)
+            for (int i = 0; i <= _arr.Length; i++)
             {
                 if (_arr[0] == null)
                 {
@@ -61,43 +61,49 @@ namespace ConsoleApp1
                     Console.WriteLine(temp);
                 }
                 top--;
-            }  
+            }
         }
 
-        
+
     }
     public class Function
     {
-        
+
         //函数GetDate()，能计算一个日期若干（日/周/月）后的日期
         public void GetDate(DateTime inputDate)
-        { 
+        {
+            for (int i = 0; i < 3; i++)
+            {
                 string dateTime = inputDate.ToString("yyyy年MM月dd日");
                 DateTime beforeDate = inputDate;
                 string input = Console.ReadLine();
                 string inputStr = Regex.Replace(input, @"[^\d.\d]", "");
-
+                Console.WriteLine("当前日期：" + dateTime + ",请输入：XX日/周/月,然后回车");
                 int inputNum = int.Parse(inputStr);
                 if (input == (inputStr + "日"))
                 {
-                    beforeDate = beforeDate.AddDays(inputNum);
+                    DateTime afterDate = beforeDate.AddDays(inputNum);
+                    Console.WriteLine(input + "后的日期是：" + afterDate.ToString("yyyy年MM月dd日"));
+                    break;
                 }
                 else if (input == (inputStr + "周"))
                 {
-                    beforeDate = beforeDate.AddDays(inputNum * 7);
+                    DateTime afterDate = beforeDate.AddDays(inputNum * 7);
+                    Console.WriteLine(input + "后的日期是：" + afterDate.ToString("yyyy年MM月dd日"));
+                    break;
                 }
                 else if (input == (inputStr + "月"))
                 {
-                    beforeDate = beforeDate.AddMonths(inputNum);
+                    DateTime afterDate = beforeDate.AddMonths(inputNum);
+                    Console.WriteLine(input + "后的日期是：" + afterDate.ToString("yyyy年MM月dd日"));
+                    break;
                 }
                 else
                 {
-                    //
+                    Console.WriteLine("输入格式不正确");
                 }
-                string afterDate = beforeDate.ToString("yyyy年MM月dd日");
-                Console.WriteLine("当前日期：" + dateTime + ",请输入：XX日/周/月,然后回车");
-                Console.WriteLine(input + "后的日期是：" + afterDate);
-        }
-    }    
+            } 
+        }  
+    }
 }
 
