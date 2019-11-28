@@ -8,7 +8,7 @@ namespace ConsoleApp1
     //继承自父类Content的属性和方法
     //自己的属性和方法
 
-    internal class Suggest : Content
+    internal class Suggest : Content,IAgree 
     {
         private static string thekind;
 
@@ -22,26 +22,26 @@ namespace ConsoleApp1
         {
             
         }
+      
+        public override void Commentary()
+        {
+            Author.HelpPoint += 1;
+            Executor.HelpPoint += 1;
+            Console.WriteLine("Suggest评论！");
+        }
 
-        public override void Agree()
+        public void Agree(User voter)
         {
             Author.HelpPoint += 1;
             Executor.HelpPoint += 1;
             Console.WriteLine("Suggest点赞！");
         }
 
-        public override void Disagree()
+        public void Disagree(User voter)
         {
             Author.HelpPoint -= 1;
             Executor.HelpPoint += 1;
             Console.WriteLine("Suggest我踩！");
-        }
-
-        public override void Commentary()
-        {
-            Author.HelpPoint += 1;
-            Executor.HelpPoint += 1;
-            Console.WriteLine("Suggest评论！");
         }
     }
 }

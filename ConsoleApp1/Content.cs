@@ -21,9 +21,6 @@ namespace ConsoleApp1
         //protected string kind;
 
         public abstract void Publish();
-
-        public abstract void Agree();
-        public abstract void Disagree();
         public abstract void Commentary();
 
         public DateTime _PublishDateTime;

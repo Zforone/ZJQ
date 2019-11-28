@@ -7,7 +7,7 @@ namespace ConsoleApp1
     //实例化文章和意见建议，调用他们：
     //继承自父类Content的属性和方法
     //自己的属性和方法
-    internal class Article : Content
+    internal class Article : Content,IAgree 
     {
         //private static string thekind;
         //public Article(string akind) : base(thekind)
@@ -20,14 +20,14 @@ namespace ConsoleApp1
             Author.HelpMoney -= 1;
         }
 
-        public override void Agree()
+        public void Agree(User voter)
         {
             Author.HelpPoint += 1;
             Executor.HelpPoint += 1;
             Console.WriteLine("Article点赞！");
         }
 
-        public override void Disagree()
+        public void Disagree(User voter)
         {
             Author.HelpPoint -= 1;
             Executor.HelpPoint += 1;
@@ -39,6 +39,6 @@ namespace ConsoleApp1
             Author.HelpPoint += 1;
             Executor.HelpPoint += 1;
             Console.WriteLine("Article评论！");
-        }       
+        }
     }
 }

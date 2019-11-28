@@ -14,21 +14,22 @@ namespace ConsoleApp1
     //都有一个点赞（Agree）/踩（Disagree）的功能，赞和踩和增减作者及评价者的帮帮点。
     //能不能对其进行抽象？如何实现
 
-    internal class ContentService  
-    { 
+    internal class ContentService 
+    {
+
         public  void Publish(Content content )
         {
             content.Publish();
             Console.WriteLine("保存至数据库");
         }
-        public void Agree(Content content)
+        public void Agree(IAgree content,User user)
         {
-            content.Agree();
+            content.Agree(user);
             Console.WriteLine("保存至数据库");
         }
-        public void Disagree(Content content)
+        public void Disagree(IAgree content, User user)
         {
-            content.Disagree();
+            content.Disagree(user);
             Console.WriteLine("保存至数据库");
         }
         public void Commentary(Content content)
