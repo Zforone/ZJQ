@@ -103,7 +103,57 @@ namespace ConsoleApp1
                     Console.WriteLine("输入格式不正确");
                 }
             } 
-        }  
+        }
+        //给定任意一个年份，就能按周排列显示每周的起始日期
+        public void Date()
+        {
+            string input = Console.ReadLine();
+            int a = 1;
+            bool result = int.TryParse(input, out a);
+            if (result)
+            {
+                int inputDate = int.Parse(input);
+                DateTime date = new DateTime(inputDate, 1, 1);
+                DateTime fristDay = date;
+                while (date.DayOfWeek != DayOfWeek.Monday)
+                {
+                    date = date.AddDays(1);
+                }
+                DateTime fristDate = date;
+                Console.WriteLine("第1周："
+                    + fristDay.ToString("yyyy年MM月dd日")
+                    + "---"
+                    + fristDate.AddDays(-1).ToString("yyyy年MM月dd日"));
+                DateTime last = new DateTime(inputDate, 12, 31);
+                DateTime lastDay = last;
+                while (last.DayOfWeek != DayOfWeek.Monday)
+                {
+                    last = last.AddDays(-1);
+                }
+                DateTime lastDate = last;
+
+                int k = ((lastDate - fristDate).Days) / 7;
+                for (int j = 2; j <= k + 1; j++)
+                {
+                    Console.WriteLine("第" + j + "周："
+                        + fristDate.ToString("yyyy年MM月dd日")
+                        + "---"
+                        + fristDate.AddDays(6).ToString("yyyy年MM月dd日"));
+                    if (date.Year == inputDate)
+                    {
+                        fristDate = fristDate.AddDays(7);
+                    }
+                }
+                Console.WriteLine("最后1周："
+                    + lastDate.ToString("yyyy年MM月dd日")
+                    + "---"
+                    + lastDay.ToString("yyyy年MM月dd日"));
+            }
+            else
+            {
+                Console.WriteLine("请输入一个数字");
+            }
+        }
     }
 }
 

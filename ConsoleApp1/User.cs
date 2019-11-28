@@ -74,8 +74,10 @@ namespace ConsoleApp1
         private void ChangePasword(int oldPassWord,int newPassWord)
         {
             
-        }
-
-        
+        }  
     }
+    //一起帮中用户可以被分为：
+    //    访客（Visited）、注册用户（Registered）、可发布（Published）和管理员（Admin）。
+    //    请据此设计一个枚举类型Role（角色），并将其用于User对象，让User对象可以角色属性
+    
 }
