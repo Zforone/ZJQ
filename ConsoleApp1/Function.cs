@@ -98,7 +98,7 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine("输入格式不正确");
                 }
-            } 
+            }
         }
         //给定任意一个年份，就能按周排列显示每周的起始日期
         public void Date()
@@ -151,33 +151,42 @@ namespace ConsoleApp1
             }
         }
 
-        //用代码证明struct定义的类型是值类型
-        
-        
     }
-    public class Arr
+
+    //用代码证明struct定义的类型是值类型
+    struct Point
     {
-        //构造一个能装任何数据的数组，并完成数据的读写
-        
-        public void Getarr()
+        internal int i, j;
+        internal Point(int i,int j)
         {
-            object[] objarr = new object[5]; //{ 88, 95.5, "", "飞哥", 2019 / 11 / 29 };
-            int arr1 = 88;
-            objarr[0]= arr1;
-            double arr2 = 95.5;
-            objarr[1] = arr2;
-            string arr3 = "飞哥";
-            objarr[2] = arr3;
-            DateTime arr4 =new DateTime (2019 , 11 , 29);
-            objarr[3] = arr4;
-            string arr5 = "";
-            objarr[4] = arr5;
-            Console.WriteLine((int)objarr[0]);
-            Console.WriteLine((double)objarr[1]);
-            Console.WriteLine((string)objarr[2]);
-            Console.WriteLine((DateTime)objarr[3]);
-            Console.WriteLine((string)objarr[4]);
+            this.i = i;
+            this.j = j;
         }
     }
+
+public class Arr
+{
+    //构造一个能装任何数据的数组，并完成数据的读写
+
+    public void Getarr()
+    {
+        object[] objarr = new object[5]; //{ 88, 95.5, "", "飞哥", 2019 / 11 / 29 };
+        int arr1 = 88;
+        objarr[0] = arr1;
+        double arr2 = 95.5;
+        objarr[1] = arr2;
+        string arr3 = "飞哥";
+        objarr[2] = arr3;
+        DateTime arr4 = new DateTime(2019, 11, 29);
+        objarr[3] = arr4;
+        string arr5 = "";
+        objarr[4] = arr5;
+        Console.WriteLine((int)objarr[0]);
+        Console.WriteLine((double)objarr[1]);
+        Console.WriteLine((string)objarr[2]);
+        Console.WriteLine((DateTime)objarr[3]);
+        Console.WriteLine((string)objarr[4]);
+    }
+}
 }
 

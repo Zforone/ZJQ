@@ -17,12 +17,18 @@ namespace ConsoleApp1
             //new ContentService().Agree(/*s,u*/a ,u);
             //new ContentService().Disagree(s,u/*a,u*/);
             //new ContentService().Commentary(/*s*//*p*/a);
-            
-            
-            Console.WriteLine(u.GetRole(u.userLevel)); 
 
-            Arr arr = new Arr();
-            arr.Getarr();
+            //u.userLevel = 1;
+            //Console.WriteLine(u.GetRole(u.userLevel)); 
+
+            //Arr arr = new Arr();
+            //arr.Getarr();
+
+            Point p1 = new Point(30,20);
+            Point p2 = p1;
+            p1.i = 10;
+            Console.WriteLine(p2.i);  //因为struct是值类型输出30，
+
             //DateTime time = new DateTime(2019,11,28);
             //new Function().GetDate(time);
             //new Function().Date();
