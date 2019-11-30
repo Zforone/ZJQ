@@ -14,6 +14,8 @@ namespace ConsoleApp1
         //。如果压入的数据已超过栈的深度(最大容量)，提示“栈溢出”
         //。如果已弹出所有数据，提示“栈已空”
 
+        //使用object改造数据结构栈（Stack），并在出栈时获得出栈元素
+
         private string[] _arr;
         private int top;
         public Stack(int length)
@@ -22,11 +24,9 @@ namespace ConsoleApp1
             _arr = new string[length];
 
         }
-
         public Stack()
         {
         }
-
         public void Push(params string[] elements)
         {
             for (int i = 0; i < elements.Length; i++)
@@ -41,7 +41,6 @@ namespace ConsoleApp1
                     Console.WriteLine(_arr[top]);
                     top++;
                 }
-
             }
         }
         public void Pop(params string[] elements)
@@ -63,12 +62,9 @@ namespace ConsoleApp1
                 top--;
             }
         }
-
-
     }
     public class Function
     {
-
         //函数GetDate()，能计算一个日期若干（日/周/月）后的日期
         public void GetDate(DateTime inputDate)
         {
@@ -153,6 +149,34 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("请输入一个数字");
             }
+        }
+
+        //用代码证明struct定义的类型是值类型
+        
+        
+    }
+    public class Arr
+    {
+        //构造一个能装任何数据的数组，并完成数据的读写
+        
+        public void Getarr()
+        {
+            object[] objarr = new object[5]; //{ 88, 95.5, "", "飞哥", 2019 / 11 / 29 };
+            int arr1 = 88;
+            objarr[0]= arr1;
+            double arr2 = 95.5;
+            objarr[1] = arr2;
+            string arr3 = "飞哥";
+            objarr[2] = arr3;
+            DateTime arr4 =new DateTime (2019 , 11 , 29);
+            objarr[3] = arr4;
+            string arr5 = "";
+            objarr[4] = arr5;
+            Console.WriteLine((int)objarr[0]);
+            Console.WriteLine((double)objarr[1]);
+            Console.WriteLine((string)objarr[2]);
+            Console.WriteLine((DateTime)objarr[3]);
+            Console.WriteLine((string)objarr[4]);
         }
     }
 }

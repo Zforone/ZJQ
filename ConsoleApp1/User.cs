@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleApp1
 {
@@ -18,9 +16,9 @@ namespace ConsoleApp1
 
 
 
-    internal sealed class User :Entity  ,ISendMessage ,IChat 
+    internal sealed class User : Entity, ISendMessage, IChat
     {
-        void ISendMessage.Send() 
+        void ISendMessage.Send()
         {
             Console.WriteLine("ISendMessage");
         }
@@ -29,59 +27,74 @@ namespace ConsoleApp1
             Console.WriteLine("IChat");
         }
 
-        internal string _name; 
+        internal string _name;
         internal string Name
         {
-            get { return _name ; }
+            get { return _name; }
             set
             {
-                if (value  == "admin")
+                if (value == "Admin")
                 {
-                    value  = "系统管理员";
+                    value = "系统管理员";
                     _name = value;
-                   // Console.WriteLine(_name );
+                    // Console.WriteLine(_name );
                 }
                 else
                 {
-                    _name  = value;
-                    
+                    _name = value;
+
                 }
-                
+
             }
-            
+
         }
+
+        internal int userLevel;
+
         private int _password;
         private int Password { get; set; }
 
         internal User _invitedby;
         internal User InvitedBy { get; set; }
-        public uint _HelpMoney=100;
-        public uint HelpMoney { get { return  _HelpMoney ; } set { _HelpMoney =value ; } }
-        public uint _HelpPoint=100;
+        public uint _HelpMoney = 100;
+        public uint HelpMoney { get { return _HelpMoney; } set { _HelpMoney = value; } }
+        public uint _HelpPoint = 100;
         public uint HelpPoint { get { return _HelpPoint; } set { _HelpPoint = value; } }
-        public uint _HelpBeans=100;
+        public uint _HelpBeans = 100;
         public uint HelpBeans { get { return _HelpBeans; } set { _HelpBeans = value; } }
 
-        internal void Register(string name,int password,User invitedby)
+        internal void Register(string name, int password, User invitedby)
         {
-            
+
         }
 
-        internal void Login(string name,int password)
+        internal void Login(string name, int password)
         {
-            
+
         }
 
-        private void ChangePasword(int oldPassWord,int newPassWord)
+        private void ChangePasword(int oldPassWord, int newPassWord)
         {
-            
-        }  
+
+        }
+        //一起帮中用户可以被分为：
+        //    访客（Visited）、注册用户（Registered）、可发布（Published）和管理员（Admin）。
+        //    请据此设计一个枚举类型Role（角色），并将其用于User对象，让User对象可以角色属性
+       public Role GetRole(int userLevel)
+        {
+            Role level = (Role)userLevel;
+            return level;   
+        }        
     }
-    //一起帮中用户可以被分为：
-    //    访客（Visited）、注册用户（Registered）、可发布（Published）和管理员（Admin）。
-    //    请据此设计一个枚举类型Role（角色），并将其用于User对象，让User对象可以角色属性
-    //用代码证明struct定义的类型是值类型
-    //构造一个能装任何数据的数组，并完成数据的读写
-    //使用object改造数据结构栈（Stack），并在出栈时获得出栈元素
+    public enum Role
+    {
+        Admin=0,
+        Registered=1,
+        Visited=2,
+        Publishe=3
+    }
+
     
+
+
 }

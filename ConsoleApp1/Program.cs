@@ -10,11 +10,19 @@ namespace ConsoleApp1
             Problem p = new Problem();
             Suggest s = new Suggest();
             Article a = new Article();
+
             //new ContentService().Publish(/*a*/ /*s*/ p);
+
             User u = new User();
-            new ContentService().Agree(/*s,u*/a ,u);
-            new ContentService().Disagree(s,u/*a,u*/);
-            new ContentService().Commentary(/*s*//*p*/a);
+            //new ContentService().Agree(/*s,u*/a ,u);
+            //new ContentService().Disagree(s,u/*a,u*/);
+            //new ContentService().Commentary(/*s*//*p*/a);
+            
+            
+            Console.WriteLine(u.GetRole(u.userLevel)); 
+
+            Arr arr = new Arr();
+            arr.Getarr();
             //DateTime time = new DateTime(2019,11,28);
             //new Function().GetDate(time);
             //new Function().Date();
