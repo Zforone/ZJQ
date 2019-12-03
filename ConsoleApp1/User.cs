@@ -49,7 +49,11 @@ namespace ConsoleApp1
 
         }
 
-        internal int userLevel;
+        //将TokenManager作为User类的属性
+        internal TokenManager TokenManager { get; set; }
+        
+
+        internal Role userLevel;
 
         private int _password;
         private int Password { get; set; }
@@ -93,8 +97,18 @@ namespace ConsoleApp1
         Visited=2,
         Publishe=3
     }
+    //声明一个令牌（Token）枚举，包含值：SuperAdmin、Admin、Blogger、Newbie、Registered
 
-    
+    [Flags]
+    public enum Token
+    {
+        SuperAdmin = 1,
+        Admin = 2,
+        Blogger = 4,
+        Newbie = 8,
+        Registered = 16
+    }
+
 
 
 }

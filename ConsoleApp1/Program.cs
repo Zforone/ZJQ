@@ -7,29 +7,35 @@ namespace ConsoleApp1
         static void Main(string[] args)
 
         {
-            Problem p = new Problem();
-            Suggest s = new Suggest();
-            Article a = new Article();
+            //Problem problem = new Problem();
+            //Suggest suggest = new Suggest();
+            //Article article = new Article();
 
-            //new ContentService().Publish(/*a*/ /*s*/ p);
+            //new ContentService().Publish(/*article*/ /*suggest*/ problem);
 
-            User u = new User();
-            //new ContentService().Agree(/*s,u*/a ,u);
-            //new ContentService().Disagree(s,u/*a,u*/);
-            //new ContentService().Commentary(/*s*//*p*/a);
+            User user = new User();
+            //new ContentService().Agree(/*suggest,user*/article, user);
+            //new ContentService().Disagree(suggest, user/*suggest,user*/);
+            //new ContentService().Commentary(/*suggest*//*problem*/article);
 
-            //u.userLevel = 1;
-            //Console.WriteLine(u.GetRole(u.userLevel)); 
+            //user.userLevel = Role.Admin;
+            //Console.WriteLine(user.GetRole((int)user.userLevel));
+
+            user.TokenManager = new TokenManager();
+            user.TokenManager.Add(Token.Admin);
+            user.TokenManager.Remove(Token.Admin);
+            Console.WriteLine(user.TokenManager.Has());
+
 
             //Arr arr = new Arr();
             //arr.Getarr();
 
-            Point p1 = new Point(30,20);
-            Point p2 = p1;
-            p1.i = 10;
-            Console.WriteLine(p2.i);  //因为struct是值类型输出30，
+            //Point p1 = new Point(30,20);
+            //Point p2 = p1;
+            //p1.i = 10;
+            //Console.WriteLine(p2.i);  //因为struct是值类型输出30，
 
-            //DateTime time = new DateTime(2019,11,28);
+            //DateTime time = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
             //new Function().GetDate(time);
             //new Function().Date();
             // const string name = "曾俊清";
