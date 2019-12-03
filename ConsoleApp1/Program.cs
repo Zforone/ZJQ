@@ -19,7 +19,7 @@ namespace ConsoleApp1
             //new ContentService().Commentary(/*suggest*//*problem*/article);
 
             //user.userLevel = Role.Admin;
-            //Console.WriteLine(user.GetRole((int)user.userLevel));
+
 
             user.TokenManager = new TokenManager();
             user.TokenManager.Add(Token.Admin);
@@ -28,7 +28,7 @@ namespace ConsoleApp1
 
 
             //Arr arr = new Arr();
-            //arr.Getarr();
+            //arr.GetArr();
 
             //Point p1 = new Point(30,20);
             //Point p2 = p1;
@@ -481,42 +481,42 @@ namespace ConsoleApp1
         }
 
         //实现二分查找，方法名BinarySeek()
-        static void  BinarySeek(double[] arr, double num, int j, int i = 0)//传入数组，查找的数字，     
-        {            
-            int k;           
-            k = (i+j )/ 2;
-                if (arr[0] > arr[arr.Length - 1])
+        static void BinarySeek(double[] arr, double num, int j, int i = 0)//传入数组，查找的数字，     
+        {
+            int k;
+            k = (i + j) / 2;
+            if (arr[0] > arr[arr.Length - 1])
+            {
+                if (arr[k] == num)
                 {
-                    if (arr[k] == num)
-                    {
-                        Console.WriteLine("找出的数字："+arr[k] + ",第"+ (k + 1) + "个数字。");
-                        return;
-                    }
-                    else if (arr[k] < num)
-                    {
-                        BinarySeek(arr, num, k, i);
-                    }
-                    else
-                    {
-                        BinarySeek(arr, num, k, j);
-                    }
+                    Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k + 1) + "个数字。");
+                    return;
+                }
+                else if (arr[k] < num)
+                {
+                    BinarySeek(arr, num, k, i);
                 }
                 else
                 {
-                    if (arr[k] == num)
-                    {
-                        Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k +1) + "个数字。");
-                        return; 
-                    }
-                    else if (arr[k] < num)
-                    {
-                        BinarySeek(arr, num, k, j);
-                    }
-                    else
-                    {
-                        BinarySeek(arr, num, k, i);
-                    }
-                }                               
+                    BinarySeek(arr, num, k, j);
+                }
+            }
+            else
+            {
+                if (arr[k] == num)
+                {
+                    Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k + 1) + "个数字。");
+                    return;
+                }
+                else if (arr[k] < num)
+                {
+                    BinarySeek(arr, num, k, j);
+                }
+                else
+                {
+                    BinarySeek(arr, num, k, i);
+                }
+            }
         }
 
 
@@ -524,41 +524,41 @@ namespace ConsoleApp1
         //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
         static void SelfIntroduce((int age, bool isFemale, double height, string fromCity) SelfIntroduce)
         {
-            Console.WriteLine(SelfIntroduce .age );
-            Console.WriteLine(SelfIntroduce.isFemale );
-            Console.WriteLine(SelfIntroduce.height );
-            Console.WriteLine(SelfIntroduce.fromCity );
+            Console.WriteLine(SelfIntroduce.age);
+            Console.WriteLine(SelfIntroduce.isFemale);
+            Console.WriteLine(SelfIntroduce.height);
+            Console.WriteLine(SelfIntroduce.fromCity);
         }
 
         //实现方法：
         //IndexOf()，通过遍历在无序数组中
         //找到某个值的下标，找不到返回-1
-        static void IndexOf(double [] arr, double num)
+        static void IndexOf(double[] arr, double num)
         {
             int j = 0;
-            for (int i = 0; i <arr .Length;i++)
-            {                
-                if (arr [i ]==num)
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == num)
                 {
-                    Console.WriteLine("第"+(i+1)+"位" );
-                    Console.WriteLine(arr [i ]);
+                    Console.WriteLine("第" + (i + 1) + "位");
+                    Console.WriteLine(arr[i]);
                 }
-                else 
-                {                    
+                else
+                {
                     j++;
-                    if (j ==arr .Length)
+                    if (j == arr.Length)
                     {
                         Console.WriteLine(-1);
                     }
                     else
                     {
                         //nothing to do 
-                    }                    
-                }                
+                    }
+                }
             }
         }
 
 
-       
+
     }
 }

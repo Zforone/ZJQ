@@ -157,36 +157,36 @@ namespace ConsoleApp1
     struct Point
     {
         internal int i, j;
-        internal Point(int i,int j)
+        internal Point(int i, int j)
         {
             this.i = i;
             this.j = j;
         }
     }
 
-public class Arr
-{
-    //构造一个能装任何数据的数组，并完成数据的读写
-
-    public void Getarr()
+    public class Arr
     {
-        object[] objarr = new object[5]; //{ 88, 95.5, "", "飞哥", 2019 / 11 / 29 };
-        int arr1 = 88;
-        objarr[0] = arr1;
-        double arr2 = 95.5;
-        objarr[1] = arr2;
-        string arr3 = "飞哥";
-        objarr[2] = arr3;
-        DateTime arr4 = new DateTime(2019, 11, 29);
-        objarr[3] = arr4;
-        string arr5 = "";
-        objarr[4] = arr5;
-        Console.WriteLine((int)objarr[0]);
-        Console.WriteLine((double)objarr[1]);
-        Console.WriteLine((string)objarr[2]);
-        Console.WriteLine((DateTime)objarr[3]);
-        Console.WriteLine((string)objarr[4]);
+        //构造一个能装任何数据的数组，并完成数据的读写
+
+        public void GetArr()
+        {
+            object[] objarr = new object[5]; //{ 88, 95.5, "", "飞哥", 2019 / 11 / 29 };
+            int arr1 = 88;
+            objarr[0] = arr1;
+            double arr2 = 95.5;
+            objarr[1] = arr2;
+            string arr3 = "飞哥";
+            objarr[2] = arr3;
+            DateTime arr4 = new DateTime(2019, 11, 29);
+            objarr[3] = arr4;
+            string arr5 = "";
+            objarr[4] = arr5;
+            Console.WriteLine(objarr[0]);
+            Console.WriteLine(objarr[1]);
+            Console.WriteLine(objarr[2]);
+            Console.WriteLine(objarr[3]);
+            Console.WriteLine(objarr[4]);
+        }
     }
-}
 }
 

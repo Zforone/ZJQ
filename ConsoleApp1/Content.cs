@@ -22,8 +22,7 @@ namespace ConsoleApp1
 
         public abstract void Publish();
         public abstract void Commentary();
-
-        public DateTime _PublishDateTime;
+       
         public DateTime PublishDateTime { get;private set; }
 
         private DateTime createTime;
@@ -33,16 +32,11 @@ namespace ConsoleApp1
         
         public User _Executor = new User();//执行者
         public User Executor { get { return _Executor; } set { _Executor = value; } }
-
-        public string _Title;
+        
         public string Title { get; set; }
-
-        public string _Body;
+        
         public string Body { get; set; }
-
-        private string _Keyword;
-        private string keyWord { get; set; }
-
-       
+        
+        private string keyWord { get; set; }       
     }
 }

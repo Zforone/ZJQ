@@ -16,7 +16,6 @@ namespace ConsoleApp1
 
     internal class ContentService 
     {
-
         public  void Publish(Content content )
         {
             content.Publish();

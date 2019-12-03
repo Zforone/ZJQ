@@ -17,7 +17,6 @@ namespace ConsoleApp1
             Author.HelpPoint += 1;
             Executor.HelpPoint += 1;
             Console.WriteLine("点赞！");
-
         }
 
         public void Disagree(User voter)

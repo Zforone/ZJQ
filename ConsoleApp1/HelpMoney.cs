@@ -12,19 +12,14 @@ namespace ConsoleApp1
         {
 
         }
-        public int _BangBangCoins;
         public int BangBangCoins { get; set; }
 
-        public DateTime _DateTime;
         public DateTime DateTime { get; set; }
 
-        public string _Type;
         public string Type { get; set; }
 
-        public int _Changes;
         public int Changes { get; set; }
 
-        public string _Notes;
         public string Notes { get; set; }
 
         internal void changeCoins(int changeNum)

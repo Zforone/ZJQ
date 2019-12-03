@@ -35,37 +35,27 @@ namespace ConsoleApp1
             {
                 if (value == "Admin")
                 {
-                    value = "系统管理员";
-                    _name = value;
-                    // Console.WriteLine(_name );
+                    value = "系统管理员"; 
                 }
-                else
-                {
-                    _name = value;
-
-                }
-
+                _name = value;
             }
-
         }
 
         //将TokenManager作为User类的属性
         internal TokenManager TokenManager { get; set; }
-        
 
+        //一起帮中用户可以被分为：
+        //    访客（Visited）、注册用户（Registered）、可发布（Published）和管理员（Admin）。
+        //    请据此设计一个枚举类型Role（角色），并将其用于User对象，让User对象可以角色属性
         internal Role userLevel;
 
-        private int _password;
         private int Password { get; set; }
 
-        internal User _invitedby;
         internal User InvitedBy { get; set; }
-        public uint _HelpMoney = 100;
-        public uint HelpMoney { get { return _HelpMoney; } set { _HelpMoney = value; } }
-        public uint _HelpPoint = 100;
-        public uint HelpPoint { get { return _HelpPoint; } set { _HelpPoint = value; } }
-        public uint _HelpBeans = 100;
-        public uint HelpBeans { get { return _HelpBeans; } set { _HelpBeans = value; } }
+
+        public uint HelpMoney { get ; set ; }
+        public uint HelpPoint { get; set; }
+        public uint HelpBeans { get; set; }
 
         internal void Register(string name, int password, User invitedby)
         {
@@ -80,15 +70,7 @@ namespace ConsoleApp1
         private void ChangePasword(int oldPassWord, int newPassWord)
         {
 
-        }
-        //一起帮中用户可以被分为：
-        //    访客（Visited）、注册用户（Registered）、可发布（Published）和管理员（Admin）。
-        //    请据此设计一个枚举类型Role（角色），并将其用于User对象，让User对象可以角色属性
-       public Role GetRole(int userLevel)
-        {
-            Role level = (Role)userLevel;
-            return level;   
-        }        
+        }              
     }
     public enum Role
     {
@@ -97,8 +79,8 @@ namespace ConsoleApp1
         Visited=2,
         Publishe=3
     }
-    //声明一个令牌（Token）枚举，包含值：SuperAdmin、Admin、Blogger、Newbie、Registered
 
+    //声明一个令牌（Token）枚举，包含值：SuperAdmin、Admin、Blogger、Newbie、Registered
     [Flags]
     public enum Token
     {
@@ -108,7 +90,4 @@ namespace ConsoleApp1
         Newbie = 8,
         Registered = 16
     }
-
-
-
 }
