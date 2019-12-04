@@ -22,10 +22,16 @@ namespace ConsoleApp1
 
         public abstract void Publish();
         public abstract void Commentary();
-       
-        public DateTime PublishDateTime { get;private set; }
 
-        private DateTime createTime;
+        //之前的Content类，其中的CreateTime（创建时间）和PublishTime（发布时间）都是只读的属性，
+        //想一想他们应该在哪里赋值比较好，并完成相应代码
+        public DateTime PublishTime { get {return DateTime.Now; } }
+        private DateTime CreateTime { get;  }
+        public Content()
+        {
+            CreateTime = DateTime.Now;
+        }
+        
 
         public User _Author=new User ();
         public User Author { get { return _Author; } set { _Author = value; } }
