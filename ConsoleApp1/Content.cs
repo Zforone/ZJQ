@@ -20,14 +20,12 @@ namespace ConsoleApp1
         //}
         //protected string kind;
 
-        //将HelpMoneyChanged应用于Publish()方法
-        [HelpMoneyChanged(1)]
         public abstract void Publish();
         public abstract void Commentary();
 
         //之前的Content类，其中的CreateTime（创建时间）和PublishTime（发布时间）都是只读的属性，
         //想一想他们应该在哪里赋值比较好，并完成相应代码
-        public DateTime PublishTime { get {return DateTime.Now; } }
+        public DateTime PublishTime { get { return DateTime.Now; } }
         private DateTime CreateTime { get;  }
         public Content()
         {

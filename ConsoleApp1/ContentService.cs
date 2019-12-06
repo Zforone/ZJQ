@@ -14,8 +14,11 @@ namespace ConsoleApp1
     //都有一个点赞（Agree）/踩（Disagree）的功能，赞和踩和增减作者及评价者的帮帮点。
     //能不能对其进行抽象？如何实现
 
+    
     internal class ContentService 
     {
+        //将HelpMoneyChanged应用于Publish()方法
+        [HelpMoneyChanged(1)]
         public  void Publish(Content content )
         {
             content.Publish();
