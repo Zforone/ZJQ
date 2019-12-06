@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace ConsoleApp1
 {
@@ -9,8 +10,22 @@ namespace ConsoleApp1
         {
             //Problem problem = new Problem();
             //Suggest suggest = new Suggest();
-            //Article article = new Article();
+            Article article = new Article();
+            Content content = new Article();
 
+
+            //Type createValue = article.GetType();
+            //FieldInfo createProperty = createValue.GetField("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance);
+            //object create = createProperty.GetValue(content);
+            //Console.WriteLine(article.GetType().GetProperty("CreateTime"));
+            //PropertyInfo createProperty = typeof(Article).GetProperty("CreateTime");
+
+            //Console.WriteLine(content.PublishTime);
+            //DateTime dateTime = new DateTime(2019, 12, 05);
+            //article.changeTime(dateTime,dateTime);
+            //Console.WriteLine(content.PublishTime);
+            //Console.WriteLine(createProperty.GetValue(content));
+            
             //new ContentService().Publish(/*article*/ /*suggest*/ problem);
 
             User user = new User();
@@ -21,11 +36,12 @@ namespace ConsoleApp1
             //user.userLevel = Role.Admin;
 
 
-            user.TokenManager = new TokenManager();
-            user.TokenManager.Add(Token.Admin);
-            user.TokenManager.Remove(Token.Admin);
-            Console.WriteLine(user.TokenManager.Has());
+            //user.TokenManager = new TokenManager();
+            //user.TokenManager.Add(Token.Admin);
+            //user.TokenManager.Remove(Token.Admin);
+            //Console.WriteLine(user.TokenManager.Has());
 
+            
 
             //Arr arr = new Arr();
             //arr.GetArr();

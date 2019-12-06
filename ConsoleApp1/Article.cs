@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Reflection;
 
 namespace ConsoleApp1
 {
@@ -14,6 +13,10 @@ namespace ConsoleApp1
         //{
 
         //}
+        public Article():base()
+        {
+
+        }
 
         public override void Publish()
         {
@@ -40,5 +43,14 @@ namespace ConsoleApp1
             Executor.HelpPoint += 1;
             Console.WriteLine("Article评论！");
         }
+        //在Content之外封装一个方法，可以修改Content的CreateTime和PublishTime
+        //public void changeTime(DateTime createTime, DateTime publishTime)
+        //{
+        //    //PropertyInfo createProperty = typeof(Article).GetProperty("CreateTime");
+        //    //createProperty.SetValue(this, createTime);
+            
+        //    PropertyInfo publishProperty = typeof(Article).GetProperty("PublishTime"); 
+        //    publishProperty.SetValue(this, publishTime);
+        //}
     }
 }
