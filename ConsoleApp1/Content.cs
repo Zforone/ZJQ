@@ -20,6 +20,8 @@ namespace ConsoleApp1
         //}
         //protected string kind;
 
+        //将HelpMoneyChanged应用于Publish()方法
+        [HelpMoneyChanged(1)]
         public abstract void Publish();
         public abstract void Commentary();
 
