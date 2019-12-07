@@ -25,11 +25,13 @@ namespace ConsoleApp1
 
         //之前的Content类，其中的CreateTime（创建时间）和PublishTime（发布时间）都是只读的属性，
         //想一想他们应该在哪里赋值比较好，并完成相应代码
-        public DateTime PublishTime { get { return DateTime.Now; } }
-        private DateTime CreateTime { get;  }
+        protected DateTime _publishTime;
+        public DateTime PublishTime { get { return _publishTime; } }
+        protected DateTime _createTime;
+        public DateTime CreateTime { get { return _createTime; } }
         public Content()
         {
-            CreateTime = DateTime.Now;
+            _createTime = DateTime.Now;
         }
         
 

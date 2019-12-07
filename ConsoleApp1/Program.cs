@@ -13,19 +13,24 @@ namespace ConsoleApp1
             Article article = new Article();
             Content content = new Article();
 
+            //用反射获取Publish()上的特性实例，输出其中包含的信息
+            //ContentService contentService = new ContentService();
+            //Attribute attribute = Attribute.GetCustomAttribute(
+            //    typeof(ContentService),             
+            //    typeof(HelpMoneyChanged)      
+            //);
+            //attribute = new HelpMoneyChanged();
+            //Console.WriteLine(attribute.GetType());
 
-            //Type createValue = article.GetType();
-            //FieldInfo createProperty = createValue.GetField("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance);
-            //object create = createProperty.GetValue(content);
-            //Console.WriteLine(article.GetType().GetProperty("CreateTime"));
-            //PropertyInfo createProperty = typeof(Article).GetProperty("CreateTime");
 
-            //Console.WriteLine(content.PublishTime);
-            //DateTime dateTime = new DateTime(2019, 12, 05);
-            //article.changeTime(dateTime,dateTime);
-            //Console.WriteLine(content.PublishTime);
-            //Console.WriteLine(createProperty.GetValue(content));
-            
+            DateTime dateTime = new DateTime(2019, 12, 05);
+            Type type = content.GetType();
+            Console.WriteLine(article.PublishTime);
+            Console.WriteLine(article.CreateTime);
+            article.changeTime(dateTime, dateTime);
+            Console.WriteLine(article.PublishTime);
+            Console.WriteLine(article.CreateTime);
+
             //new ContentService().Publish(/*article*/ /*suggest*/ problem);
 
             User user = new User();

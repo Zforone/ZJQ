@@ -20,6 +20,7 @@ namespace ConsoleApp1
 
         public override void Publish()
         {
+            _publishTime = new DateTime ();
             Author.HelpMoney -= 1;
         }
 
@@ -44,13 +45,10 @@ namespace ConsoleApp1
             Console.WriteLine("Article评论！");
         }
         //在Content之外封装一个方法，可以修改Content的CreateTime和PublishTime
-        //public void changeTime(DateTime createTime, DateTime publishTime)
-        //{
-        //    //PropertyInfo createProperty = typeof(Article).GetProperty("CreateTime");
-        //    //createProperty.SetValue(this, createTime);
-            
-        //    PropertyInfo publishProperty = typeof(Article).GetProperty("PublishTime"); 
-        //    publishProperty.SetValue(this, publishTime);
-        //}
+        public void changeTime(DateTime createTime, DateTime publishTime)
+        {
+            _createTime = createTime;
+            _publishTime = publishTime;
+        }
     }
 }

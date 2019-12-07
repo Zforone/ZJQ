@@ -58,8 +58,14 @@ namespace ConsoleApp1
 
         public override void Publish()
         {
+            _publishTime = new DateTime ();
             Author.HelpMoney -= Reward;
-        } 
+        }
+        public void changeTime(DateTime createTime, DateTime publishTime)
+        {
+            _createTime = createTime;
+            _publishTime = publishTime;
+        }
 
         public override void Commentary()
         {
