@@ -10,14 +10,16 @@ namespace ConsoleApp1
         static void Main(string[] args)
 
         {
-            
 
-            Problem problem = new Problem();
-            //Suggest suggest = new Suggest();
+            User user = new User();
+            Problem problem = new Problem { Author = user };
+            Suggest suggest = new Suggest();
             //Article article = new Article();
             //Content content = new Article();
-            problem.Reward = -1;
-            Console.WriteLine(problem.Reward);
+
+            //problem.Reward = -1;
+            //Console.WriteLine(problem.Reward);
+
 
             //用反射获取Publish()上的特性实例，输出其中包含的信息
             //ContentService contentService = new ContentService();
@@ -37,9 +39,9 @@ namespace ConsoleApp1
             //Console.WriteLine(article.PublishTime);
             //Console.WriteLine(article.CreateTime);
 
-            //new ContentService().Publish(/*article*/ /*suggest*/ problem);
+            new ContentService().Publish(/*article*/ suggest /*problem*/);
 
-            User user = new User();
+            
             //new ContentService().Agree(/*suggest,user*/article, user);
             //new ContentService().Disagree(suggest, user/*suggest,user*/);
             //new ContentService().Commentary(/*suggest*//*problem*/article);

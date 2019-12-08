@@ -35,10 +35,10 @@ namespace ConsoleApp1
         }
         
 
-        public User _Author=new User ();
+        public User _Author;
         public User Author { get { return _Author; } set { _Author = value; } }
         
-        public User _Executor = new User();//执行者
+        public User _Executor ;//执行者
         public User Executor { get { return _Executor; } set { _Executor = value; } }
         
         public string Title { get; set; }
