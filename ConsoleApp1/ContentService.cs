@@ -18,7 +18,7 @@ namespace ConsoleApp1
     internal class ContentService 
     {
         //将HelpMoneyChanged应用于Publish()方法
-        [HelpMoneyChanged(1)]
+        [HelpMoneyChanged(99)]
         public  void Publish(Content content )
         {
             content.Publish();

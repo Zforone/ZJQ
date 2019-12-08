@@ -45,10 +45,13 @@ namespace ConsoleApp1
             Console.WriteLine("Article评论！");
         }
         //在Content之外封装一个方法，可以修改Content的CreateTime和PublishTime
-        public void changeTime(DateTime createTime, DateTime publishTime)
-        {
-            _createTime = createTime;
-            _publishTime = publishTime;
-        }
+        //public void changeTime(DateTime createTime, DateTime publishTime)
+        //{
+        //    FieldInfo createField = typeof(Content).GetField("_createTime");
+        //    createField.SetValue(this, createTime);
+
+        //    FieldInfo publishField = typeof(Content).GetField("_publishTime");
+        //    publishField.SetValue(this, publishTime);
+        //}
     }
 }

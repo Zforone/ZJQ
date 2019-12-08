@@ -11,13 +11,9 @@ namespace ConsoleApp1
     [AttributeUsage(AttributeTargets.Method)]
     class HelpMoneyChanged : Attribute
     {
-        public HelpMoneyChanged()
-        {
-
-        }
         public HelpMoneyChanged(int amount)
         {
-
+            
         }
         public string Message { get; set; }
     }

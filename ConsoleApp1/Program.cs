@@ -5,31 +5,36 @@ namespace ConsoleApp1
 {
     class Program
     {
+        
+       
         static void Main(string[] args)
 
         {
+            
+
             //Problem problem = new Problem();
             //Suggest suggest = new Suggest();
             Article article = new Article();
             Content content = new Article();
 
+
             //用反射获取Publish()上的特性实例，输出其中包含的信息
             //ContentService contentService = new ContentService();
+            //contentService.Publish(content);
             //Attribute attribute = Attribute.GetCustomAttribute(
             //    typeof(ContentService),             
             //    typeof(HelpMoneyChanged)      
             //);
-            //attribute = new HelpMoneyChanged();
-            //Console.WriteLine(attribute.GetType());
+            //object obj = attribute;
+            //Console.WriteLine(((HelpMoneyChanged)obj));
 
 
-            DateTime dateTime = new DateTime(2019, 12, 05);
-            Type type = content.GetType();
-            Console.WriteLine(article.PublishTime);
-            Console.WriteLine(article.CreateTime);
-            article.changeTime(dateTime, dateTime);
-            Console.WriteLine(article.PublishTime);
-            Console.WriteLine(article.CreateTime);
+            //DateTime dateTime = new DateTime(2019, 12, 05);
+            //Console.WriteLine(article.PublishTime);
+            //Console.WriteLine(article.CreateTime);
+            //article.changeTime(dateTime, dateTime);
+            //Console.WriteLine(article.PublishTime);
+            //Console.WriteLine(article.CreateTime);
 
             //new ContentService().Publish(/*article*/ /*suggest*/ problem);
 

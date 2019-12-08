@@ -22,11 +22,7 @@ namespace ConsoleApp1
         {
             _publishTime = new DateTime ();
         }
-        public void changeTime(DateTime createTime, DateTime publishTime)
-        {
-            _createTime = createTime;
-            _publishTime = publishTime;
-        }
+        
 
         public override void Commentary()
         {
