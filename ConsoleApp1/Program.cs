@@ -12,11 +12,12 @@ namespace ConsoleApp1
         {
             
 
-            //Problem problem = new Problem();
+            Problem problem = new Problem();
             //Suggest suggest = new Suggest();
-            Article article = new Article();
-            Content content = new Article();
-
+            //Article article = new Article();
+            //Content content = new Article();
+            problem.Reward = -1;
+            Console.WriteLine(problem.Reward);
 
             //用反射获取Publish()上的特性实例，输出其中包含的信息
             //ContentService contentService = new ContentService();

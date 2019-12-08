@@ -22,15 +22,16 @@ namespace ConsoleApp1
 
         //}
 
-        public uint _Reward;
-        public uint Reward
+        public int _Reward;
+        public int Reward
         {
             get { return _Reward; }
             set
             {
-                if (value < 0)
+                if (value < 0 )
                 {
-                    Console.WriteLine("奖赏不能少于零！");
+                    //修改之前的属性验证：problem.Reward为负数时直接抛出“参数越界”异常
+                    throw new ArgumentOutOfRangeException();
                 }
                 else
                 {

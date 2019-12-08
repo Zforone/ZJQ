@@ -53,9 +53,9 @@ namespace ConsoleApp1
 
         internal User InvitedBy { get; set; }
 
-        public uint HelpMoney { get ; set ; }
-        public uint HelpPoint { get; set; }
-        public uint HelpBeans { get; set; }
+        public int HelpMoney { get ; set ; }
+        public int HelpPoint { get; set; }
+        public int HelpBeans { get; set; }
 
         internal void Register(string name, int password, User invitedby)
         {
