@@ -25,7 +25,7 @@ namespace ConsoleApp1
             {
                 throw new ArgumentNullException();
             }
-            _publishTime = new DateTime ();
+            _publishTime =DateTime.Now;
             
         }
         

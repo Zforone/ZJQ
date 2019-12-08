@@ -12,10 +12,13 @@ namespace ConsoleApp1
         {
 
             User user = new User();
-            Problem problem = new Problem { Author = user };
+            Problem problem = new Problem();
+            //problem.Reward = -10;
+            //problem.Author = new User();
             Suggest suggest = new Suggest();
             //Article article = new Article();
             //Content content = new Article();
+            new ContentService().Publish(/*article*/ /*suggest*/ problem);
 
             //problem.Reward = -1;
             //Console.WriteLine(problem.Reward);
@@ -39,9 +42,8 @@ namespace ConsoleApp1
             //Console.WriteLine(article.PublishTime);
             //Console.WriteLine(article.CreateTime);
 
-            new ContentService().Publish(/*article*/ suggest /*problem*/);
 
-            
+
             //new ContentService().Agree(/*suggest,user*/article, user);
             //new ContentService().Disagree(suggest, user/*suggest,user*/);
             //new ContentService().Commentary(/*suggest*//*problem*/article);
@@ -54,7 +56,7 @@ namespace ConsoleApp1
             //user.TokenManager.Remove(Token.Admin);
             //Console.WriteLine(user.TokenManager.Has());
 
-            
+
 
             //Arr arr = new Arr();
             //arr.GetArr();
