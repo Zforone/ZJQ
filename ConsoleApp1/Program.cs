@@ -18,7 +18,19 @@ namespace ConsoleApp1
             Suggest suggest = new Suggest();
             //Article article = new Article();
             //Content content = new Article();
-            new ContentService().Publish(/*article*/ /*suggest*/ problem);
+
+            //在Main()函数调用ContentService时，捕获一切异常，并记录（）异常的消息和堆栈信息
+            try
+            {
+                problem.Reward = -10;
+                problem.Author = new User();
+                new ContentService().Publish(/*article*/ /*suggest*/ problem);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.StackTrace + e.Message);                
+            }
+            
 
             //problem.Reward = -1;
             //Console.WriteLine(problem.Reward);
