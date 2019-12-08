@@ -43,7 +43,9 @@ namespace ConsoleApp1
             }
             finally
             {
-                //Console.WriteLine(DateTime.Now);
+                //ContentService中无论是否捕获异常，均要Console.WriteLine()输出：
+                //    XXXX年XX月XX日 XX点XX分XX秒（当前时间），请求发布内容（Id = XXX）
+                Console.WriteLine(DateTime.Now + "请求发布内容（Id=XXX）");
             }
             
         }
