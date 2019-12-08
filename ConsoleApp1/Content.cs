@@ -12,7 +12,7 @@ namespace ConsoleApp1
 
     //思考之前的Content类，该将其抽象成抽象类还是接口？为什么？并按你的想法实现。
 
-    internal abstract class Content :Entity 
+    internal abstract class Content :Entity<int> 
     {
         //protected Content(string thekind)
         //{

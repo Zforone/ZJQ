@@ -16,7 +16,7 @@ namespace ConsoleApp1
 
 
 
-    internal sealed class User : Entity, ISendMessage, IChat
+    internal sealed class User : Entity<int>, ISendMessage, IChat
     {
         void ISendMessage.Send()
         {
