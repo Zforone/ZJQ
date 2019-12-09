@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication2", "WebAppli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{8DAE4DA2-26B8-4CEC-8DDC-F96765931CF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C_Sharp", "C_Sharp\C_Sharp.csproj", "{B87EAE62-1D4C-423D-8AA4-D3E2D60494FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodTest", "C_Sharp\MethodTest.csproj", "{B87EAE62-1D4C-423D-8AA4-D3E2D60494FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

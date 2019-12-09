@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1.Funtion
+namespace ConsoleApp1.Method
 {
     public class BinarySeek
     {

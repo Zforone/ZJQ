@@ -7,7 +7,22 @@ namespace C_Sharp
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InsertAfter()
+        {
+
+        }
+        [TestMethod]
+        public void InsterBefore()
+        {
+
+        }
+        [TestMethod]
+        public void Delete()
+        {
+
+        }
+        [TestMethod]
+        public void Swap()
         {
 
         }

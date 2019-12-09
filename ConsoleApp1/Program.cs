@@ -1,4 +1,4 @@
-﻿using ConsoleApp1.Funtion;
+﻿using ConsoleApp1.Method;
 using System;
 using System.Reflection;
 using ConsoleApp1;
@@ -211,11 +211,13 @@ namespace ConsoleApp1
             //Console.WriteLine("交换：" + frist + " ," + secend);
             //int[] a = GetArray(100, 100, 10);
             //string[] b = GetArray("100", "100", " 10");
-            double[] arr = { 99, 111, 222, 333, 400, 400, 555 };
-            Random num = new Random();
-            int randomNum = num.Next(0, 6);
-            double i = arr[randomNum];
-            BinarySeek.BinaryOfSeek<int>(arr, i, arr.Length);
+
+            //double[] arr = { 99, 111, 222, 333, 400, 400, 555 };
+            //Random num = new Random();
+            //int randomNum = num.Next(0, 6);
+            //double i = arr[randomNum];
+            //BinarySeek.BinaryOfSeek<int>(arr, i, arr.Length);
+
             //Console.WriteLine("输入的数字：" + i );
             //int age = 8;
             //bool isFemale = true;
