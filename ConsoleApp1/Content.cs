@@ -44,7 +44,8 @@ namespace ConsoleApp1
         public string Title { get; set; }
         
         public string Body { get; set; }
-        
-        private string keyWord { get; set; }       
+
+        protected string[] _keyWord;
+        public string[] keyWord { get { return _keyWord; } set { _keyWord = value; } }       
     }
 }
