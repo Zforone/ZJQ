@@ -193,54 +193,7 @@ namespace ConsoleApp1
             //        sunNum -= 2;
             //    }
             //    Console.WriteLine(sun);
-            //    //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
-            //    double[] score = { 98, 78, 88.5, 86, 99, 75, 92.5, 75 };
-            //    double maxScore;
-            //    if (score[0] > score[1])
-            //    {
-            //        maxScore = score[0];
-            //    }
-            //    else
-            //    {
-            //        maxScore = score[1];
-            //    }
-            //    for (int i = 0; i < score.Length - 1;)
-            //    {
-            //        double j = score[i + 1];
-            //        if (maxScore < j)
-            //        {
-            //            maxScore = j;
-            //        }
-            //        else
-            //        {
-            //            //nothing
-            //        }
-            //        i++;
-            //    }
-            //    Console.WriteLine(maxScore);
-
-            //    //找到100以内的所有质数（只能被1和它自己整除的数）
-
-            //    Console.WriteLine(1);
-            //    Console.WriteLine(2);
-            //    for (int n = 1; n < 100; n++)
-            //    { 
-            //        for (int m = 2; m < n; m++)
-            //        {
-            //            if (n % m == 0)
-            //            {
-            //                break;
-            //            }
-            //            else if (n - 1 == m)
-            //            {
-            //                Console.WriteLine(n);
-            //            }
-            //            else
-            //            {
-            //                //nothing
-            //            }  
-            //        }  
-            //    }
+           
             //Add(1, 1);
             //Minus(2, 1);
             //Mutiply(2, 2);
@@ -449,7 +402,54 @@ namespace ConsoleApp1
         //        }
         //    }
         //}
+        //    //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
+        //    double[] score = { 98, 78, 88.5, 86, 99, 75, 92.5, 75 };
+        //    double maxScore;
+        //    if (score[0] > score[1])
+        //    {
+        //        maxScore = score[0];
+        //    }
+        //    else
+        //    {
+        //        maxScore = score[1];
+        //    }
+        //    for (int i = 0; i < score.Length - 1;)
+        //    {
+        //        double j = score[i + 1];
+        //        if (maxScore < j)
+        //        {
+        //            maxScore = j;
+        //        }
+        //        else
+        //        {
+        //            //nothing
+        //        }
+        //        i++;
+        //    }
+        //    Console.WriteLine(maxScore);
 
+        //    //找到100以内的所有质数（只能被1和它自己整除的数）
+
+        //    Console.WriteLine(1);
+        //    Console.WriteLine(2);
+        //    for (int n = 1; n < 100; n++)
+        //    { 
+        //        for (int m = 2; m < n; m++)
+        //        {
+        //            if (n % m == 0)
+        //            {
+        //                break;
+        //            }
+        //            else if (n - 1 == m)
+        //            {
+        //                Console.WriteLine(n);
+        //            }
+        //            else
+        //            {
+        //                //nothing
+        //            }  
+        //        }  
+        //    }
 
         //利用ref调用Swap()方法交换两个同学的床位号
         //static void Swap(ref int i, ref int j)
@@ -458,150 +458,14 @@ namespace ConsoleApp1
         //    i = j;
         //    j = k;
         //}
-
-        //定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
-        //最小值（默认为1）
-        //相邻两个元素之间的最大差值（默认为5）
-        //元素个数（默认为10个）
-        static int[] GetArray(int min = 1, int i = 5, int j = 10)
-        {
-            int[] arr = new int[j];
-            arr[0] = min;
-            Console.Write(arr[0] + ",");
-            for (int k = 1; k < arr.Length; k++)
-            {
-                Random num = new Random();
-                int randomNum = num.Next(arr[k - 1], (arr[k - 1] + i));
-                if (randomNum >= arr[k - 1])
-                {
-                    arr[k] = randomNum;
-                    Console.Write(arr[k] + ",");
-                }
-                else
-                {
-                    k--;
-                }
-            }
-            return arr;
-        }
-        //重载GetArray()，使其返回一个string[]
-        static string[] GetArray(string min = "1", string i = "5", string j = "10")
-        {
-            int a = 0;
-            bool result = int.TryParse(min, out a) && int.TryParse(i, out a) && int.TryParse(j, out a);
-            string[] arr1 = null;
-            if (result)
-            {
-                int Min = int.Parse(min);
-                int I = int.Parse(i);
-                int J = int.Parse(j);
-                int[] arr = new int[J];
-                arr[0] = Min;
-                arr1 = new string[J];
-                arr1[0] = arr[0].ToString();
-                Console.Write(arr[0] + ",");
-                for (int k = 1; k < arr.Length; k++)
-                {
-                    Random num = new Random();
-                    int randomNum = num.Next(arr[k - 1], (arr[k - 1] + I));
-                    if (randomNum >= arr[k - 1])
-                    {
-                        arr[k] = randomNum;
-                        arr1[k] = arr[k].ToString();
-                        Console.Write(arr1[k] + ",");
-                    }
-                    else
-                    {
-                        k--;
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("参数输入错误！");
-            }
-            return arr1;
-        }
-
-        //实现二分查找，方法名BinarySeek()
-        static void BinarySeek(double[] arr, double num, int j, int i = 0)//传入数组，查找的数字，     
-        {
-            int k;
-            k = (i + j) / 2;
-            if (arr[0] > arr[arr.Length - 1])
-            {
-                if (arr[k] == num)
-                {
-                    Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k + 1) + "个数字。");
-                    return;
-                }
-                else if (arr[k] < num)
-                {
-                    BinarySeek(arr, num, k, i);
-                }
-                else
-                {
-                    BinarySeek(arr, num, k, j);
-                }
-            }
-            else
-            {
-                if (arr[k] == num)
-                {
-                    Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k + 1) + "个数字。");
-                    return;
-                }
-                else if (arr[k] < num)
-                {
-                    BinarySeek(arr, num, k, j);
-                }
-                else
-                {
-                    BinarySeek(arr, num, k, i);
-                }
-            }
-        }
-
-
-
         //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
-        static void SelfIntroduce((int age, bool isFemale, double height, string fromCity) SelfIntroduce)
-        {
-            Console.WriteLine(SelfIntroduce.age);
-            Console.WriteLine(SelfIntroduce.isFemale);
-            Console.WriteLine(SelfIntroduce.height);
-            Console.WriteLine(SelfIntroduce.fromCity);
-        }
-
-        //实现方法：
-        //IndexOf()，通过遍历在无序数组中
-        //找到某个值的下标，找不到返回-1
-        static void IndexOf(double[] arr, double num)
-        {
-            int j = 0;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] == num)
-                {
-                    Console.WriteLine("第" + (i + 1) + "位");
-                    Console.WriteLine(arr[i]);
-                }
-                else
-                {
-                    j++;
-                    if (j == arr.Length)
-                    {
-                        Console.WriteLine(-1);
-                    }
-                    else
-                    {
-                        //nothing to do 
-                    }
-                }
-            }
-        }
-
-
+        //static void SelfIntroduce((int age, bool isFemale, double height, string fromCity) SelfIntroduce)
+        //{
+        //    Console.WriteLine(SelfIntroduce.age);
+        //    Console.WriteLine(SelfIntroduce.isFemale);
+        //    Console.WriteLine(SelfIntroduce.height);
+        //    Console.WriteLine(SelfIntroduce.fromCity);
+        //}
 
     }
 }

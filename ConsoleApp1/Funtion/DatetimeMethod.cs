@@ -3,67 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Funtion
 {
-    public class Stack
-    {
-        //实现-个模拟栈，增加如下功能:
-        //●出栈Pop(),弹出栈顶数据
-        //●入栈Push()， Push可以--次性压入多个数据;
-        //●出入栈检查,
-        //。如果压入的数据已超过栈的深度(最大容量)，提示“栈溢出”
-        //。如果已弹出所有数据，提示“栈已空”
-
-        //使用object改造数据结构栈（Stack），并在出栈时获得出栈元素
-
-        private string[] _arr;
-        private int top;
-        public Stack(int length)
-        {
-            //top = arr.Length-1;
-            _arr = new string[length];
-
-        }
-        public Stack()
-        {
-        }
-        public void Push(params string[] elements)
-        {
-            for (int i = 0; i < elements.Length; i++)
-            {
-                if (top >= _arr.Length)
-                {
-                    Console.WriteLine("栈满！");
-                }
-                else
-                {
-                    _arr[top] = elements[top];
-                    Console.WriteLine(_arr[top]);
-                    top++;
-                }
-            }
-        }
-        public void Pop(params string[] elements)
-        {
-            _arr = (string[])elements.Clone();
-            top = elements.Length - 1;
-            for (int i = 0; i <= _arr.Length; i++)
-            {
-                if (_arr[0] == null)
-                {
-                    Console.WriteLine("栈空！");
-                }
-                else
-                {
-                    string temp = _arr[top];
-                    _arr[top] = null;
-                    Console.WriteLine(temp);
-                }
-                top--;
-            }
-        }
-    }
-    public class Function
+    public class DatetimeMethod
     {
         //函数GetDate()，能计算一个日期若干（日/周/月）后的日期
         public void GetDate(DateTime inputDate)
@@ -152,41 +94,4 @@ namespace ConsoleApp1
         }
 
     }
-
-    //用代码证明struct定义的类型是值类型
-    struct Point
-    {
-        internal int i, j;
-        internal Point(int i, int j)
-        {
-            this.i = i;
-            this.j = j;
-        }
-    }
-
-    public class Arr
-    {
-        //构造一个能装任何数据的数组，并完成数据的读写
-
-        public void GetArr()
-        {
-            object[] objarr = new object[5]; //{ 88, 95.5, "", "飞哥", 2019 / 11 / 29 };
-            int arr1 = 88;
-            objarr[0] = arr1;
-            double arr2 = 95.5;
-            objarr[1] = arr2;
-            string arr3 = "飞哥";
-            objarr[2] = arr3;
-            DateTime arr4 = new DateTime(2019, 11, 29);
-            objarr[3] = arr4;
-            string arr5 = "";
-            objarr[4] = arr5;
-            Console.WriteLine(objarr[0]);
-            Console.WriteLine(objarr[1]);
-            Console.WriteLine(objarr[2]);
-            Console.WriteLine(objarr[3]);
-            Console.WriteLine(objarr[4]);
-        }
-    }
 }
-
