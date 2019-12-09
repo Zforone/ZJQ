@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ConsoleApp1.Funtion;
+using System;
 using System.Reflection;
+using ConsoleApp1;
 
 namespace ConsoleApp1
 {
@@ -11,26 +13,26 @@ namespace ConsoleApp1
 
         {
 
-            User user = new User();
-            Problem problem = new Problem();
-            //problem.Reward = -10;
-            //problem.Author = new User();
-            Suggest suggest = new Suggest();
-            //Article article = new Article();
-            //Content content = new Article();
+            //User user = new User();
+            //Problem problem = new Problem();
+            ////problem.Reward = -10;
+            ////problem.Author = new User();
+            //Suggest suggest = new Suggest();
+            ////Article article = new Article();
+            ////Content content = new Article();
 
-            //在Main()函数调用ContentService时，捕获一切异常，并记录（）异常的消息和堆栈信息
-            try
-            {
-                problem.Reward = -10;
-                problem.Author = new User();
-                new ContentService().Publish(/*article*/ /*suggest*/ problem);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.StackTrace + e.Message);                
-            }
-            
+            ////在Main()函数调用ContentService时，捕获一切异常，并记录（）异常的消息和堆栈信息
+            //try
+            //{
+            //    problem.Reward = -10;
+            //    problem.Author = new User();
+            //    new ContentService().Publish(/*article*/ /*suggest*/ problem);
+            //}
+            //catch (Exception e)
+            //{
+            //    throw new Exception(e.StackTrace + e.Message);                
+            //}
+
 
             //problem.Reward = -1;
             //Console.WriteLine(problem.Reward);
@@ -193,7 +195,7 @@ namespace ConsoleApp1
             //        sunNum -= 2;
             //    }
             //    Console.WriteLine(sun);
-           
+
             //Add(1, 1);
             //Minus(2, 1);
             //Mutiply(2, 2);
@@ -209,11 +211,11 @@ namespace ConsoleApp1
             //Console.WriteLine("交换：" + frist + " ," + secend);
             //int[] a = GetArray(100, 100, 10);
             //string[] b = GetArray("100", "100", " 10");
-            //double [] arr ={ 99,111,222,333,400,400,555 };
-            //Random num = new Random();
-            //int randomNum = num.Next(0, 6);
-            //double i = arr[randomNum];
-            //BinarySeek(arr ,i ,arr .Length );
+            double[] arr = { 99, 111, 222, 333, 400, 400, 555 };
+            Random num = new Random();
+            int randomNum = num.Next(0, 6);
+            double i = arr[randomNum];
+            BinarySeek.BinaryOfSeek<int>(arr, i, arr.Length);
             //Console.WriteLine("输入的数字：" + i );
             //int age = 8;
             //bool isFemale = true;
