@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace Tests
 {
-    public class Tests
+    public class DoubleLinkTest
     {
         DoubleLink node1, node2, node3, node4, node5, node6;
 
