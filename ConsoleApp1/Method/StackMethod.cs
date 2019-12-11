@@ -18,20 +18,19 @@ namespace ConsoleApp1.Method
 
         //使用object改造数据结构栈（Stack），并在出栈时获得出栈元素
 
-        public object[] _arr;
+        public string[] _arr;
         public int top;
         public Stack(int length)
         {
             //top = arr.Length-1;
-            _arr = new object[length];
+            _arr = new string[length];
 
         }
         public Stack()
         {
         }
-        public void Push(params object[] elements)
+        public void Push(params string[] elements)
         {
-            top = 0;
             for (int i = 0; i < elements.Length; i++)
             {
                 if (top >= _arr.Length)
@@ -46,9 +45,9 @@ namespace ConsoleApp1.Method
                 }
             }
         }
-        public void Pop(params object[] elements)
+        public void Pop(params string[] elements)
         {
-            _arr = (object[])elements.Clone();
+            _arr = (string[])elements.Clone();
             top = elements.Length - 1;
             for (int i = 0; i <= _arr.Length; i++)
             {
@@ -58,9 +57,9 @@ namespace ConsoleApp1.Method
                 }
                 else
                 {
-                    object temp = _arr[top];
+                    string temp = _arr[top];
                     _arr[top] = null;
-                    //Console.WriteLine(temp);
+                    Console.WriteLine(temp);
                 }
                 top--;
             }

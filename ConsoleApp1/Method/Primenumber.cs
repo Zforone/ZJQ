@@ -4,13 +4,19 @@ using System.Text;
 
 namespace ConsoleApp1.Method
 {
-    class Primenumber
+    public class PrimeNumber
     {
         //找到100以内的所有质数（只能被1和它自己整除的数）
-        public void PrimeNumber()
+        public List<int> PrimeList;
+        public PrimeNumber()
         {
-            Console.WriteLine(1);
-            Console.WriteLine(2);
+            PrimeList = new List<int>();
+            PrimeList.Add(1);
+            PrimeList.Add(2);
+        }
+        public void SeekPrimeNumber()
+        {
+            
             for (int n = 1; n < 100; n++)
             {
                 for (int m = 2; m < n; m++)
@@ -21,7 +27,9 @@ namespace ConsoleApp1.Method
                     }
                     else if (n - 1 == m)
                     {
-                        Console.WriteLine(n);
+                        //Console.WriteLine(n);
+                        PrimeList.Add(n);
+                        
                     }
                     else
                     {

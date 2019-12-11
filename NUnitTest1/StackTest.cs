@@ -6,8 +6,6 @@ namespace Tests
 {
     public class StackTest
     {
-        Stack stack = new Stack(5);
-
         [SetUp]
         public void Setup()
         {  
@@ -17,19 +15,13 @@ namespace Tests
         [Test]
         public void PopTest()
         {
-            
-            stack.Pop(1);
-            Assert.AreEqual(stack._arr[0],1);
+            Stack stack = new Stack(3);
+            stack.Pop("A");
+            stack.Pop("C","B");
+            Assert.AreEqual(stack._arr[0], "A");
+            Assert.AreEqual(stack._arr[0], "C");
+            Assert.AreEqual(stack._arr[1], "B");
 
-            
-            stack.Pop(5,6);
-            Assert.AreEqual(stack._arr[1], 5);
-            Assert.AreEqual(stack._arr[2], 6);
-
-            
-            stack.Pop(8,9);
-            Assert.AreEqual(stack._arr[3], 8);
-            Assert.AreEqual(stack._arr[4], 9);
         }
         [Test]
         public void PushTest()
