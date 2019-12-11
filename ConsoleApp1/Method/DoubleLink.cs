@@ -5,14 +5,14 @@ using System.Text;
 
 namespace ConsoleApp1.Method
 {
-    public class DoubleLink
+    public class DoubleLink<T>
     {
         public DoubleLink(int NodeValue)
         {
             Value = NodeValue;
         }
-        public DoubleLink Next { get;  set; }
-        public DoubleLink Previous { get;  set; }
+        public DoubleLink<T> Next { get;  set; }
+        public DoubleLink<T> Previous { get;  set; }
         public int Value { get; set; }
 
         public bool IsHead
@@ -25,9 +25,9 @@ namespace ConsoleApp1.Method
             get { return Next == null; }
         }
 
-        public DoubleLink FindBy(int value)
+        public DoubleLink<T> FindBy(int value)
         {
-            DoubleLink temp = new DoubleLink(value);
+            DoubleLink<T> temp = new DoubleLink<T>(value);
             if (value ==this.Value)
             {
                 temp = this;
@@ -35,7 +35,7 @@ namespace ConsoleApp1.Method
             return temp;
         }
 
-        public void InsertAfter(DoubleLink node)
+        public void InsertAfter(DoubleLink<T> node)
         {
             
             if (node.Next == null)
@@ -53,7 +53,7 @@ namespace ConsoleApp1.Method
             }
         }
 
-        public void InsterBefore(DoubleLink node)
+        public void InsterBefore(DoubleLink<T> node)
         {
             if (node.Previous==null)
             {
@@ -78,35 +78,35 @@ namespace ConsoleApp1.Method
             }
             else if (this.IsTail)
             {
-                DoubleLink temp = this.Previous;
+                DoubleLink<T> temp = this.Previous;
                 temp.Next = null;
             }
             else if (this.IsHead)
             {
-                DoubleLink temp = this.Next;
+                DoubleLink<T> temp = this.Next;
                 temp.Previous = null;
             }
             else
             {
-                DoubleLink temp1 = this.Previous;
-                DoubleLink temp2 = this.Next;
+                DoubleLink<T> temp1 = this.Previous;
+                DoubleLink<T> temp2 = this.Next;
                 temp1.Next = temp2;
                 temp2.Previous = temp1;
             }
         }
 
-        public void Swap(DoubleLink a, DoubleLink b)
+        public void Swap(DoubleLink<T> a, DoubleLink<T> b)
         {
             if (a==b)
             {
                 throw new Exception("Cannot Swap!");
             }
 
-            DoubleLink beforeA = a.Previous;
-            DoubleLink afterA = a.Next;
+            DoubleLink<T> beforeA = a.Previous;
+            DoubleLink<T> afterA = a.Next;
 
-            DoubleLink beforeB = b.Previous;
-            DoubleLink afterB = b.Next;
+            DoubleLink<T> beforeB = b.Previous;
+            DoubleLink<T> afterB = b.Next;
 
 
 

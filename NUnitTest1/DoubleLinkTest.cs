@@ -5,17 +5,17 @@ namespace Tests
 {
     public class DoubleLinkTest
     {
-        DoubleLink node1, node2, node3, node4, node5, node6;
+        DoubleLink<int> node1, node2, node3, node4, node5, node6;
 
         [SetUp]
         public void Setup()
         {  
-            node1 = new DoubleLink(1);
-            node2 = new DoubleLink(2);
-            node3 = new DoubleLink(3);
-            node4 = new DoubleLink(4);
-            node5 = new DoubleLink(5);
-            node6 = new DoubleLink(6);
+            node1 = new DoubleLink<int>(1);
+            node2 = new DoubleLink<int>(2);
+            node3 = new DoubleLink<int>(3);
+            node4 = new DoubleLink<int>(4);
+            node5 = new DoubleLink<int>(5);
+            node6 = new DoubleLink<int>(6);
 
             node1.Next = node2;
             node2.Next = node3;
@@ -43,14 +43,14 @@ namespace Tests
         [Test]
         public void InsertAfter()
         { 
-            DoubleLink InsertedNodeInMiddle = new DoubleLink(11);
+            DoubleLink<int> InsertedNodeInMiddle = new DoubleLink<int>(11);
             InsertedNodeInMiddle.InsertAfter(node3);
             Assert.AreEqual(InsertedNodeInMiddle, node3.Next);
             Assert.AreEqual(InsertedNodeInMiddle, node4.Previous);
             Assert.AreEqual(node4, InsertedNodeInMiddle.Next);
             Assert.AreEqual(node3, InsertedNodeInMiddle.Previous);
 
-            DoubleLink InsertedNodeInLast = new DoubleLink(12);
+            DoubleLink<int> InsertedNodeInLast = new DoubleLink<int>(12);
             InsertedNodeInLast.InsertAfter(node6);
             Assert.AreEqual(node6, InsertedNodeInLast.Previous);
             Assert.AreEqual(InsertedNodeInLast.Next, null);
@@ -62,14 +62,14 @@ namespace Tests
         [Test]
         public void InsterBefore()
         {
-            DoubleLink InsertedNodeInMiddle = new DoubleLink(21);
+            DoubleLink<int> InsertedNodeInMiddle = new DoubleLink<int>(21);
             InsertedNodeInMiddle.InsterBefore(node4);
             Assert.AreEqual(node4.Previous, InsertedNodeInMiddle);
             Assert.AreEqual(node3.Next, InsertedNodeInMiddle);
             Assert.AreEqual(InsertedNodeInMiddle.Previous, node3);
             Assert.AreEqual(InsertedNodeInMiddle.Next, node4);
 
-            DoubleLink InsertedNodeInFrist = new DoubleLink(22);
+            DoubleLink<int> InsertedNodeInFrist = new DoubleLink<int>(22);
             InsertedNodeInFrist.InsterBefore(node1);
             Assert.AreEqual(InsertedNodeInFrist.Next, node1);
             Assert.AreEqual(InsertedNodeInFrist.Previous, null);
