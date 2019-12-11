@@ -7,6 +7,7 @@ namespace ConsoleApp1.Method
     public class BinarySeek
     {
         //实现二分查找，方法名BinarySeek()
+        public int SeekedNumIndex;
         public int BinaryOfSeek(int[] arr, int num, int j, int i = 0)//传入数组，查找的数字，     
         {
             int k;
@@ -17,7 +18,7 @@ namespace ConsoleApp1.Method
                 if (arr[k] == num)
                 {
                     //Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k + 1) + "个数字。");
-                    k= k + 1;
+                    SeekedNumIndex = k + 1;
                 }
                 else if (arr[k] < num)
                 {
@@ -34,7 +35,7 @@ namespace ConsoleApp1.Method
                 if (arr[k] == num)
                 {
                     //Console.WriteLine("找出的数字：" + arr[k] + ",第" + (k + 1) + "个数字。");
-                    k = k + 1;
+                    SeekedNumIndex = k + 1;
                 }
                 else if (arr[k] < num)
                 {
@@ -46,7 +47,7 @@ namespace ConsoleApp1.Method
                 }
                 
             }
-            return k;
+            return SeekedNumIndex;
         }
     }
 }

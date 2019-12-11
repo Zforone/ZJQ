@@ -21,13 +21,15 @@ namespace Tests
             //Random num = new Random();
             //int randomNum = num.Next(0, 6);
             //double i = arr[randomNum];
-            
-            //Assert.AreEqual(seek.BinaryOfSeek(arr, 99, arr.Length), 1);
-            //Assert.AreEqual(seek.BinaryOfSeek(arr, 111, arr.Length), 2);
-            //Assert.AreEqual(seek.BinaryOfSeek(arr, 222, arr.Length), 3);
-            //Assert.AreEqual(seek.BinaryOfSeek(arr, 333, arr.Length), 4);
-            //Assert.AreEqual(seek.BinaryOfSeek(arr, 400, arr.Length), 5);
-            //Assert.AreEqual(seek.BinaryOfSeek(arr, 555, arr.Length), 6);
+            seek.BinaryOfSeek(arr, 99, arr.Length);
+            Assert.AreEqual(seek.SeekedNumIndex, 1);
+
+            seek.BinaryOfSeek(arr, 111, arr.Length);
+            Assert.AreEqual(seek.SeekedNumIndex, 2);
+
+            seek.BinaryOfSeek(arr, 222, arr.Length);
+            Assert.AreEqual(seek.SeekedNumIndex, 3);
+ 
 
         }
     }
