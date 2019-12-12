@@ -10,7 +10,7 @@ namespace ConsoleApp1._17bang
         //一个评论必须有一个它所评论的文章
         public Comment(Article article)
         {
-
+            Article = article;
         }
         public Article Article { get; set; }
     }
