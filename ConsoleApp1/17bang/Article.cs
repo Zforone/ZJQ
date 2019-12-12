@@ -23,6 +23,9 @@ namespace ConsoleApp1
         //一篇文章可以有多个关键字，
         internal IList<Keyword> KeyWord { get; set; }
 
+        //一篇文章可以有多个评论
+        internal IList <Comment> Comments { get; set; }
+
         public override void Publish()
         {
             //内容（Content）发布（Publish）的时候检查其作者（Author）是否为空，如果为空抛出“参数为空”异常
