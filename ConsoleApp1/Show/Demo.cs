@@ -17,4 +17,25 @@ namespace ConsoleApp1.Method
             this.j = j;
         }
     }
+    //用代码演示泛型接口的协变/逆变 
+    public interface IInterfaceA</*out*/in T>
+    {
+
+    }
+    
+    public class classA 
+    {
+
+    }
+    public class classB : classA
+    {
+
+    }
+    public class classC : IInterfaceA<classA>
+    {
+
+    }
+
+
 }
+

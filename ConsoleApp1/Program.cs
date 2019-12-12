@@ -69,9 +69,13 @@ namespace ConsoleApp1
             //Console.WriteLine(user.TokenManager.Has());
 
 
-            double[] score = { 88.5, 95, 86, 99, 98 };
-            GetMax getMax = new GetMax();
-            Console.WriteLine(getMax.GetMaxInArray(score));
+            //IInterfaceA<classB> interfaceA = new classC();
+            //IInterfaceA<classA> interfaceB = interfaceA;
+
+            IInterfaceA<classA> interfaceA = new classC();
+            IInterfaceA<classB> interfaceB = interfaceA;
+
+
             Console.ReadLine();
         }
         ////将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
