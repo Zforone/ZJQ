@@ -7,13 +7,13 @@ namespace ConsoleApp1.Method
 {
     public class DoubleLink<T>
     {
-        public DoubleLink(int NodeValue)
+        public DoubleLink(T NodeValue)
         {
             Value = NodeValue;
         }
         public DoubleLink<T> Next { get;  set; }
         public DoubleLink<T> Previous { get;  set; }
-        public int Value { get; set; }
+        public T Value { get; set; }
 
         public bool IsHead
         {
@@ -25,10 +25,10 @@ namespace ConsoleApp1.Method
             get { return Next == null; }
         }
 
-        public DoubleLink<T> FindBy(int value)
+        public DoubleLink<T> FindBy(T value)
         {
             DoubleLink<T> temp = new DoubleLink<T>(value);
-            if (value ==this.Value)
+            if (this.Value.Equals(value))
             {
                 temp = this;
             }
