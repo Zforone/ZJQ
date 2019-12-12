@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleApp1._17bang;
+using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace ConsoleApp1
@@ -17,6 +19,9 @@ namespace ConsoleApp1
         {
 
         }
+
+        //一篇文章可以有多个关键字，
+        internal IList<Keyword> KeyWord { get; set; }
 
         public override void Publish()
         {
