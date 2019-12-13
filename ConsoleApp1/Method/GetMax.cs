@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ConsoleApp1.Method
 {
-     public class GetMax
+     public class GetMax 
     {
         public double GetMaxInArray(double[] score)
         {
