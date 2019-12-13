@@ -20,7 +20,15 @@ namespace ConsoleApp1
         //}
         //protected string kind;
 
-        public abstract void Publish();
+        public virtual void Publish()
+        {
+            //内容（Content）发布（Publish）的时候检查其作者（Author）是否为空，如果为空抛出“参数为空”异常
+            if (Author == null)
+            {
+                throw new ArgumentNullException();
+            }
+            _publishTime = DateTime.Now;
+        }
         public abstract void Commentary();
 
         //之前的Content类，其中的CreateTime（创建时间）和PublishTime（发布时间）都是只读的属性，

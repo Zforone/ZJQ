@@ -68,13 +68,6 @@ namespace ConsoleApp1
 
         public override void Publish()
         {
-            //内容（Content）发布（Publish）的时候检查其作者（Author）是否为空，如果为空抛出“参数为空”异常
-            if (Author == null)
-            {
-                throw new ArgumentNullException();
-            }
-            _publishTime =DateTime.Now;
-            Author.HelpMoney -= Reward;
             
         }
         
