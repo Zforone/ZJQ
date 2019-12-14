@@ -26,6 +26,16 @@ namespace ConsoleApp1
         //一篇文章可以有多个评论
         internal IList <Comment> Comments { get; set; }
 
+
+
+        private Keyword[] _keyWord = new Keyword[10];
+        //public Keyword[] keyWord { get { return _keyWord; } set { _keyWord = value; } } 
+        public Keyword this[int index]
+        {
+            get { return _keyWord[index]; }
+            set { _keyWord[index] = value; }
+        }
+
         public override void Publish()
         {
             
@@ -51,14 +61,21 @@ namespace ConsoleApp1
             Executor.HelpPoint += 1;
             Console.WriteLine("Article评论！");
         }
-        //在Content之外封装一个方法，可以修改Content的CreateTime和PublishTime
-        //public void changeTime(DateTime createTime, DateTime publishTime)
-        //{
-        //    FieldInfo createField = typeof(Content).GetField("_createTime");
-        //    createField.SetValue(this, createTime);
+        public void Alter(Content content, DateTime dateTime, TimeType timeType)
+        {
+            //在Content之外封装一个方法，可以修改Content的CreateTime和PublishTime
+            Type type = typeof(Content);
+            FieldInfo fieldInfo;
+            fieldInfo = type.GetField(timeType.ToString(), BindingFlags.NonPublic | BindingFlags.Instance);
+            fieldInfo.SetValue(timeType, dateTime);
 
-        //    FieldInfo publishField = typeof(Content).GetField("_publishTime");
-        //    publishField.SetValue(this, publishTime);
-        //}
+        }
+
+        public enum TimeType
+        {
+            _publishTime,
+            _createTime
+        }
+
     }
 }

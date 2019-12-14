@@ -2,6 +2,7 @@
 using System;
 using System.Reflection;
 using ConsoleApp1;
+using static ConsoleApp1.Article;
 
 namespace ConsoleApp1
 {
@@ -18,8 +19,12 @@ namespace ConsoleApp1
             ////problem.Reward = -10;
             ////problem.Author = new User();
             //Suggest suggest = new Suggest();
-            ////Article article = new Article();
-            ////Content content = new Article();
+            //Article article = new Article();
+            //article.Publish();
+            //Content content = new Article();
+            //DateTime dateTime = new DateTime(2019, 12, 1);
+            //article.Alter(content, dateTime,content.timeType);
+
 
             ////在Main()函数调用ContentService时，捕获一切异常，并记录（）异常的消息和堆栈信息
             //try
@@ -32,29 +37,24 @@ namespace ConsoleApp1
             //{
             //    throw new Exception(e.StackTrace + e.Message);                
             //}
+            DoubleLink<int> DoubleLinkValues = new DoubleLink<int>(1);
+            DoubleLinkValues.Next = new DoubleLink<int>(2);
+            DoubleLinkValues.Next.Next = new DoubleLink<int>(3);
+            //new DoubleLink<int>(2).InsertAfter(DoubleLinkValues).;
+            //new DoubleLink<int>(3).InsertAfter(DoubleLinkValues);
+            //new DoubleLink<int>(4).InsertAfter(DoubleLinkValues);
+            //new DoubleLink<int>(5).InsertAfter(DoubleLinkValues);
 
+            foreach (var item in DoubleLinkValues)
+            {
+                Console.WriteLine(item);
+            }
 
             //problem.Reward = -1;
-            //Console.WriteLine(problem.Reward);
+            //Console.WriteLine(problem.Reward); 
 
 
-            //用反射获取Publish()上的特性实例，输出其中包含的信息
-            //ContentService contentService = new ContentService();
-            //contentService.Publish(content);
-            //Attribute attribute = Attribute.GetCustomAttribute(
-            //    typeof(ContentService),             
-            //    typeof(HelpMoneyChanged)      
-            //);
-            //object obj = attribute;
-            //Console.WriteLine(((HelpMoneyChanged)obj));
-
-
-            //DateTime dateTime = new DateTime(2019, 12, 05);
-            //Console.WriteLine(article.PublishTime);
-            //Console.WriteLine(article.CreateTime);
-            //article.changeTime(dateTime, dateTime);
-            //Console.WriteLine(article.PublishTime);
-            //Console.WriteLine(article.CreateTime);
+            
 
             //new ContentService().Agree(/*suggest,user*/article, user);
             //new ContentService().Disagree(suggest, user/*suggest,user*/);
@@ -72,8 +72,9 @@ namespace ConsoleApp1
             //IInterfaceA<classB> interfaceA = new classC();
             //IInterfaceA<classA> interfaceB = interfaceA;
 
-            IInterfaceA<classA> interfaceA = new classC();
-            IInterfaceA<classB> interfaceB = interfaceA;
+            //IInterfaceA<classA> interfaceA = new classC();
+            //IInterfaceA<classB> interfaceB = interfaceA;
+
 
 
             Console.ReadLine();

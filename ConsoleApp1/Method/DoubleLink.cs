@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 
 namespace ConsoleApp1.Method
 {
-    public class DoubleLink<T>
+    public class DoubleLink<T> : IEnumerable<T>
     {
         public DoubleLink(T NodeValue)
         {
@@ -132,5 +133,67 @@ namespace ConsoleApp1.Method
 
 
         }
+
+
+        
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new DoubleLinkIEnumerable(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public class DoubleLinkIEnumerable : IEnumerator<T>
+        {
+            private DoubleLink<T> _node;
+            int position;
+            int number;
+
+            public DoubleLinkIEnumerable(DoubleLink<T> node)
+            {
+                number ++;
+                _node = node;
+                position = -1;
+            }
+            //public DoubleLink<T> Current { get; set; }
+            public T Current { get { return _node.Value; } }
+            object IEnumerator.Current => throw new NotImplementedException();
+
+            //T IEnumerator<T>.Current => throw new NotImplementedException();
+
+            public bool MoveNext()
+            {
+                //bool result = _node != null;
+                if (_node != null)
+                {
+                    position++;
+                    _node = _node.Next; 
+                }
+                //return result;
+                return position <= number;
+                
+
+            }
+            public void Dispose()
+            {
+                //position = -1;
+
+                //_node.Next = _node;
+                //throw new NotImplementedException();
+            }
+
+            public void Reset()
+            {
+                //position = -1;
+
+                //throw new NotImplementedException();
+            }
+        }
     }
+
+
 }
