@@ -13,7 +13,7 @@ namespace ConsoleApp1
 
     //思考之前的Content类，该将其抽象成抽象类还是接口？为什么？并按你的想法实现。
 
-    internal abstract class Content :Entity<int> 
+    internal abstract class Content : Entity<int>
     {
         //protected Content(string thekind)
         //{
@@ -32,7 +32,7 @@ namespace ConsoleApp1
         }
         public abstract void Commentary();
 
-        
+
 
         //之前的Content类，其中的CreateTime（创建时间）和PublishTime（发布时间）都是只读的属性，
         //想一想他们应该在哪里赋值比较好，并完成相应代码
@@ -44,18 +44,40 @@ namespace ConsoleApp1
         {
             _createTime = DateTime.Now;
         }
-        
+
 
         public User _Author;
         public User Author { get { return _Author; } set { _Author = value; } }
-        
-        public User _Executor ;//执行者
+
+        public User _Executor;//执行者
         public User Executor { get { return _Executor; } set { _Executor = value; } }
-        
-        public string Title { get; set; }
-        
+
+
+        //确保文章（Content）的标题不能为null值，
+        //也不能为一个或多个空字符组成的字符串，
+        //而且如果标题前后有空格，也予以删除
+        private string _Title;
+        public string Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("不能为空！");
+                }
+                else
+                {
+                    _Title = value.Trim();
+                }
+            }
+        }
+
         public string Body { get; set; }
 
-              
+
     }
 }
