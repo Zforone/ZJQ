@@ -65,7 +65,7 @@ namespace ConsoleApp1
             }
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new Exception("不能为空！");
                 }
