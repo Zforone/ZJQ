@@ -7,7 +7,7 @@ namespace ConsoleApp1._17bang
     //关键字（Keyword）类
     class Keyword
     {
-        public string Comment { get; set; }
+        public string KeywordName { get; set; }
         public int Used { get; set; }
         public Keyword UpperLevel { get; set; }
         //一个关键字可以对应多篇文章

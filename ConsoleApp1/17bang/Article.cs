@@ -21,7 +21,7 @@ namespace ConsoleApp1
         }
 
         //一篇文章可以有多个关键字，
-        internal IList<Keyword> KeyWord { get; set; }
+        internal IList<Keyword> KeyWords { get; set; }
 
         //一篇文章可以有多个评论
         internal IList <Comment> Comments { get; set; }
@@ -34,12 +34,7 @@ namespace ConsoleApp1
         {
             get { return _keyWord[index]; }
             set { _keyWord[index] = value; }
-        }
-
-        public override void Publish()
-        {
-            
-        }
+        } 
 
         public void Agree(User voter)
         {

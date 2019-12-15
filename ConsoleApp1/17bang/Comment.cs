@@ -13,6 +13,7 @@ namespace ConsoleApp1._17bang
             Articles = article;
         }
         public Article Articles { get; set; }
+        public string Contents { get; set; }
         //每个文章和评论都有一个评价 
         public void Agree()
         {
