@@ -27,7 +27,9 @@ namespace ConsoleApp1
             //Content content = new Article();
             //DateTime dateTime = new DateTime(2019, 12, 1);
             //article.Alter(content, dateTime,content.timeType);
-
+            User user = new User();
+            user.BedWords = new List<string> { "17bang" };
+            user.Name = "17banggg";
 
             ////在Main()函数调用ContentService时，捕获一切异常，并记录（）异常的消息和堆栈信息
             //try

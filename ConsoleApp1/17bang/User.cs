@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp1
 {
@@ -18,6 +20,11 @@ namespace ConsoleApp1
 
     internal sealed class User : Entity<int>, ISendMessage, IChat
     {
+        static User()
+        {
+            User user = new User();
+            user.BedWords = new List<string> { };
+        }
         void ISendMessage.Send()
         {
             Console.WriteLine("ISendMessage");
@@ -27,7 +34,9 @@ namespace ConsoleApp1
             Console.WriteLine("IChat");
         }
 
-        internal string _name;
+        //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词
+        internal IList<string> BedWords { get; set; }
+        private string _name;
         internal string Name
         {
             get { return _name; }
@@ -35,10 +44,39 @@ namespace ConsoleApp1
             {
                 if (value == "Admin")
                 {
-                    value = "系统管理员"; 
+                    value = "系统管理员";
+                    _name = value;
+
                 }
-                _name = value;
+                else if (SeekWord(value))
+                {
+                    Console.WriteLine("昵称不规范！");
+                }
+                else
+                {
+                    _name = value;
+
+                }
+
             }
+        }
+        private bool resutle;
+        private bool SeekWord(string word)
+        {
+            for (int i = 0; i < BedWords.Count; i++)
+            {
+                if (word.Contains(BedWords[i]))
+                {
+                    resutle = true;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+
+            }
+            return resutle;
         }
 
         //将TokenManager作为User类的属性
