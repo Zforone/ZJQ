@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ConsoleApp1.Method;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -48,7 +50,7 @@ namespace ConsoleApp1
                     _name = value;
 
                 }
-                else if (SeekWord(value))
+                else if (TestName(value))
                 {
                     Console.WriteLine("昵称不规范！");
                 }
@@ -60,14 +62,14 @@ namespace ConsoleApp1
 
             }
         }
-        private bool resutle;
-        private bool SeekWord(string word)
+        private bool _resutleOfTestName;
+        private bool TestName(string name)
         {
             for (int i = 0; i < BedWords.Count; i++)
             {
-                if (word.Contains(BedWords[i]))
+                if (name.Contains(BedWords[i]))
                 {
-                    resutle = true;
+                    _resutleOfTestName = true;
                     break;
                 }
                 else
@@ -76,7 +78,7 @@ namespace ConsoleApp1
                 }
 
             }
-            return resutle;
+            return _resutleOfTestName;
         }
 
         //将TokenManager作为User类的属性
@@ -87,7 +89,32 @@ namespace ConsoleApp1
         //    请据此设计一个枚举类型Role（角色），并将其用于User对象，让User对象可以角色属性
         internal Role userLevel;
 
-        private int Password { get; set; }
+
+        //确保用户（User）的密码（Password）：
+        //长度不低于6
+        //必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成
+        private string _passWord;
+        internal string Password
+        {
+            get { return _passWord; }
+            set
+            {
+                if (value.Length>=6
+                    && TestPassWord.HasLower(value)
+                    && TestPassWord.HasUpper(value)
+                    && TestPassWord.HasNumber(value)
+                    && TestPassWord.HasOther(value)
+                    )
+                {
+                    _passWord = value;
+                }
+                else
+                {
+                    Console.WriteLine("password is too simple!");
+                }
+            }
+        }
+
 
         internal User InvitedBy { get; set; }
 
