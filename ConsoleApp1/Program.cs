@@ -28,10 +28,10 @@ namespace ConsoleApp1
             //Content content = new Article();
             //DateTime dateTime = new DateTime(2019, 12, 1);
             //article.Alter(content, dateTime,content.timeType);
-            User user = new User() {Password="Qq@777" };
-            TestName.BedWords = new List<string> { "17bang" , "admin" , "管理员" };
-            user.Name = "1ggg";
-            
+            //User user = new User() {Password="Qq@777" };
+            //TestName.BedWords = new List<string> { "17bang" , "admin" , "管理员" };
+            //user.Name = "1ggg";
+
 
             ////在Main()函数调用ContentService时，捕获一切异常，并记录（）异常的消息和堆栈信息
             //try
@@ -81,41 +81,13 @@ namespace ConsoleApp1
 
             //IInterfaceA<classA> interfaceA = new classC();
             //IInterfaceA<classB> interfaceB = interfaceA;
-
-            
+            string resulte = Function.mimicJoin('*', "1", "2", "5", "8", "*");
+            Console.WriteLine(resulte);
             
 
             Console.ReadLine();
         }
-        ////将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
-        ////自我介绍：SelfIntroduce()
-        //static void  SelfIntroduce(int age,bool isFemale,double height,string fromCity)
-        //{
-        //    Console.WriteLine("年龄: " + age  + "\n是否男生：" + isFemale + "\n身高：" + height + "米" + "\n来自: " + fromCity);
-        //    Console.ReadLine();        
-        //}
-        ////加减乘除：Add() / Minus() / Mutiply() / Divide()
-        //    static void Add(double fristnum,double secendnum)
-        //{
-        //    Console.WriteLine(fristnum + secendnum);
-        //    Console.ReadLine(); 
-        //}
-        //static void Minus(double fristnum, double secendnum)
-        //{
-        //    Console.WriteLine(fristnum - secendnum);
-        //    Console.ReadLine();
-        //}
-        //static void Mutiply(double fristnum, double secendnum)
-        //{
-        //    Console.WriteLine(fristnum * secendnum);
-        //    Console.ReadLine();
-        //}
-        //static void Divide(double fristnum, double secendnum)
-        //{
-        //    Console.WriteLine(fristnum / secendnum);
-        //    Console.ReadLine();
-        //}
-
+        
         ////取字符值：GetUnicode()
         //static void GetUnicode(char unicode)
         //{

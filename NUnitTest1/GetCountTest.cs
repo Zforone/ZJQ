@@ -24,14 +24,14 @@ namespace Tests
             string example6 = "17bangbang";
             string example7 = "ԴջԴջ";
             string example8 = "ԴջԴ";
-            Assert.AreEqual(Funtion.GetCount(example1, "1"), 1);
-            Assert.AreEqual(Funtion.GetCount(example2, "3"), 4);
-            Assert.AreEqual(Funtion.GetCount(example3, "45"), 2);
-            Assert.AreEqual(Funtion.GetCount(example4, "123"), 2);
-            Assert.AreEqual(Funtion.GetCount(example5, "17"), 2);
-            Assert.AreEqual(Funtion.GetCount(example6, "17"), 1);
-            Assert.AreEqual(Funtion.GetCount(example7, "Դջ"), 2);
-            Assert.AreEqual(Funtion.GetCount(example8, "ջ"), 1);
+            Assert.AreEqual(Function.GetCount(example1, "1"), 1);
+            Assert.AreEqual(Function.GetCount(example2, "3"), 4);
+            Assert.AreEqual(Function.GetCount(example3, "45"), 2);
+            Assert.AreEqual(Function.GetCount(example4, "123"), 2);
+            Assert.AreEqual(Function.GetCount(example5, "17"), 2);
+            Assert.AreEqual(Function.GetCount(example6, "17"), 1);
+            Assert.AreEqual(Function.GetCount(example7, "Դջ"), 2);
+            Assert.AreEqual(Function.GetCount(example8, "ջ"), 1);
         }
 
     }

@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApp1
 {
-    public class Funtion
+    public class Function
     {
         //实现方法：
         //IndexOf()，通过遍历在无序数组中
@@ -35,6 +35,8 @@ namespace ConsoleApp1
                 }
             }
         }
+
+
         //构造一个能装任何数据的数组，并完成数据的读写
         public void GetArr()
         {
@@ -56,8 +58,8 @@ namespace ConsoleApp1
             Console.WriteLine(objarr[4]);
         }
 
-        //实现GetCount(string container, string target)方法，可以统计出container中有多少个target
 
+        //实现GetCount(string container, string target)方法，可以统计出container中有多少个target
         public static int GetCount(string container, string target)
         {
             int resulte = 0;
@@ -84,8 +86,31 @@ namespace ConsoleApp1
             }
             return resulte;
         }
+
+
+        //不使用string自带的Join()方法，定义一个mimicJoin()方法，
+        //能将若干字符串用指定的分隔符连接起来，
+        //比如：mimicJoin("-","a","b","c","d")，其运行结果为：a-b-c-d
+
+        public static String mimicJoin(char separator, params string[] values)
+        {
+            string result=string.Empty;
+            for (int i=0;i < values.Length; i++)
+            {
+                
+                if (i == values.Length - 1)
+                {
+                    result += values[i];
+                }
+                else
+                {
+                    result = result + values[i] + separator;
+                }
+
+            }
+            return result;
+        }
+
     }
-
-
 }
 
