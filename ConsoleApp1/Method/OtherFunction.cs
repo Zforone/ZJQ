@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace ConsoleApp1
 {
-    public class SomeFuntion
+    public class Funtion
     {
         //实现方法：
         //IndexOf()，通过遍历在无序数组中
@@ -54,6 +54,35 @@ namespace ConsoleApp1
             Console.WriteLine(objarr[2]);
             Console.WriteLine(objarr[3]);
             Console.WriteLine(objarr[4]);
+        }
+
+        //实现GetCount(string container, string target)方法，可以统计出container中有多少个target
+
+        public static int GetCount(string container, string target)
+        {
+            int resulte = 0;
+            int targetLength = target.Length;
+            for (int i = 0; i < container.Length; i++)
+            {
+                if (container.Length - i >= targetLength)
+                {
+                    string character = container.Substring(i, targetLength);
+                    if (target == character)
+                    {
+                        resulte++;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+            return resulte;
         }
     }
 
