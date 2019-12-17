@@ -22,11 +22,6 @@ namespace ConsoleApp1
 
     internal sealed class User : Entity<int>, ISendMessage, IChat
     {
-        static User()
-        {
-            User user = new User();
-            user.BedWords = new List<string> { };
-        }
         void ISendMessage.Send()
         {
             Console.WriteLine("ISendMessage");
@@ -37,7 +32,7 @@ namespace ConsoleApp1
         }
 
         //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词
-        internal IList<string> BedWords { get; set; }
+        
         private string _name;
         internal string Name
         {
@@ -50,7 +45,7 @@ namespace ConsoleApp1
                     _name = value;
 
                 }
-                else if (TestName(value))
+                else if (TestName.TestOfName(value))
                 {
                     Console.WriteLine("昵称不规范！");
                 }
@@ -62,24 +57,7 @@ namespace ConsoleApp1
 
             }
         }
-        private bool _resutleOfTestName;
-        private bool TestName(string name)
-        {
-            for (int i = 0; i < BedWords.Count; i++)
-            {
-                if (name.Contains(BedWords[i]))
-                {
-                    _resutleOfTestName = true;
-                    break;
-                }
-                else
-                {
-                    continue;
-                }
-
-            }
-            return _resutleOfTestName;
-        }
+        
 
         //将TokenManager作为User类的属性
         internal TokenManager TokenManager { get; set; }
@@ -121,6 +99,7 @@ namespace ConsoleApp1
         public int HelpMoney { get ; set ; }
         public int HelpPoint { get; set; }
         public int HelpBeans { get; set; }
+
 
         internal void Register(string name, int password, User invitedby)
         {
