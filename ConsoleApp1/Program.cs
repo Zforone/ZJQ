@@ -81,9 +81,11 @@ namespace ConsoleApp1
 
             //IInterfaceA<classA> interfaceA = new classC();
             //IInterfaceA<classB> interfaceB = interfaceA;
-            string resulte = Function.mimicJoin('*', "1", "2", "5", "8", "*");
-            Console.WriteLine(resulte);
-            
+
+            //string resulte = Function.mimicJoin('*', "1", "2", "5", "8", "*");
+            //Console.WriteLine(resulte);
+
+            AboutDelegate.Transfer();
 
             Console.ReadLine();
         }
