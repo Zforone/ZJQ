@@ -42,17 +42,28 @@ namespace ConsoleApp1.Method
             };
             new ContentService().Publish(article3);
 
+            Article article4 = new Article()
+            {
+                Author = article1.Author,
+                Title = "飞哥非常帅",
+                KeyWords = new List<Keyword> { net, html,net }
+            };
+            new ContentService().Publish(article4);
+
             Comment comment1 = new Comment(article1) { Contents = "帅" };
             Comment comment2 = new Comment(article1) { Contents = "真帅" };
             Comment comment3 = new Comment(article1) { Contents = "非常帅" };
             Comment comment4 = new Comment(article2) { Contents = "源栈之花啊" };
             Comment comment5 = new Comment(article3) { Contents = "大佬" };
+            Comment comment6 = new Comment(article4) { Contents = "非常帅啊" };
+
 
             article1.Comments = new List<Comment> { comment1, comment2, comment3 };
             article2.Comments = new List<Comment> { comment4 };
             article3.Comments = new List<Comment> { comment5 };
+            article4.Comments = new List<Comment> { comment6 };
 
-            IEnumerable<Article> articles = new List<Article> { article1, article2, article3 };
+            IEnumerable<Article> articles = new List<Article> { article1, article2, article3 ,article4};
 
             //将之前作业的Linq查询表达式用Linq方法实现
             //找出“飞哥”发布的文章
@@ -61,12 +72,13 @@ namespace ConsoleApp1.Method
                           select a;
 
             var fgPaper2 = 
-                articles.Where(a => a.Author.Equals("飞哥"));
+                articles.Where(a => a.Author.Name.Equals("飞哥"));
 
             foreach (var item in fgPaper2)
             {
                 Console.WriteLine(item.Title);
             }
+            Console.WriteLine("-----------");
 
             //找出2019年1月1日以后“小鱼”发布的文章
             var xyPaper1 = from a in articles
@@ -74,12 +86,13 @@ namespace ConsoleApp1.Method
                            select a;
 
             var xyPaper2 = 
-                articles.Where(a => a.Author.Equals("小于") && a.PublishTime > new DateTime(2019, 1, 1));
+                articles.Where(a => a.Author.Name.Equals("小于") && a.PublishTime > new DateTime(2019, 1, 1));
 
             foreach (var item in xyPaper2)
             {
                 Console.WriteLine(item.Title);
             }
+            Console.WriteLine("-----------");
 
             //按发布时间升序 / 降序排列显示文章
             var time1 = from a in articles
@@ -94,6 +107,7 @@ namespace ConsoleApp1.Method
             {
                 Console.WriteLine(item.Title);
             }
+            Console.WriteLine("-----------");
 
             //统计每个用户各发布了多少篇文章
             var articlesNum1 = from a in articles
@@ -115,6 +129,7 @@ namespace ConsoleApp1.Method
             {
                 Console.WriteLine(item.name + ":" + item.num);
             }
+            Console.WriteLine("-----------");
 
             //找出包含关键字“C#”或“.NET”的文章
             var papers1 = from a in articles
@@ -128,6 +143,7 @@ namespace ConsoleApp1.Method
             {
                 Console.WriteLine(item.Title);
             }
+            Console.WriteLine("-----------");
 
             //找出评论数量最多的文章
             var max1 = from a in articles
@@ -137,36 +153,50 @@ namespace ConsoleApp1.Method
             var max2 = articles.OrderByDescending(a => a.Comments.Count);
 
             Console.WriteLine(max2.ToList().First().Title);
+            Console.WriteLine("-----------");
+
+            //找出每个作者最近发布的一篇文章 
+            var art =
+            articles.GroupBy(g => g.Author).Select(a =>a.OrderByDescending(p=>p.PublishTime).First() );
+            //from a in articles
+            //group a by a.Author into ga
+            //select (from a in ga
+            //        orderby a.PublishTime descending
+            //        select a).First();
+            foreach (var item in art)
+            {
+                Console.WriteLine(item.Title);
+            }
         }
 
 
         //public static void ArticlesOfFg(List<Article> articles)
         //{
-            
+
         //}
         //public static void ArticlesOfXy(List<Article> articles)
         //{
-            
+
         //}
 
         //public static void TimeSort(List<Article> articles)
         //{
-            
+
         //}
 
         //public static void ArticlesNum(List<Article> articles)
         //{
-           
+
         //}
 
         //public static void FindArticle(List<Article> articles)
         //{
-           
+
         //}
 
         //public static void Max(List<Article> articles)
         //{
-            
+
         //}    
     }
 }
