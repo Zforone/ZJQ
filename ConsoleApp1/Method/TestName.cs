@@ -6,6 +6,10 @@ namespace ConsoleApp1.Method
 {
     static class TestName
     {
+        static TestName()
+        {
+            TestName.BedWords = new List<string> { "17bang", "admin", "管理员" };
+        }
         internal static IList<string> BedWords { get; set; }
         private static bool _resutleOfTestName;
         public static bool TestOfName(string name)
