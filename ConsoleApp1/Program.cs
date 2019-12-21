@@ -7,6 +7,7 @@ using static ConsoleApp1.Article;
 using ConsoleApp1._17bang;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace ConsoleApp1
 {
@@ -74,20 +75,14 @@ namespace ConsoleApp1
             //user.TokenManager.Remove(Token.Admin);
             //Console.WriteLine(user.TokenManager.Has());
 
-
-            //IInterfaceA<classB> interfaceA = new classC();
-            //IInterfaceA<classA> interfaceB = interfaceA;
-
-            //IInterfaceA<classA> interfaceA = new classC();
-            //IInterfaceA<classB> interfaceB = interfaceA;
-
             //string resulte = Function.mimicJoin('*', "1", "2", "5", "8", "*");
             //Console.WriteLine(resulte);
 
             //AboutDelegate.Transfer();
 
-            UsedLinq.Do();
+            //UsedLinq.Do();
 
+            LinqToXML.GetXML();
             Console.ReadLine();
         }
         
