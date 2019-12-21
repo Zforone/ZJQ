@@ -9,6 +9,7 @@ namespace ConsoleApp1.Method
     {
         public static void GetXML()
         {
+            //生成一个XML对象
             XElement luckystack =
                 new XElement("articles",
                 new XComment(" 以下存放所有“源栈”所有文章！"),
@@ -38,6 +39,10 @@ namespace ConsoleApp1.Method
                     new XElement("authorId", "1")
                     ));
             Console.WriteLine(luckystack);
+
+            //以文件形式存放到磁盘中
+            XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), luckystack);
+            document.Save("E://XML.xml");
         }
     }
 }
