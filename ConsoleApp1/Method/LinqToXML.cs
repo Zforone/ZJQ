@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
@@ -56,12 +57,41 @@ namespace ConsoleApp1.Method
                             new XElement("authorId", "88")
                                         )
                             );
-            luckystack.Save("E:\\17bang.xml");
+            luckystack.Save("E:\\XMLadd.xml");
             Console.WriteLine(luckystack);
+
+
+            Console.WriteLine();
+            Console.WriteLine("-----分界线-----");
+            Console.WriteLine();
+
+
             //删除id = 12的评论
-            //改变id = 2的article：isDraft = false，title = 源栈培训：C#进阶-8：异步和并行
+            XElement comment =
+                (
+                from c in luckystack.Descendants("comment")
+                where c.Element("id").Value == "12"
+                select c
+                ).Single();
+            comment.Remove();
+            luckystack.Save("E:\\XMLremove.xml");
+            Console.WriteLine(luckystack);
 
+            Console.WriteLine();
+            Console.WriteLine("-----分界线-----");
+            Console.WriteLine();
 
+            //改变id = 12的article：isDraft = false，title = 源栈培训：C#进阶-8：异步和并行
+            XElement updata =
+                (
+                from u in luckystack.Descendants("article")
+                where u.Element("id").Value == "2"
+                select u
+                ).Single();
+            updata.SetAttributeValue("isDraft", "false");
+            updata.SetElementValue("title", "源栈培训：C#进阶-8：异步和并行");
+            luckystack.Save("E:\\XMLupdata.xml");
+            Console.WriteLine(luckystack);
 
         }
     }
