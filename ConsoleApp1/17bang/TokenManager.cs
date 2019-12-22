@@ -1,8 +1,9 @@
-﻿using System;
+﻿using ConsoleApp1._17bang;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConsoleApp1._17bang
 {
     //声明一个令牌管理（TokenManager）类：
     //使用私有的Token枚举_tokens存储所具有的权限

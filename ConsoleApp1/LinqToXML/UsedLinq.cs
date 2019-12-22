@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApp1.Method
+namespace ConsoleApp1.LinqToXML
 {
     public static class UsedLinq
     {

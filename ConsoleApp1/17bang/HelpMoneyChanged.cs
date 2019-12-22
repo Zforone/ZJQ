@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConsoleApp1._17bang
 {
     //自定义一个特性HelpMoneyChanged（帮帮币变化）：
     //该特性只能用于方法

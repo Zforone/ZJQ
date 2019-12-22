@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConsoleApp1._17bang
 {
     //定义一个仓库（Repoistory）类，其中包含：
     //一个int类型的常量version

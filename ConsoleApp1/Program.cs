@@ -3,7 +3,6 @@ using ConsoleApp1.Method;
 using System;
 using System.Reflection;
 using ConsoleApp1;
-using static ConsoleApp1.Article;
 using ConsoleApp1._17bang;
 using System.Collections.Generic;
 using System.Linq;

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1.LinqToXML
+namespace ConsoleApp1.Method
 {
      public class GetMax 
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConsoleApp1._17bang
 {
     //●帮帮币版块，定义一个类HelpMoney,包含你认为应该包含的字段和方法
     class HelpMoney :Entity<int> 

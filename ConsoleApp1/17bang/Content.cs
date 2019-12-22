@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using static ConsoleApp1.Article;
 
-namespace ConsoleApp1
+
+namespace ConsoleApp1._17bang
 {
     //观察一起帮的求助（Problem）、文章（Article）和意见建议（Suggest），根据他们的特点，抽象出一个父类：内容（Content）
     //Content中有一个字段：kind，记录内容的种类（problem/article/suggest等），只能被子类使用

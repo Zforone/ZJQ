@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.Method
 {
     
     //设计一个类FactoryContext，保证整个程序运行过程中，无论如何，

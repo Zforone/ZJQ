@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApp1.LinqToXML
+namespace ConsoleApp1.Method
 {
     public static class Operated
     {

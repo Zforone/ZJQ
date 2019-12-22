@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace ConsoleApp1._17bang
 {
     //实例化文章和意见建议，调用他们：
     //继承自父类Content的属性和方法
