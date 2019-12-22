@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace ConsoleApp1.Method
+namespace ConsoleApp1.LinqToXML
 {
-    public static class LinqToXML
+    public static class XMLBase
     {
         public static void GetXML()
         {

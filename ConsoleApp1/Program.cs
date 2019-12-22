@@ -8,6 +8,7 @@ using ConsoleApp1._17bang;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using ConsoleApp1.LinqToXML;
 
 namespace ConsoleApp1
 {
@@ -82,13 +83,13 @@ namespace ConsoleApp1
 
             //UsedLinq.Do();
 
-            //LinqToXML.GetXML();
+            //XMLBase.GetXML();
 
             //再从磁盘中读取到内存中
             //XElement element = XElement.Load("E://XML.xml");
             //Console.WriteLine(element);
 
-            Operated.FileOperated();
+            //Operated.FileOperated();
             //List<string> collection = new List<string>();
             //collection?.Add("1");
             //foreach (var item in collection)

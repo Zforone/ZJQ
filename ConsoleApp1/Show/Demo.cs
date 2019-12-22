@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1.Method
+namespace ConsoleApp1.Show
 {
     public class Demo
     {
