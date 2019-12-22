@@ -30,11 +30,17 @@ namespace ConsoleApp2
             PointF pointF = new PointF(80, 80);
 
             g.Clear(Color.AliceBlue);
-            for (int i = 1; i < 11; i++)
-            {                
-                g.DrawLine(new Pen(Color.Blue), new Point(110+5*i, 110), new Point( 70+5*i, 80));
-                g.DrawLine(new Pen(Color.Yellow), new Point(150 , 80+5*i), new Point(80 , 60+5*i));
+            for (int i = 0; i < 10; i++)
+            {                 
+                int x = random.Next(80, 130);
+                int y = random.Next(80, 130);
+                int z = random.Next(80, 130);
+                g.DrawLine(new Pen(Color.Blue), new Point(x, y), new Point(y, z));
+                g.DrawLine(new Pen(Color.Yellow), new Point(x, z), new Point(z, y));
+                PointF[] points = { new PointF(x, y), new PointF(x, z), new PointF(y, z) };
+                g.DrawCurve(new Pen(Color.Red), points);
             }
+            
             g.DrawString(slogan,
                 font,
                 new SolidBrush(Color.Red),
