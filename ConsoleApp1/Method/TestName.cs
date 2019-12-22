@@ -11,23 +11,16 @@ namespace ConsoleApp1.Method
             TestName.BedWords = new List<string> { "17bang", "admin", "管理员" };
         }
         internal static IList<string> BedWords { get; set; }
-        private static bool _resutleOfTestName;
         public static bool TestOfName(string name)
         {
             for (int i = 0; i < BedWords.Count; i++)
             {
                 if (name.Contains(BedWords[i]))
                 {
-                    _resutleOfTestName = true;
-                    break;
+                    return true;
                 }
-                else
-                {
-                    continue;
-                }
-
             }
-            return _resutleOfTestName;
+            return false;
         }
     }
 }

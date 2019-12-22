@@ -77,12 +77,7 @@ namespace ConsoleApp1
             get { return _passWord; }
             set
             {
-                if (value.Length>=6
-                    && TestPassWord.HasLower(value)
-                    && TestPassWord.HasUpper(value)
-                    && TestPassWord.HasNumber(value)
-                    && TestPassWord.HasOther(value)
-                    )
+                if (value.Length>=6 && TestPassWord.Result(value))
                 {
                     _passWord = value;
                 }

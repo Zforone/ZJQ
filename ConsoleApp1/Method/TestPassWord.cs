@@ -6,99 +6,72 @@ namespace ConsoleApp1.Method
 {
     public static class TestPassWord
     {
-        private static bool _resutleOfTestPassWord;
-        public static bool HasUpper(string passWord)
+        public static bool HasUpper(string passWord,Func<byte,bool> check)
         {
             byte[] str = Encoding.Default.GetBytes(passWord);
-            int num;
+            byte num;
             for (int i = 0; i < str.Length; i++)
-            {
+            {                
                 num = str[i];
-                if (num >= 65 && num <= 90)
+                if (check(num))
                 {
-                    _resutleOfTestPassWord = true;
-                    break;
-                }
-                else
-                {
-                    _resutleOfTestPassWord=false;
-                }
+                    return true;
+                }               
             }
-            return _resutleOfTestPassWord;
-           
+            return false;           
         }
-        public static bool HasLower(string passWord)
+        public static bool HasLower(string passWord, Func<byte, bool> check)
         {
             byte[] str = Encoding.Default.GetBytes(passWord);
-            int num;
-
+            byte num;
             for (int i = 0; i < str.Length; i++)
             {
                 num = str[i];
-                if (num >= 97 && num <= 122)
+                if (check(num))
                 {
-                    _resutleOfTestPassWord = true;
-                    break;
-                }
-                else
-                {
-                    _resutleOfTestPassWord = false;
-                }
+                    return true;
+                }               
             }
-            return _resutleOfTestPassWord;
+            return false;
         }
-        public static bool HasNumber(string passWord)
+        public static bool HasNumber(string passWord, Func<byte, bool> check)
         {
             byte[] str = Encoding.Default.GetBytes(passWord);
-            int num;
+            byte num;
             for (int i = 0; i < str.Length; i++)
             {
                 num = str[i];
-                if (num >= 48 && num <= 57)
+                if (check(num))
                 {
-                    _resutleOfTestPassWord = true;
-                    break;
-                }
-                else
-                {
-                    _resutleOfTestPassWord = false;
+                    return true;
                 }
             }
-            return _resutleOfTestPassWord;
+            return false;
         }
-        public static bool HasOther(string passWord)
+        public static bool HasOther(string passWord, Func<byte, bool> check)
         {
             byte[] str = Encoding.Default.GetBytes(passWord);
-            int num;
+            byte num;
             for (int i = 0; i < str.Length; i++)
             {
                 num = str[i];
-                if (num >= 33 && num <= 47)
+                if (check(num))
                 {
-                    _resutleOfTestPassWord = true;
-                    break;
-                }
-                else if (num >= 58 && num <= 64)
-                {
-                    _resutleOfTestPassWord = true;
-                    break;
-                }
-                else if (num >= 91 && num <= 96)
-                {
-                    _resutleOfTestPassWord = true;
-                    break;
-                }
-                else if (num >= 123 && num <= 126)
-                {
-                    _resutleOfTestPassWord = true;
-                    break;
-                }
-                else
-                {
-                    _resutleOfTestPassWord = false;
+                    return true;
                 }
             }
-            return _resutleOfTestPassWord;
+            return false;
+        }
+        public static bool Result(string passWord)
+        {
+            return TestPassWord.HasLower(passWord, c => c >= 65 && c <= 90)
+                && TestPassWord.HasUpper(passWord, c => c >= 97 && c <= 122)
+                && TestPassWord.HasNumber(passWord, c => c >= 48 && c <= 57)
+                && TestPassWord.HasOther(passWord, c => (c >= 33 && c <= 47)
+                                                     || (c >= 58 && c <= 64)
+                                                     || (c >= 91 && c <= 96)
+                                                     || (c >= 123 && c <= 126)
+                                        );
         }
     }
 }
