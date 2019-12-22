@@ -82,12 +82,20 @@ namespace ConsoleApp1
 
             //UsedLinq.Do();
 
-            LinqToXML.GetXML();
+            //LinqToXML.GetXML();
 
             //再从磁盘中读取到内存中
             //XElement element = XElement.Load("E://XML.xml");
             //Console.WriteLine(element);
 
+            Operated.FileOperated();
+            //List<string> collection = new List<string>();
+            //collection?.Add("1");
+            //foreach (var item in collection)
+            //{
+            //    Console.WriteLine(item);
+
+            //}
 
 
             Console.ReadLine();
