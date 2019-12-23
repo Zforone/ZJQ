@@ -90,7 +90,7 @@ namespace ConsoleApp1
 
             //Operated.FileOperated();
 
-            XMLBase.GetXML();
+            //XMLBase.GetXML();
             XMLAdvanced.UserData();
 
 

@@ -11,7 +11,7 @@ namespace ConsoleApp1.LinqToXML
         public static void GetXML()
         {
             //生成一个XML对象
-            XElement articles =
+            XElement Articles =
                 new XElement("articles",
                 new XComment(" 以下存放所有“源栈”所有文章！"),
                 new XElement("article",
@@ -40,7 +40,7 @@ namespace ConsoleApp1.LinqToXML
                 new XElement("id", "2"),
                 new XElement("name", "小于"),
                 new XElement("title", "源栈培训：C#进阶-6：异步和并行"),
-                new XElement("authorId", "1"),
+                new XElement("authorId", "2"),
                 new XElement("publishDate", "2019/12/22 15:15"),
 
                 new XElement("article",
@@ -51,11 +51,11 @@ namespace ConsoleApp1.LinqToXML
                 new XElement("authorId", "1"),
                 new XElement("publishDate", "2019/12/23 15:15"))
                             ));
-            Console.WriteLine(articles);
+            //Console.WriteLine(Articles);
 
             ////以文件形式存放到磁盘中
-            XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), articles);
-            document.Save("E://XML.xml");
+            //XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), Articles);
+            //document.Save("E://XML.xml");
 
             //Console.WriteLine();
             //Console.WriteLine("-----分界线-----");
@@ -63,14 +63,14 @@ namespace ConsoleApp1.LinqToXML
 
 
             ////在根节点下添加一个新的article元素，内容至少包含id、title和authorId 
-            //articles.Add(new XElement("article", new XAttribute("isDraft", true),
+            //Articles.Add(new XElement("article", new XAttribute("isDraft", true),
             //                new XElement("id", "88"),
             //                new XElement("title", "源栈"),
             //                new XElement("authorId", "88")
             //                            )
             //                );
-            //articles.Save("E:\\XMLadd.xml");
-            //Console.WriteLine(articles);
+            //Articles.Save("E:\\XMLadd.xml");
+            //Console.WriteLine(Articles);
 
 
             //Console.WriteLine();
@@ -81,13 +81,13 @@ namespace ConsoleApp1.LinqToXML
             ////删除id = 12的评论
             //XElement comment =
             //    (
-            //    from c in articles.Descendants("comment")
+            //    from c in Articles.Descendants("comment")
             //    where c.Element("id").Value == "12"
             //    select c
             //    ).Single();
             //comment.Remove();
-            //articles.Save("E:\\XMLremove.xml");
-            //Console.WriteLine(articles);
+            //Articles.Save("E:\\XMLremove.xml");
+            //Console.WriteLine(Articles);
 
             //Console.WriteLine();
             //Console.WriteLine("-----分界线-----");
@@ -96,14 +96,14 @@ namespace ConsoleApp1.LinqToXML
             ////改变id = 12的article：isDraft = false，title = 源栈培训：C#进阶-8：异步和并行
             //XElement updata =
             //    (
-            //    from u in articles.Descendants("article")
+            //    from u in Articles.Descendants("article")
             //    where u.Element("id").Value == "2"
             //    select u
             //    ).Single();
             //updata.SetAttributeValue("isDraft", "false");
             //updata.SetElementValue("title", "源栈培训：C#进阶-8：异步和并行");
-            //articles.Save("E:\\XMLupdata.xml");
-            //Console.WriteLine(articles);
+            //Articles.Save("E:\\XMLupdata.xml");
+            //Console.WriteLine(Articles);
 
         }
     }

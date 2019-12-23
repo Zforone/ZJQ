@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
@@ -32,12 +33,24 @@ namespace ConsoleApp1.LinqToXML
                         new XElement("password", 3333))
                                     );
 
-            Console.WriteLine(UserDatas);
-            XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), UserDatas);
-            document.Save("E://UserDatas.xml");
+            //Console.WriteLine(UserDatas);
+            //XDocument document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), UserDatas);
+            //document.Save("E://UserDatas.xml");
 
+            XElement GetUserDatas = XElement.Load("E://UserDatas.xml");
+            XElement GetArticles = XElement.Load("E://XML.xml");
 
             //根据用户名查找他发布的全部文章
+            Console.WriteLine("-----根据用户名查找他发布的全部文章-----");
+            var allArticles = from a in GetArticles.Descendants("article")
+                                   where a.Element("name").Value== "飞哥"
+                                   select a;
+
+            foreach (var item in allArticles)
+            {
+                Console.WriteLine(item.Element("title"));
+            }
+
             //统计出每个用户各发表了多少篇文章
             //查出每个用户最近发布的一篇文章
             //每个用户评论最多的一篇文章
