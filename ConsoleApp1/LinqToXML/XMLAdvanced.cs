@@ -43,7 +43,7 @@ namespace ConsoleApp1.LinqToXML
             //根据用户名查找他发布的全部文章
             Console.WriteLine("-----根据用户名查找他发布的全部文章-----");
             var allArticles = from a in GetArticles.Descendants("article")
-                                   where a.Element("name").Value== "飞哥"
+                                   where a.Element("authorName").Value== "飞哥"
                                    select a;
 
             foreach (var item in allArticles)
@@ -52,6 +52,22 @@ namespace ConsoleApp1.LinqToXML
             }
 
             //统计出每个用户各发表了多少篇文章
+            Console.WriteLine("-----统计出每个用户各发表了多少篇文章-----");
+            var userArticles = from a in GetArticles.Descendants("article")
+                               group a by a.Element("authorName").Value into ga
+                               select new
+                               {
+                                   name = ga.Key,
+                                   count = ga.Count()
+                               };
+
+            foreach (var item in userArticles.ToList())
+            {
+                Console.WriteLine($"{item.name}:{item.count}");
+            }                  
+
+
+
             //查出每个用户最近发布的一篇文章
             //每个用户评论最多的一篇文章
             //删除没有发表文章的用户
