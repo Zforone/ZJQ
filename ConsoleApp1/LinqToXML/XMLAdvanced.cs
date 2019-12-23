@@ -64,11 +64,23 @@ namespace ConsoleApp1.LinqToXML
             foreach (var item in userArticles.ToList())
             {
                 Console.WriteLine($"{item.name}:{item.count}");
-            }                  
-
-
+            }
 
             //查出每个用户最近发布的一篇文章
+            Console.WriteLine("-----查出每个用户最近发布的一篇文章-----");
+            var recentArticles = from a in GetArticles.Descendants("article")
+                                 group a by a.Element("authorName").Value into ga
+                                 select new
+                                 {
+                                     name = ga.Key,
+                                     art = ga.OrderByDescending(p => p.Element("publishDate").Value)
+                                           .First().Element("title").Value
+                                 };
+            foreach (var item in recentArticles)
+            {
+                Console.WriteLine($"{item.name}:{item.art}");
+            }
+
             //每个用户评论最多的一篇文章
             //删除没有发表文章的用户
 
