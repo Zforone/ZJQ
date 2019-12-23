@@ -82,13 +82,15 @@ namespace ConsoleApp1
 
             //UsedLinq.Do();
 
-            //XMLBase.GetXML();
+
 
             //再从磁盘中读取到内存中
             //XElement element = XElement.Load("E://XML.xml");
             //Console.WriteLine(element);
 
             //Operated.FileOperated();
+
+            XMLBase.GetXML();
             XMLAdvanced.UserData();
 
 
