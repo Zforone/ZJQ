@@ -82,6 +82,21 @@ namespace ConsoleApp1.LinqToXML
             }
 
             //每个用户评论最多的一篇文章
+            Console.WriteLine("-----每个用户评论最多的一篇文章-----");
+            var countIsMax = from a in GetArticles.Descendants("article")
+                             group a by a.Element("authorName").Value into ga
+                             select new
+                             {
+                                 name = ga.Key,
+                                 art = ga.OrderByDescending(c=>c.Descendants("comments")
+                                         .Elements("comment").Count())
+                                         .First().Element("title")
+                             };
+            foreach (var item in countIsMax)
+            {
+                Console.WriteLine($"{item.name}:{item.art}");
+            }
+
             //删除没有发表文章的用户
 
 

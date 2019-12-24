@@ -151,19 +151,19 @@ namespace ConsoleApp1.LinqToXML
                                select new
                                {
                                    name = ua.Key.Name,
-                                   num = ua.Count()
+                                   art = ua.Count()
                                };
 
             var articlesNum2 = articles.GroupBy(a => a.Author)
                 .Select(ua => new
                 {
                     name = ua.Key.Name,
-                    num = ua.Count()
+                    art = ua.Count()
                 });
 
             foreach (var item in articlesNum2)
             {
-                Console.WriteLine(item.name + ":" + item.num);
+                Console.WriteLine(item.name + ":" + item.art);
             }
             Console.WriteLine("----------");
 

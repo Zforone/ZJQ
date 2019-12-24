@@ -42,6 +42,13 @@ namespace ConsoleApp1.LinqToXML
                 new XElement("title", "源栈培训：C#进阶-6：异步和并行"),
                 new XElement("authorId", "2"),
                 new XElement("publishDate", "2019/12/22 15:15"),
+                    new XElement("comments",
+                    new XElement("comment",
+                        new XAttribute("recommend", true),
+                    new XElement("id", "10"),
+                    new XElement("body", " 赞！"),
+                    new XElement("authorId", "3"))
+                            )),
 
                 new XElement("article",
                     new XAttribute("isDraft", true),
@@ -49,8 +56,15 @@ namespace ConsoleApp1.LinqToXML
                 new XElement("authorName", "飞哥"),
                 new XElement("title", "源栈培训：C#进阶-5：IO和文件"),
                 new XElement("authorId", "1"),
-                new XElement("publishDate", "2019/12/23 15:15"))
-                            ));
+                new XElement("publishDate", "2019/12/23 15:15"),
+                    new XElement("comments",
+                    new XElement("comment",
+                        new XAttribute("recommend", true),
+                    new XElement("id", "11"),
+                    new XElement("body", " 太难了！"),
+                    new XElement("authorId", "2"))
+                            ))
+                            );
             //Console.WriteLine(Articles);
 
             ////以文件形式存放到磁盘中
