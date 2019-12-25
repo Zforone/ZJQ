@@ -98,10 +98,19 @@ namespace ConsoleApp1.LinqToXML
             }
 
             //删除没有发表文章的用户
+            Console.WriteLine("-----删除没有发表文章的用户-----");
+            var user = from u in GetUserDatas.Descendants("user")
+                       join a in GetArticles.Descendants("article")
+                       on u.Element("name").Value equals a.Element("authorName").Value into ja
+                       from result in ja.DefaultIfEmpty()
+                       where result==null
+                       select u.Element("name");
 
+            foreach (var item in user)
+            {
+                item.Remove();
+            }
 
         }
-
-
     }
 }
