@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp2
@@ -14,9 +15,21 @@ namespace ConsoleApp2
         //随机字符串
         //混淆用的各色像素点
         //混淆用的直线（或曲线）
+
+        //在一个任务（Task）中生成画布
+        //使用生成的画布，用两个任务完成：
+        //在画布上添加干扰线条
+        //在画布上添加干扰点
+        //将生成的验证码图片异步的存入文件
+        //
+
         public static void GetImage()
         {
-            RandomStr();
+            //创建一个新的前台线程（Thread），在这个线程上运行生成随机字符串的代码
+            string Str;
+            Thread current = new Thread(new ThreadStart(()=>Str= RandomStr()));
+            Console.WriteLine($"ThreadId:{current.ManagedThreadId}");
+            
             Bitmap image = new Bitmap(200, 200);
             Graphics g = Graphics.FromImage(image);
             Font font = new Font("宋体", 18);
