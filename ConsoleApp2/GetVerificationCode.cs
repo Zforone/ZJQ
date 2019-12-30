@@ -16,38 +16,45 @@ namespace ConsoleApp2
         //混淆用的各色像素点
         //混淆用的直线（或曲线）
 
-        //在一个任务（Task）中生成画布
+        
         //使用生成的画布，用两个任务完成：
-        //在画布上添加干扰线条
-        //在画布上添加干扰点
+            //在画布上添加干扰线条
+            //在画布上添加干扰点
         //将生成的验证码图片异步的存入文件
         //
 
         public static void GetImage()
         {
             //创建一个新的前台线程（Thread），在这个线程上运行生成随机字符串的代码
-            string Str;
-            Thread current = new Thread(new ThreadStart(()=>Str= RandomStr()));
+            string tempStr = string.Empty;
+            Thread current = new Thread(new ThreadStart(()=>tempStr= GetRandomStr()));
+            current.Start();
             Console.WriteLine($"ThreadId:{current.ManagedThreadId}");
-            
-            Bitmap image = new Bitmap(200, 200);
+
+            //在一个任务（Task）中生成画布
+            Bitmap image =new Bitmap(1,1);
+            Task task = new Task(() => image = GetBitmap(200, 200));
+            task.Start();
+            task.Wait();
+            Console.WriteLine($"Task:{task.Id}");
             Graphics g = Graphics.FromImage(image);
             Font font = new Font("宋体", 18);
             PointF pointF = new PointF(80, 80);
             g.Clear(Color.AliceBlue);
-            RandomLine(g);
-            g.DrawString(RandomStr(),
+            GetRandomLine(g);
+            g.DrawString(tempStr,
                 font,
                 new SolidBrush(Color.Red),
                 pointF
             );
-            RandomPixel(image);
+            GetRandomPixel(image);
             image.RotateFlip(RotateFlipType.Rotate180FlipX);
             image.Save(@"E:\17bang3.jpg", ImageFormat.Jpeg);
+            
         }
 
         //随机字符串
-        public static string RandomStr()
+        public static string GetRandomStr()
         {
             string[] slogans = { "A", "B", "C", "D", "E", "F", "G" };
             string slogan = string.Empty;
@@ -59,8 +66,16 @@ namespace ConsoleApp2
             }
             return slogan;
         }
+
+        //生成画布
+        public static Bitmap GetBitmap(int a,int b)
+        {
+            Bitmap bitmap = new Bitmap(a,b);
+            return bitmap;
+        }
+
         //混淆用的各色像素点
-        public static void RandomPixel(Bitmap bitmap)
+        public static void GetRandomPixel(Bitmap bitmap)
         {
             Random random = new Random();
             for (int i = 0; i < 100; i++)
@@ -72,7 +87,7 @@ namespace ConsoleApp2
             }
         }
         //混淆用的直线（或曲线）
-        public static void RandomLine(Graphics g)
+        public static void GetRandomLine(Graphics g)
         {
             Random random = new Random();
             for (int i = 0; i < 10; i++)
