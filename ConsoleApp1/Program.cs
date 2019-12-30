@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using ConsoleApp1.LinqToXML;
+using ConsoleApp1.AboutDB;
 
 namespace ConsoleApp1
 {
@@ -91,8 +92,11 @@ namespace ConsoleApp1
             //Operated.FileOperated();
 
             //XMLBase.GetXML();
-            XMLAdvanced.UserData();
+            //XMLAdvanced.UserData();
 
+            new Student { Id=6, Name = "飞哥", Age = 28 }.Save();
+            new Student { Id=7, Name = "小于", Age = 18 }.Save();
+            new Student {Id=2 }.Delete();
 
             Console.ReadLine();
         }
