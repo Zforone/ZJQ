@@ -16,7 +16,27 @@ namespace ConsoleApp2
         //混淆用的直线（或曲线）
         public static void GetImage()
         {
-            string[] slogans = {"A","B" ,"C","D","E","F","G"};
+            RandomStr();
+            Bitmap image = new Bitmap(200, 200);
+            Graphics g = Graphics.FromImage(image);
+            Font font = new Font("宋体", 18);
+            PointF pointF = new PointF(80, 80);
+            g.Clear(Color.AliceBlue);
+            RandomLine(g);
+            g.DrawString(RandomStr(),
+                font,
+                new SolidBrush(Color.Red),
+                pointF
+            );
+            RandomPixel(image);
+            image.RotateFlip(RotateFlipType.Rotate180FlipX);
+            image.Save(@"E:\17bang3.jpg", ImageFormat.Jpeg);
+        }
+
+        //随机字符串
+        public static string RandomStr()
+        {
+            string[] slogans = { "A", "B", "C", "D", "E", "F", "G" };
             string slogan = string.Empty;
             Random random = new Random();
             for (int i = 0; i < 4; i++)
@@ -24,14 +44,26 @@ namespace ConsoleApp2
                 int randomNum = random.Next(6);
                 slogan += slogans[randomNum];
             }
-            Bitmap image = new Bitmap(200, 200);
-            Graphics g = Graphics.FromImage(image);
-            Font font = new Font("宋体", 18);
-            PointF pointF = new PointF(80, 80);
-
-            g.Clear(Color.AliceBlue);
+            return slogan;
+        }
+        //混淆用的各色像素点
+        public static void RandomPixel(Bitmap bitmap)
+        {
+            Random random = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                int X = random.Next(50, 150);
+                int Y = random.Next(50, 150);
+                bitmap.SetPixel(X, Y, Color.Red);
+                bitmap.SetPixel(Y, X, Color.Yellow);
+            }
+        }
+        //混淆用的直线（或曲线）
+        public static void RandomLine(Graphics g)
+        {
+            Random random = new Random();
             for (int i = 0; i < 10; i++)
-            {                 
+            {
                 int x = random.Next(80, 130);
                 int y = random.Next(80, 130);
                 int z = random.Next(80, 130);
@@ -40,21 +72,6 @@ namespace ConsoleApp2
                 PointF[] points = { new PointF(x, y), new PointF(x, z), new PointF(y, z) };
                 g.DrawCurve(new Pen(Color.Red), points);
             }
-            
-            g.DrawString(slogan,
-                font,
-                new SolidBrush(Color.Red),
-                pointF
-            );
-            for (int i = 0; i < 100; i++)
-            {
-                int X = random.Next(50,150);
-                int Y = random.Next(50, 150);
-                image.SetPixel(X, Y, Color.Red);
-                image.SetPixel(Y, X, Color.Yellow);                
-            }
-            image.RotateFlip(RotateFlipType.Rotate180FlipX);
-            image.Save(@"E:\17bang3.jpg", ImageFormat.Jpeg);
         }
     }
 }
