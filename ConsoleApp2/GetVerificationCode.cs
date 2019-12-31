@@ -16,12 +16,7 @@ namespace ConsoleApp2
         //混淆用的各色像素点
         //混淆用的直线（或曲线）
 
-        
-        //使用生成的画布，用两个任务完成：
-            //在画布上添加干扰线条
-            //在画布上添加干扰点
         //将生成的验证码图片异步的存入文件
-        //
 
         public static void GetImage()
         {
@@ -37,17 +32,32 @@ namespace ConsoleApp2
             task.Start();
             task.Wait();
             Console.WriteLine($"Task:{task.Id}");
+
             Graphics g = Graphics.FromImage(image);
             Font font = new Font("宋体", 18);
             PointF pointF = new PointF(80, 80);
             g.Clear(Color.AliceBlue);
-            GetRandomLine(g);
+
+            //使用生成的画布，用两个任务完成：
+                //在画布上添加干扰线条
+            Task task1=new Task(()=> GetRandomLine(g));
+            task1.Start();
+            task1.Wait();
+            Console.WriteLine($"Task:{task1.Id}");
+            //GetRandomLine(g);
+                //在画布上添加干扰点
+            Task task2 = new Task(() => GetRandomPixel(image));
+            task2.Start();
+            Console.WriteLine($"Task:{task2.Id}");
+            //GetRandomPixel(image);
+            task2.Wait();
+            //Thread.Sleep(500);
+
             g.DrawString(tempStr,
                 font,
                 new SolidBrush(Color.Red),
                 pointF
             );
-            GetRandomPixel(image);
             image.RotateFlip(RotateFlipType.Rotate180FlipX);
             image.Save(@"E:\17bang3.jpg", ImageFormat.Jpeg);
             
