@@ -99,9 +99,12 @@ namespace ConsoleApp1
             //new Student {Id=2 }.Delete();
 
             //将用户名和密码存入数据库：Register()
-            new User { Name = "优秀", Password ="Qq123/"}.Save();
-            new User { Name = "阿泰",Password="Aa123/"}.Save();
+            //new User { Name = "优秀", Password ="Qq123/"}.Save();
+            //new User { Name = "阿泰",Password="Aa123/"}.Save();
 
+            User user = new User();
+            bool result= user.Login("阿泰", @"Aa123/");
+            Console.WriteLine(result);
             Console.ReadLine();
         }
         

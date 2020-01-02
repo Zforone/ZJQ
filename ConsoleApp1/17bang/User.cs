@@ -5,6 +5,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace ConsoleApp1._17bang
 {
@@ -104,15 +105,20 @@ namespace ConsoleApp1._17bang
         public int HelpPoint { get; set; }
         public int HelpBeans { get; set; }
 
+        private DBhepler _dbHepler;
 
         internal void Register(string name, int password, User invitedby)
         {
             
         }
 
-        internal void Login(string name, int password)
-        {
 
+        //根据用户名和密码检查某用户能够成功登陆
+        internal bool Login(string name, string password)
+        {
+            SqlDataReader reader=_dbHepler.ExecuteReader(
+                $"SELECT * FROM Users WHERE [Name]=N'{name}' AND [PassWord]=N'{password}'");
+            return reader.HasRows;
         }
 
         private void ChangePasword(int oldPassWord, int newPassWord)
@@ -121,7 +127,6 @@ namespace ConsoleApp1._17bang
         }
 
         //将用户名和密码存入数据库：Register()
-        private DBhepler _dbHepler;
         public void Save()
         {
             _dbHepler.ExecuteNonQuery(
