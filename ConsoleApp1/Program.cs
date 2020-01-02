@@ -102,8 +102,17 @@ namespace ConsoleApp1
             //new User { Name = "优秀", Password ="Qq123/"}.Save();
             //new User { Name = "阿泰",Password="Aa123/"}.Save();
 
-            User user = new User();
-            bool result= user.Login("阿泰", @"Aa123/");
+           
+
+            //User user = new User { Name = "百万", Password = "AZz12/" };
+            //user.Register();
+            //User user1= new User { Name = "阿泰",Password="Aa123/"};
+            //user1.Register();
+            User user2 = new User();
+            user2.Name = "优秀";
+            user2.Password = "Qq123/";
+            //user2.Register();
+            bool result = user2.Login();
             Console.WriteLine(result);
             Console.ReadLine();
         }

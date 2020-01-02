@@ -107,17 +107,18 @@ namespace ConsoleApp1._17bang
 
         private DBhepler _dbHepler;
 
-        internal void Register(string name, int password, User invitedby)
+        //将用户名和密码存入数据库：Register()
+        internal void Register()
         {
-            
+            _dbHepler.ExecuteNonQuery(
+                $@"INSERT Users VALUES( N'{Name}',N'{Password}')");
         }
 
-
         //根据用户名和密码检查某用户能够成功登陆
-        internal bool Login(string name, string password)
+        internal bool Login()
         {
             SqlDataReader reader=_dbHepler.ExecuteReader(
-                $"SELECT * FROM Users WHERE [Name]=N'{name}' AND [PassWord]=N'{password}'");
+                $@"SELECT * FROM Users WHERE [Name]=N'{Name}' AND [PassWord]=N'{Password}'");
             return reader.HasRows;
         }
 
@@ -126,23 +127,7 @@ namespace ConsoleApp1._17bang
 
         }
 
-        //将用户名和密码存入数据库：Register()
-        public void Save()
-        {
-            _dbHepler.ExecuteNonQuery(
-                $@"INSERT Users VALUES( N'{Name}',N'{Password}')");
-        }
-
-        public void SaveMore(params Student[] students)
-        {
-            using (DbConnection connection = new DBhepler().LongConnection)
-            {
-                for (int i = 0; i < students.Length; i++)
-                {
-                    students[i].Save();
-                }
-            }
-        }
+        
     }
     public enum Role
     {
