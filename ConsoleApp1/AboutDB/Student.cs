@@ -15,18 +15,18 @@ namespace ConsoleApp1.AboutDB
         public string Name { get; set; }
         public int Age { get; set; }
 
-        private DBhepler _dbHeper;
+        internal DBhepler _dbHepler;
         public Student()
         {
-            if (_dbHeper == null)
+            if (_dbHepler == null)
             {
-                _dbHeper = new DBhepler();
+                _dbHepler = new DBhepler();
             }
         }
 
         public void Save()
         {
-            _dbHeper.ExecuteNonQuery(
+            _dbHepler.ExecuteNonQuery(
                 $"INSERT Student VALUES({Id}, N'{Name}',{Age})");
         }
 
@@ -43,7 +43,7 @@ namespace ConsoleApp1.AboutDB
 
         public void Delete()
         {
-            _dbHeper.ExecuteNonQuery(
+            _dbHepler.ExecuteNonQuery(
                 $"DELETE Student WHERE ID = {Id}");
         }
     }

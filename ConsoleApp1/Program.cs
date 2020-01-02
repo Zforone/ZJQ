@@ -94,9 +94,13 @@ namespace ConsoleApp1
             //XMLBase.GetXML();
             //XMLAdvanced.UserData();
 
-            new Student { Id=6, Name = "飞哥", Age = 28 }.Save();
-            new Student { Id=7, Name = "小于", Age = 18 }.Save();
-            new Student {Id=2 }.Delete();
+            //new Student { Id=6, Name = "飞哥", Age = 28 }.Save();
+            //new Student { Id=7, Name = "小于", Age = 18 }.Save();
+            //new Student {Id=2 }.Delete();
+
+            //将用户名和密码存入数据库：Register()
+            new User { Name = "优秀", Password ="Qq123/"}.Save();
+            new User { Name = "阿泰",Password="Aa123/"}.Save();
 
             Console.ReadLine();
         }

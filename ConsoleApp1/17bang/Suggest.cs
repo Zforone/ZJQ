@@ -16,7 +16,7 @@ namespace ConsoleApp1._17bang
         //{
 
         //}
-        public int Id { get; }
+        //public int Id { get; }
 
         public override void Publish()
         {

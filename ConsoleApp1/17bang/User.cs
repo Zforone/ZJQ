@@ -1,5 +1,7 @@
-﻿using ConsoleApp1.Method;
+﻿using ConsoleApp1.AboutDB;
+using ConsoleApp1.Method;
 using System;
+using System.Data.Common;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,13 @@ namespace ConsoleApp1._17bang
 
     internal sealed class User : Entity<int>, ISendMessage, IChat
     {
+        public User()
+        {
+            if (_dbHepler == null)
+            {
+                _dbHepler = new DBhepler();
+            }
+        }
         void ISendMessage.Send()
         {
             Console.WriteLine("ISendMessage");
@@ -98,7 +107,7 @@ namespace ConsoleApp1._17bang
 
         internal void Register(string name, int password, User invitedby)
         {
-
+            
         }
 
         internal void Login(string name, int password)
@@ -109,7 +118,26 @@ namespace ConsoleApp1._17bang
         private void ChangePasword(int oldPassWord, int newPassWord)
         {
 
-        }              
+        }
+
+        //将用户名和密码存入数据库：Register()
+        private DBhepler _dbHepler;
+        public void Save()
+        {
+            _dbHepler.ExecuteNonQuery(
+                $@"INSERT Users VALUES( N'{Name}',N'{Password}')");
+        }
+
+        public void SaveMore(params Student[] students)
+        {
+            using (DbConnection connection = new DBhepler().LongConnection)
+            {
+                for (int i = 0; i < students.Length; i++)
+                {
+                    students[i].Save();
+                }
+            }
+        }
     }
     public enum Role
     {
