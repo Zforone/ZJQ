@@ -8,22 +8,19 @@ namespace ConsoleApp1._17bang
     //继承自父类Content的属性和方法
     //自己的属性和方法
 
-    internal class Suggest : Content,IAgree 
+    public class Suggest : Content,IAgree 
     {
-        private static string thekind;
-
+        //private static string thekind;
         //public Suggest(string skind):base(thekind )
         //{
 
         //}
-        //public int Id { get; }
 
         public override void Publish()
         {
             
         }
         
-
         public override void Commentary()
         {
             Author.HelpPoint += 1;

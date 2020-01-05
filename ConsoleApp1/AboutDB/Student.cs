@@ -46,5 +46,11 @@ namespace ConsoleApp1.AboutDB
             _dbHepler.ExecuteNonQuery(
                 $"DELETE Student WHERE ID = {Id}");
         }
+
+        public SqlDataReader Find()
+        {
+            SqlDataReader dataReader= _dbHepler.ExecuteReader($"SELET * FROM Student WHERE ID = {Id}");
+            return dataReader;
+        }
     }
 }

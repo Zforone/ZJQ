@@ -8,7 +8,7 @@ namespace ConsoleApp1._17bang
     //实例化文章和意见建议，调用他们：
     //继承自父类Content的属性和方法
     //自己的属性和方法
-    internal class Article : Content,IAgree 
+    public class Article : Content,IAgree 
     {
         //private static string thekind;
         //public Article(string akind) : base(thekind)
@@ -25,8 +25,6 @@ namespace ConsoleApp1._17bang
 
         //一篇文章可以有多个评论
         internal IList <Comment> Comments { get; set; }
-
-
 
         private Keyword[] _keyWord = new Keyword[10];
         //public Keyword[] keyWord { get { return _keyWord; } set { _keyWord = value; } } 

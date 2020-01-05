@@ -8,7 +8,7 @@ namespace ConsoleApp1._17bang
     //包含一个只读的Id属性。试一试，Suggest能有Id属性么？
 
     //改造Entity类，让其Id可以为任意类型
-    internal class Entity<T>
+    public class Entity<T>
     {
         public T Id { get; }
     }

@@ -23,7 +23,7 @@ namespace ConsoleApp1._17bang
 
 
 
-    internal sealed class User : Entity<int>, ISendMessage, IChat
+    public sealed class User : Entity<int>, ISendMessage, IChat
     {
         public User()
         {
