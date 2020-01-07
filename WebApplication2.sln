@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTest1", "NUnitTest1\NU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{AA40204D-5F11-4B11-A640-249247E8DF5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationCore", "WebApplicationCore\WebApplicationCore.csproj", "{5B2847C4-336F-4F38-9754-9C5751F94C04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AA40204D-5F11-4B11-A640-249247E8DF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA40204D-5F11-4B11-A640-249247E8DF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA40204D-5F11-4B11-A640-249247E8DF5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B2847C4-336F-4F38-9754-9C5751F94C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B2847C4-336F-4F38-9754-9C5751F94C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B2847C4-336F-4F38-9754-9C5751F94C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B2847C4-336F-4F38-9754-9C5751F94C04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
