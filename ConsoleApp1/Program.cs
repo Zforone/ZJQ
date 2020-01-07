@@ -102,7 +102,6 @@ namespace ConsoleApp1
             //new User { Name = "优秀", Password ="Qq123/"}.Save();
             //new User { Name = "阿泰",Password="Aa123/"}.Save();
 
-           
 
             //User user = new User { Name = "百万", Password = "AZz12/" };
             //user.Register();

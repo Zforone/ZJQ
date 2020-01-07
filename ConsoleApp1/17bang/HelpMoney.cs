@@ -8,17 +8,17 @@ namespace ConsoleApp1._17bang
     class HelpMoney :Entity<int> 
     {
         //将之前User/Problem/HelpMoney类的字段封装成属性，
-        internal HelpMoney(int integrals)
-        {
+        //internal HelpMoney(int integrals)
+        //{
 
-        }
-        public int BangBangCoins { get; set; }
+        //}
+        public int hasHelpMoney { get; set; }
 
         public DateTime DateTime { get; set; }
 
         public string Type { get; set; }
 
-        public int Changes { get; set; }
+        public int ChangeNum { get; set; }
 
         public string Notes { get; set; }
 

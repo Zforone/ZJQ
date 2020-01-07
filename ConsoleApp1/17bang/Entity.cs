@@ -11,5 +11,11 @@ namespace ConsoleApp1._17bang
     public class Entity<T>
     {
         public T Id { get; }
+
+        public void Change(T id)
+        {
+
+        }
+
     }
 }

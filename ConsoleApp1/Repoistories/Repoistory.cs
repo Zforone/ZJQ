@@ -57,12 +57,18 @@ namespace ConsoleApp1.Repoistories
 
         public void SaveMore(params T[] entity)
         {
-            using (DbConnection connection = new DBhepler().LongConnection)
-            {
-                for (int i = 0; i < entity.Length; i++)
+            for (int i = 0; i < entity.Length; i++)
                 {
                     entities.Add(entity[i]);
                 }
+            Flush();
+        }
+
+        public void DeleteMoe(params T[] entity)
+        {
+            for (int i = 0; i < entity.Length; i++)
+            {
+                entities.Remove(entity[i]);
             }
             Flush();
         }
