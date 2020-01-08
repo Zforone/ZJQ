@@ -21,20 +21,27 @@ namespace ConsoleApp1.Repoistories
     {
         //const int version = 99;
         //static readonly string connection;
+        const string connectionString =
+                @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DB17bang;Integrated Security=True;";
 
         public DbSet<T> entities { get; set; }
-
         public DbContext CurrentContext { get; set; }
+        //public Repoistory()
+        //{
+        //    CurrentContext = new DbContext();
+        //}
+        
         public void Flush()
         {
             CurrentContext.SaveChanges();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString =
-                @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DB17bang;Integrated Security=True;";
-
             optionsBuilder.UseSqlServer(connectionString);  
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
         }
 
         public void Save(T entity)

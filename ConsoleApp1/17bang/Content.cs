@@ -15,11 +15,11 @@ namespace ConsoleApp1._17bang
 
     public abstract class Content : Entity<int>
     {
-        //protected Content(string thekind)
-        //{
-        //    kind = thekind;
-        //}
-        //protected string kind;
+        protected Content(Kind thekind)
+        {
+            kind = thekind;
+        }
+        protected Kind kind;
         public Content()
         {
             _createTime = DateTime.Now;
@@ -74,5 +74,12 @@ namespace ConsoleApp1._17bang
             _publishTime = DateTime.Now;
         }
         public abstract void Commentary();
+    }
+
+    public enum Kind
+    {
+        Problem,
+        Article,
+        Suggest
     }
 }

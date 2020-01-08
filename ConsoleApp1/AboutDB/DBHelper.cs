@@ -46,6 +46,7 @@ namespace ConsoleApp1.AboutDB
             command.CommandText = cmdText;
             command.Connection = LongConnection;
             int AffectedRows = command.ExecuteNonQuery();
+            command.Connection.Close();
             return AffectedRows;
         }
 
@@ -60,6 +61,7 @@ namespace ConsoleApp1.AboutDB
             command.CommandText = cmdText;
             command.Connection = LongConnection;
             object obj = command.ExecuteScalar();
+            command.Connection.Close();
             return obj;
             
             
@@ -74,6 +76,7 @@ namespace ConsoleApp1.AboutDB
             command.CommandText = cmdText;
             command.Connection = LongConnection;
             SqlDataReader sqlConnection = command.ExecuteReader();
+            command.Connection.Close();
             return sqlConnection;
         }
     }

@@ -112,6 +112,7 @@ namespace ConsoleApp1._17bang
         {
             _dbHepler.ExecuteNonQuery(
                 $@"INSERT Users VALUES( N'{Name}',N'{Password}')");
+            _dbHepler.LongConnection.Close();
         }
 
         //根据用户名和密码检查某用户能够成功登陆
@@ -119,6 +120,7 @@ namespace ConsoleApp1._17bang
         {
             SqlDataReader reader=_dbHepler.ExecuteReader(
                 $@"SELECT * FROM Users WHERE [Name]=N'{Name}' AND [PassWord]=N'{Password}'");
+            _dbHepler.LongConnection.Close();
             return reader.HasRows;
         }
 

@@ -1,6 +1,7 @@
 ﻿using ConsoleApp1._17bang;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace ConsoleApp1._17bang
@@ -40,10 +41,11 @@ namespace ConsoleApp1._17bang
                 }
             }
         }
-        
+
         //一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写
-        private Keyword[] _keyWord=new Keyword[10];
-        //public Keyword[] keyWord { get { return _keyWord; } set { _keyWord = value; } } 
+
+        private Keyword[] _keyWord;
+        [MaxLength(10)]
         public Keyword this[int index]
         {
             get { return _keyWord[index]; }

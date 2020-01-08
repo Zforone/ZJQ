@@ -9,6 +9,8 @@ using System.Linq;
 using System.Xml.Linq;
 using ConsoleApp1.LinqToXML;
 using ConsoleApp1.AboutDB;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using ConsoleApp1.Repoistories;
 
 namespace ConsoleApp1
 {
@@ -107,12 +109,17 @@ namespace ConsoleApp1
             //user.Register();
             //User user1= new User { Name = "阿泰",Password="Aa123/"};
             //user1.Register();
-            User user2 = new User();
-            user2.Name = "优秀";
-            user2.Password = "Qq123/";
-            //user2.Register();
-            bool result = user2.Login();
-            Console.WriteLine(result);
+            //User user2 = new User();
+            //user2.Name = "优秀";
+            //user2.Password = "Qq123/";
+            ////user2.Register();
+            //bool result = user2.Login();
+            //Console.WriteLine(result);
+
+            DatabaseFacade database = new Repoistory<Keyword>().Database;
+            database.EnsureDeleted();
+            database.EnsureCreated();
+
             Console.ReadLine();
         }
         
