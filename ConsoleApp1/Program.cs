@@ -107,7 +107,7 @@ namespace ConsoleApp1
 
             //User user = new User { Name = "百万", Password = "AZz12/" };
             //user.Register();
-            //User user1= new User { Name = "阿泰",Password="Aa123/"};
+            //User user1 = new User { Name = "阿泰", Password = "Aa123/" };
             //user1.Register();
             //User user2 = new User();
             //user2.Name = "优秀";
@@ -116,10 +116,13 @@ namespace ConsoleApp1
             //bool result = user2.Login();
             //Console.WriteLine(result);
 
-            DatabaseFacade database = new Repoistory<Keyword>().Database;
-            database.EnsureDeleted();
-            database.EnsureCreated();
+            //DatabaseFacade database = new Repoistory<Keyword>().Database;
+            //database.EnsureDeleted();
+            //database.EnsureCreated();
 
+
+
+            Console.WriteLine("!O^O!");
             Console.ReadLine();
         }
         

@@ -5,7 +5,7 @@ using System.Text;
 namespace ConsoleApp1._17bang
 {
     //关键字（Keyword）类
-    public class Keyword
+    public class Keyword : Entity<int>
     {
         public string KeywordName { get; set; }
         public int Used { get; set; }

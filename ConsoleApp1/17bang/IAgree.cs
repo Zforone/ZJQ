@@ -7,6 +7,6 @@ namespace ConsoleApp1._17bang
     interface IAgree
     {
         void Agree(User voter );
-        void Disagree(User voter);
+        void DisAgree(User voter);
     }
 }

@@ -5,7 +5,9 @@ using System.Text;
 namespace ConsoleApp1._17bang
 {
     //评价（Appraise）类
-    class Appraise
+    public interface IAppraise
     {
+        void Agree(User voter);
+        void DisAgree(User voter);
     }
 }

@@ -49,14 +49,14 @@ namespace ConsoleApp1._17bang
             }
             
         }
-        public void Agree(IAgree content,User user)
+        public void Agree(IAppraise content,User user)
         {
             content.Agree(user);
             Console.WriteLine("保存至数据库");
         }
-        public void Disagree(IAgree content, User user)
+        public void Disagree(IAppraise content, User user)
         {
-            content.Disagree(user);
+            content.DisAgree(user);
             Console.WriteLine("保存至数据库");
         }
         public void Commentary(Content content)

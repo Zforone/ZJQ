@@ -19,7 +19,7 @@ namespace ConsoleApp1._17bang
             Console.WriteLine("点赞！");
         }
 
-        public void Disagree(User voter)
+        public void DisAgree(User voter)
         {
             Author.HelpPoint -= 1;
             Executor.HelpPoint += 1;

@@ -8,7 +8,7 @@ namespace ConsoleApp1._17bang
     //继承自父类Content的属性和方法
     //自己的属性和方法
 
-    public class Suggest : Content,IAgree 
+    public class Suggest : Content, IAppraise
     {
         //private static string thekind;
         //public Suggest(string skind):base(thekind )
@@ -35,7 +35,7 @@ namespace ConsoleApp1._17bang
             Console.WriteLine("Suggest点赞！");
         }
 
-        public void Disagree(User voter)
+        public void DisAgree(User voter)
         {
             Author.HelpPoint -= 1;
             Executor.HelpPoint += 1;

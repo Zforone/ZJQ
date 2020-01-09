@@ -8,7 +8,7 @@ namespace ConsoleApp1._17bang
     //实例化文章和意见建议，调用他们：
     //继承自父类Content的属性和方法
     //自己的属性和方法
-    public class Article : Content,IAgree 
+    public class Article : Content, IAppraise
     {
         //private static string thekind;
         //public Article(string akind) : base(thekind)
@@ -41,7 +41,7 @@ namespace ConsoleApp1._17bang
             Console.WriteLine("Article点赞！");
         }
 
-        public void Disagree(User voter)
+        public void DisAgree(User voter)
         {
             Author.HelpPoint -= 1;
             Executor.HelpPoint += 1;
