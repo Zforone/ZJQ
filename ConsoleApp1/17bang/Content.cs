@@ -29,9 +29,12 @@ namespace ConsoleApp1._17bang
         //之前的Content类，其中的CreateTime（创建时间）和PublishTime（发布时间）都是只读的属性，
         //想一想他们应该在哪里赋值比较好，并完成相应代码
         protected DateTime _publishTime;
-        public DateTime PublishTime { get { return _publishTime; } }
+        public DateTime PublishTime { get { return _publishTime; } set { _publishTime = value; } }
         protected DateTime _createTime;
-        public DateTime CreateTime { get { return _createTime; } }
+        public DateTime CreateTime { get { return _createTime; } set { _createTime = value; } }
+
+        //一篇文章可以有多个评论
+        internal IList<Comment> Comments { get; set; }
 
         public User _Author;
         public User Author { get { return _Author; } set { _Author = value; } }

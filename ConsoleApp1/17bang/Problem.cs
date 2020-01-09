@@ -8,7 +8,7 @@ namespace ConsoleApp1._17bang
 {
     //●求助版块，定义一个类Problem,包含字段:标题(Title) 、文(Body)、 悬赏(Reward)、 发布时间(Publish
     //DateTime)和作者(Author) ，和方法Publish()
-    public class Problem : Content 
+    public class Problem : Content
     {
         //将之前User/Problem/HelpMoney类的字段封装成属性，
         //考虑求助的以下方法/属性，哪些适合实例，哪些适合静态，然后添加到类中：
@@ -30,7 +30,7 @@ namespace ConsoleApp1._17bang
             get { return _Reward; }
             set
             {
-                if (value < 0 )
+                if (value < 0)
                 {
                     //修改之前的属性验证：problem.Reward为负数时直接抛出“参数越界”异常
                     throw new ArgumentOutOfRangeException();
@@ -43,13 +43,14 @@ namespace ConsoleApp1._17bang
         }
 
         //一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写
-
-        private Keyword[] _keyWord;
         [MaxLength(10)]
-        public Keyword this[int index]
+        public IList<ProblemAndKeyword> keyWords { get; set; }
+
+        //private Keyword[] _keyWord = new Keyword[10];
+        public ProblemAndKeyword this[int index]
         {
-            get { return _keyWord[index]; }
-            set { _keyWord[index] = value;}
+            get { return keyWords[index]; }
+            set { keyWords[index] = value; }
         }
         internal void Publish(int Id)
         {
@@ -70,9 +71,9 @@ namespace ConsoleApp1._17bang
 
         public override void Publish()
         {
-            
+
         }
-        
+
         public override void Commentary()
         {
             Author.HelpPoint += 1;
@@ -80,6 +81,17 @@ namespace ConsoleApp1._17bang
             Console.WriteLine("Problem评论！");
         }
 
-        
+
+    }
+
+
+    public class ProblemAndKeyword
+    {
+        public int ProblemId { get; set; }
+        public Problem Problem { get; set; }
+
+        public int KeywordId { get; set; }
+        public Keyword Keyword { get; set; }
     }
 }
+

@@ -44,7 +44,7 @@ namespace ConsoleApp1._17bang
         //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词
         
         private string _name;
-        internal string Name
+        public string Name
         {
             get { return _name; }
             set
@@ -82,7 +82,7 @@ namespace ConsoleApp1._17bang
         //长度不低于6
         //必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成
         private string _passWord;
-        internal string Password
+        public string Password
         {
             get { return _passWord; }
             set
@@ -99,9 +99,9 @@ namespace ConsoleApp1._17bang
         }
 
 
-        internal User InvitedBy { get; set; }
+        public User InvitedBy { get; set; }
 
-        public HelpMoney HelpMoney { get ; set ; }
+        public int HelpMoney { get ; set ; }
         public int HelpPoint { get; set; }
         public int HelpBeans { get; set; }
 

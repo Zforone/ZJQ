@@ -10,7 +10,7 @@ namespace ConsoleApp1._17bang
     //改造Entity类，让其Id可以为任意类型
     public class Entity<T>
     {
-        public T Id { get; }
+        public T Id { get; set; }
 
         public void Change(T id)
         {

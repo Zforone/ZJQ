@@ -1,6 +1,7 @@
 ﻿using ConsoleApp1._17bang;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
 namespace ConsoleApp1._17bang
@@ -21,17 +22,18 @@ namespace ConsoleApp1._17bang
         }
 
         //一篇文章可以有多个关键字，
-        internal IList<Keyword> KeyWords { get; set; }
+        [MaxLength(10)]
+        internal IList<ArticleAndKeyword> KeyWords { get; set; }
 
-        //一篇文章可以有多个评论
-        internal IList <Comment> Comments { get; set; }
+        
+
+        public ArticleKind ArticleKind { get; set; }
 
         private Keyword[] _keyWord = new Keyword[10];
-        //public Keyword[] keyWord { get { return _keyWord; } set { _keyWord = value; } } 
-        public Keyword this[int index]
+        public ArticleAndKeyword this[int index]
         {
-            get { return _keyWord[index]; }
-            set { _keyWord[index] = value; }
+            get { return KeyWords[index]; }
+            set { KeyWords[index] = value; }
         } 
 
         public void Agree(User voter)
@@ -70,5 +72,14 @@ namespace ConsoleApp1._17bang
             _createTime
         }
 
+    }
+
+    public class ArticleAndKeyword
+    {
+        public int ArticleId { get; set; }
+        public Article Article { get; set; }
+
+        public int KeywordId { get; set; }
+        public Keyword Keyword { get; set; }
     }
 }

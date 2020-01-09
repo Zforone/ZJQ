@@ -116,9 +116,10 @@ namespace ConsoleApp1
             //bool result = user2.Login();
             //Console.WriteLine(result);
 
-            Repoistory<HelpMoney> helpMoney = new HelpMoneyRepository();
-            DatabaseFacade database = new Repoistory<HelpMoney>().Database;
-            database.EnsureDeleted();
+            //Repoistory<HelpMoney> helpMoney = new HelpMoneyRepository();
+            //DatabaseFacade database = new Repoistory<HelpMoney>().Database;
+            DatabaseFacade database = new Repoistory<ArticleKind>().Database;
+            database.EnsureDeleted();                              
             database.EnsureCreated();
 
 

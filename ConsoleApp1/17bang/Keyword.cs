@@ -11,6 +11,8 @@ namespace ConsoleApp1._17bang
         public int Used { get; set; }
         public Keyword UpperLevel { get; set; }
         //一个关键字可以对应多篇文章
-        public IList< Article> Paper { get; set; }
+        public IList<ArticleAndKeyword> Articles { get; set; }
+
+        public IList<ProblemAndKeyword> Problems { get; set; }
     }
 }

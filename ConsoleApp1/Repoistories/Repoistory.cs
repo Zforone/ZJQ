@@ -23,12 +23,9 @@ namespace ConsoleApp1.Repoistories
         const string connectionString =
                 @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bangDB;Integrated Security=True;";
 
-        //public DbSet<HelpMoney> HelpMoney { get; set; }
-        //public DbContext CurrentContext { get; set; }
-        //public Repoistory()
-        //{
-        //    CurrentContext = new DbContext();
-        //}
+        public DbSet<HelpMoney> HelpMoney { get; set; }
+        public DbSet<Suggest> Suggest { get; set; }
+        public DbSet<Comment> Comment { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -37,8 +34,50 @@ namespace ConsoleApp1.Repoistories
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<HelpMoney>()
-                .HasKey(k => k.Id);
+            //modelBuilder.Entity<HelpMoney>()
+            //    .HasKey(k => k.Id);
+            //modelBuilder.Entity<ArticleKind>()
+            //    .HasKey(k => k.Id);
+            //modelBuilder.Entity<Article>()
+            //    .HasKey(k => k.Id);
+            //modelBuilder.Entity<Keyword>()
+            //    .HasKey(k => k.Id);
+            //modelBuilder.Entity<Problem>()
+            //    .HasKey(k => k.Id);
+            //modelBuilder.Entity<Suggest>()
+            //    .HasKey(k => k.Id);
+            //modelBuilder.Entity<Comment>()
+            //    .HasKey(k => k.Id);
+            //modelBuilder.Entity<User>()
+            //    .HasKey(k => k.Id);
+
+            modelBuilder.Entity<ArticleAndKeyword>()
+                .HasKey(k => new { k.ArticleId, k.KeywordId})
+                ;
+            modelBuilder.Entity<ArticleAndKeyword>()
+                .HasOne(a=>a.Article)
+                .WithMany(k=>k.KeyWords)
+                .HasForeignKey(f=>f.ArticleId)
+                ;
+            modelBuilder.Entity<ArticleAndKeyword>()
+                .HasOne(k => k.Keyword)
+                .WithMany(a=>a.Articles)
+                .HasForeignKey(f => f.KeywordId)
+                ;
+
+            modelBuilder.Entity<ProblemAndKeyword>()
+                .HasKey(k => new { k.ProblemId, k.KeywordId })
+                ;
+            modelBuilder.Entity<ProblemAndKeyword>()
+                .HasOne(p=>p.Problem)
+                .WithMany(k=>k.keyWords)
+                .HasForeignKey(f => f.ProblemId)
+                ;
+            modelBuilder.Entity<ProblemAndKeyword>()
+                .HasOne(k=>k.Keyword)
+                .WithMany(p=>p.Problems)
+                .HasForeignKey(f => f.KeywordId)
+                ;
         }
 
         public void Save(T entity)
