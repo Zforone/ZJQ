@@ -20,45 +20,42 @@ namespace ConsoleApp1.Repoistories
         where T:class
     {
         //const int version = 99;
-        //static readonly string connection;
         const string connectionString =
-                @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DB17bang;Integrated Security=True;";
+                @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bangDB;Integrated Security=True;";
 
-        public DbSet<T> entities { get; set; }
-        public DbContext CurrentContext { get; set; }
+        //public DbSet<HelpMoney> HelpMoney { get; set; }
+        //public DbContext CurrentContext { get; set; }
         //public Repoistory()
         //{
         //    CurrentContext = new DbContext();
         //}
-        
-        public void Flush()
-        {
-            CurrentContext.SaveChanges();
-        }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionString);  
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<HelpMoney>()
+                .HasKey(k => k.Id);
         }
 
         public void Save(T entity)
         {
-            entities.Add(entity);
-            Flush();
+            Set<T>().Add(entity);
+            SaveChanges();
         }
 
         public void Delete(T entity)
         {
-            entities.Remove(entity);
-            Flush();
+            Set<T>().Remove(entity);
+            SaveChanges();
         }
 
         public T Get(int id)
         {
-            return entities.Find(id) ;
+            return Set<T>().Find(id) ;
         }
 
 
@@ -66,18 +63,18 @@ namespace ConsoleApp1.Repoistories
         {
             for (int i = 0; i < entity.Length; i++)
                 {
-                    entities.Add(entity[i]);
+                Set<T>().Add(entity[i]);
                 }
-            Flush();
+            SaveChanges();
         }
 
         public void DeleteMoe(params T[] entity)
         {
             for (int i = 0; i < entity.Length; i++)
             {
-                entities.Remove(entity[i]);
+                Set<T>().Remove(entity[i]);
             }
-            Flush();
+            SaveChanges();
         }
 
         //public SqlDataReader Find()

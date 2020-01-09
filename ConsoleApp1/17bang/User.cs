@@ -101,7 +101,7 @@ namespace ConsoleApp1._17bang
 
         internal User InvitedBy { get; set; }
 
-        public int HelpMoney { get ; set ; }
+        public HelpMoney HelpMoney { get ; set ; }
         public int HelpPoint { get; set; }
         public int HelpBeans { get; set; }
 
