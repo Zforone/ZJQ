@@ -32,7 +32,7 @@ namespace ConsoleApp1.AboutDB
 
         public void SaveMore(params Student[] students)
         {
-            using(DbConnection connection=new DBhepler().LongConnection)
+            using(DbConnection connection=new DBhepler().Connection)
             {
                 for(int i = 0; i < students.Length; i++)
                 {
@@ -47,9 +47,10 @@ namespace ConsoleApp1.AboutDB
                 $"DELETE Student WHERE ID = {Id}");
         }
 
-        public SqlDataReader Find()
+        public DbDataReader Find()
         {
-            SqlDataReader dataReader= _dbHepler.ExecuteReader($"SELET * FROM Student WHERE ID = {Id}");
+            DbDataReader dataReader= _dbHepler.ExecuteReader
+                ($"SELET * FROM Student WHERE ID = {Id}");
             return dataReader;
         }
     }

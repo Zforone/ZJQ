@@ -34,23 +34,6 @@ namespace ConsoleApp1.Repoistories
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<HelpMoney>()
-            //    .HasKey(k => k.Id);
-            //modelBuilder.Entity<ArticleKind>()
-            //    .HasKey(k => k.Id);
-            //modelBuilder.Entity<Article>()
-            //    .HasKey(k => k.Id);
-            //modelBuilder.Entity<Keyword>()
-            //    .HasKey(k => k.Id);
-            //modelBuilder.Entity<Problem>()
-            //    .HasKey(k => k.Id);
-            //modelBuilder.Entity<Suggest>()
-            //    .HasKey(k => k.Id);
-            //modelBuilder.Entity<Comment>()
-            //    .HasKey(k => k.Id);
-            //modelBuilder.Entity<User>()
-            //    .HasKey(k => k.Id);
-
             modelBuilder.Entity<ArticleAndKeyword>()
                 .HasKey(k => new { k.ArticleId, k.KeywordId})
                 ;

@@ -42,7 +42,7 @@ namespace ConsoleApp1._17bang
         }
 
         //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词
-        
+
         private string _name;
         public string Name
         {
@@ -67,7 +67,7 @@ namespace ConsoleApp1._17bang
 
             }
         }
-        
+
 
         //将TokenManager作为User类的属性
         internal TokenManager TokenManager { get; set; }
@@ -87,7 +87,7 @@ namespace ConsoleApp1._17bang
             get { return _passWord; }
             set
             {
-                if (value.Length>=6 && TestPassWord.Result(value))
+                if (value.Length >= 6 && TestPassWord.Result(value))
                 {
                     _passWord = value;
                 }
@@ -101,7 +101,7 @@ namespace ConsoleApp1._17bang
 
         public User InvitedBy { get; set; }
 
-        public int HelpMoney { get ; set ; }
+        public int HelpMoney { get; set; }
         public int HelpPoint { get; set; }
         public int HelpBeans { get; set; }
 
@@ -110,16 +110,59 @@ namespace ConsoleApp1._17bang
         //将用户名和密码存入数据库：Register()
         internal void Register()
         {
-            _dbHepler.ExecuteNonQuery(
-                $@"INSERT Users VALUES( N'{Name}',N'{Password}')");
+            //_dbHepler.ExecuteNonQuery(
+            //   "INSERT Users VALUES( @Name,@Password)",
+            //   new SqlParameter[]
+            //       {
+            //        new SqlParameter("@Name", Name),
+            //        new SqlParameter("@Password", Password)
+            //       }
+            //   );
+
+            //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17BANG;Integrated Security=True;";
+            using (SqlConnection Connection = _dbHepler.Connection)
+            {
+                Connection.Open();
+                string sqlText = @"INSERT Users VALUES( @Name , @Password)";
+                using (DbCommand command = new SqlCommand(sqlText, Connection))
+                {
+                    SqlParameter UserName = new SqlParameter("@Name", Name);
+                    SqlParameter UserPassword = new SqlParameter("@Password", Password);
+                    command.Parameters.Add(UserName);
+                    command.Parameters.Add(UserPassword);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         //根据用户名和密码检查某用户能够成功登陆
         internal bool Login()
         {
-            SqlDataReader reader=_dbHepler.ExecuteReader(
-                $@"SELECT * FROM Users WHERE [Name]=N'{Name}' AND [PassWord]=N'{Password}'");
-            return reader.HasRows;
+            // DbDataReader reader= _dbHepler.ExecuteReader(
+            //  "SELECT * FROM Users WHERE [Name] = @Name AND [PassWord] = @Password",
+            //   new SqlParameter[]
+            //       {
+            //        new SqlParameter("@Name", Name),
+            //        new SqlParameter("@Password", Password)
+            //       }
+            //   );
+            //return reader.HasRows;
+
+            //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17BANG;Integrated Security=True;";
+            using (SqlConnection Connection = _dbHepler.Connection)
+            {
+                Connection.Open();
+                string sqlText = @"SELECT * FROM Users WHERE [Name] = @Name AND [PassWord] = @Password";
+                using (DbCommand command = new SqlCommand(sqlText, Connection))
+                {
+                    SqlParameter UserName = new SqlParameter("@Name", Name);
+                    SqlParameter UserPassword = new SqlParameter("@Password", Password);
+                    command.Parameters.Add(UserName);
+                    command.Parameters.Add(UserPassword);
+                    DbDataReader reader = command.ExecuteReader();
+                    return reader.HasRows;
+                }
+            }
         }
 
         private void ChangePasword(int oldPassWord, int newPassWord)

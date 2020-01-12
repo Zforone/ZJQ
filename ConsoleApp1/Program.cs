@@ -21,7 +21,6 @@ namespace ConsoleApp1
         static void Main(string[] args)
 
         {
-
             //User user = new User();
             //Problem problem = new Problem();
             ////problem.Reward = -10;
@@ -63,15 +62,11 @@ namespace ConsoleApp1
             //problem.Reward = -1;
             //Console.WriteLine(problem.Reward); 
 
-
-
-
             //new ContentService().Agree(/*suggest,user*/article, user);
             //new ContentService().Disagree(suggest, user/*suggest,user*/);
             //new ContentService().Commentary(/*suggest*//*problem*/article);
 
             //user.userLevel = Role.Admin;
-
 
             //user.TokenManager = new TokenManager();
             //user.TokenManager.Add(Token.Admin);
@@ -84,8 +79,6 @@ namespace ConsoleApp1
             //AboutDelegate.Transfer();
 
             //UsedLinq.Do();
-
-
 
             //再从磁盘中读取到内存中
             //XElement element = XElement.Load("E://XML.xml");
@@ -104,23 +97,22 @@ namespace ConsoleApp1
             //new User { Name = "优秀", Password ="Qq123/"}.Save();
             //new User { Name = "阿泰",Password="Aa123/"}.Save();
 
-
-            //User user = new User { Name = "百万", Password = "AZz12/" };
-            //user.Register();
-            //User user1 = new User { Name = "阿泰", Password = "Aa123/" };
-            //user1.Register();
-            //User user2 = new User();
-            //user2.Name = "优秀";
-            //user2.Password = "Qq123/";
-            ////user2.Register();
-            //bool result = user2.Login();
-            //Console.WriteLine(result);
+            User user = new User { Name = "百万", Password = "AZz12/" };
+            user.Register();
+            User user1 = new User { Name = "阿泰", Password = "Aa123/" };
+            user1.Register();
+            User user2 = new User();
+            user2.Name = "优秀";
+            user2.Password = "Qq123/";
+            //user2.Register();
+            bool result = user2.Login();
+            Console.WriteLine(result);
 
             //Repoistory<HelpMoney> helpMoney = new HelpMoneyRepository();
             //DatabaseFacade database = new Repoistory<HelpMoney>().Database;
-            DatabaseFacade database = new Repoistory<ArticleKind>().Database;
-            database.EnsureDeleted();                              
-            database.EnsureCreated();
+            //DatabaseFacade database = new Repoistory<ArticleKind>().Database;
+            //database.EnsureDeleted();                              
+            //database.EnsureCreated();
 
 
 

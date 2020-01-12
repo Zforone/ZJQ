@@ -14,67 +14,58 @@ namespace ConsoleApp1.AboutDB
 
     public class DBhepler
     {
-        private const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17BANG;Integrated Security=True;";
-
-        private SqlConnection _connection;
+        public const string connectionString =
+            @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17BANG;Integrated Security=True;";
+        
         public SqlConnection Connection
         {
             get
             {
-                _connection = _connection ?? new SqlConnection(connectionString);
-                return _connection;
+                SqlConnection Connection = new SqlConnection(connectionString);
+                
+                return Connection;
             }
-            
         }
 
-        private SqlConnection _longConnection;
-        public SqlConnection LongConnection
+        public int ExecuteNonQuery(string cmdText , params DbParameter[] parameters)
         {
-            get
+            using (Connection)
             {
-                _longConnection = _longConnection ?? new SqlConnection(connectionString);
-                return _longConnection; 
+                DbCommand command = new SqlCommand();
+                command.Connection = Connection;
+                command.CommandText = cmdText;
+                return command.ExecuteNonQuery();
             }
-        }
-        public int ExecuteNonQuery(string cmdText)
-        {
-            if (new DBhepler().LongConnection.State==ConnectionState.Closed)
-            {
-                LongConnection.Open();
-            }
-            DbCommand command = new SqlCommand();
-            command.CommandText = cmdText;
-            command.Connection = LongConnection;
-            int AffectedRows = command.ExecuteNonQuery();
-            return AffectedRows;
+            
+            
         }
 
         public object ExecuteScalar(string cmdText)
         {
-
-            if (new DBhepler().LongConnection.State == ConnectionState.Closed)
+            using (Connection)
             {
-                LongConnection.Open();
+                Connection.Open();
+                DbCommand command = new SqlCommand();
+                command.CommandText = cmdText;
+                command.Connection = Connection;
+                return command.ExecuteScalar();
             }
-            DbCommand command = new SqlCommand();
-            command.CommandText = cmdText;
-            command.Connection = LongConnection;
-            object obj = command.ExecuteScalar();
-            return obj;
+                
             
             
         }
-        public SqlDataReader ExecuteReader(string cmdText)
+        public DbDataReader ExecuteReader(string cmdText , params DbParameter[] parameters)
         {
-            if (new DBhepler().LongConnection.State==ConnectionState.Closed)
+            using (Connection)
             {
-                LongConnection.Open();
+                Connection.Open();
+                DbCommand command = new SqlCommand();
+                command.CommandText = cmdText;
+                command.Connection = Connection;
+                return command.ExecuteReader();
             }
-            SqlCommand command = new SqlCommand();
-            command.CommandText = cmdText;
-            command.Connection = LongConnection;
-            SqlDataReader sqlConnection = command.ExecuteReader();
-            return sqlConnection;
+                
+            
         }
     }
 }
