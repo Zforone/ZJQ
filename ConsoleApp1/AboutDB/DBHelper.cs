@@ -62,17 +62,6 @@ namespace ConsoleApp1.AboutDB
         }
         public DbDataReader ExecuteReader(string cmdText , params DbParameter[] parameters)
         {
-            //using (DbConnection connection = new SqlConnection(connectionString))
-            //{
-            //    connection.Open();
-            //    DbCommand command = new SqlCommand();
-            //    command.CommandText = cmdText;
-            //    command.Connection = connection;
-            //    command.Parameters.AddRange(parameters);
-            //    return command.ExecuteReader();
-            //}
-            
-                //Connection.Open();
                 using (DbCommand command = new SqlCommand())
                 {
                     command.CommandText = cmdText;
@@ -82,5 +71,9 @@ namespace ConsoleApp1.AboutDB
                     return reader;
                 }
         }
+        //批量标记Message为已读
+        //查找出最近登录的若干个同学：IList<User> GetLatestLogon(int amount)
+        //用事务完成帮帮币转移方法：void Sell(User buyer, int amount)，
+        //当前用户的帮帮币减少amount枚，买家（buyer）的帮帮币增加amount枚
     }
 }

@@ -110,15 +110,6 @@ namespace ConsoleApp1._17bang
         //将用户名和密码存入数据库：Register()
         internal void Register()
         {
-            //_dbHepler.ExecuteNonQuery(
-            //   "INSERT Users VALUES( @Name,@Password)",
-            //   new SqlParameter[]
-            //       {
-            //            new SqlParameter("@Name", Name),
-            //            new SqlParameter("@Password", Password)
-            //       }
-            //   );
-
             using (_dbHepler.Connection)
             {
                 string sqlText = "INSERT Users VALUES( @Name,@Password)";
@@ -131,25 +122,14 @@ namespace ConsoleApp1._17bang
                       );
             }
 
-            //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17BANG;Integrated Security=True;";
-            //using (SqlConnection Connection = _dbHepler.Connection)
-            //{
-            //    Connection.Open();
-            //    string sqlText = @"INSERT Users VALUES( @Name , @Password)";
-            //    using (DbCommand command = new SqlCommand(sqlText, Connection))
-            //    {
-            //        SqlParameter UserName = new SqlParameter("@Name", Name);
-            //        SqlParameter UserPassword = new SqlParameter("@Password", Password);
-            //        command.Parameters.Add(UserName);
-            //        command.Parameters.Add(UserPassword);
-            //        command.ExecuteNonQuery();
-            //    }
-            //}
         }
 
         //根据用户名和密码检查某用户能够成功登陆
+        //如果用户成功登陆，将其最后登录时间（LatestLogonTime）改成当前时间
+        public DateTime LatestLogonTime { get; private set;}
         internal bool Login()
         {
+            LatestLogonTime = DateTime.Now;
             using (_dbHepler.Connection)
             {
                 string sqlText = @"SELECT * FROM Users WHERE [Name] = @Name AND [PassWord] = @Password";
@@ -162,23 +142,10 @@ namespace ConsoleApp1._17bang
                       );
                 return reader.Read();
             }
-            
-            //string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17BANG;Integrated Security=True;";
-            //using (SqlConnection Connection = _dbHepler.Connection)
-            //{
-            //    Connection.Open();
-            //    string sqlText = @"SELECT * FROM Users WHERE [Name] = @Name AND [PassWord] = @Password";
-            //    using (DbCommand command = new SqlCommand(sqlText, Connection))
-            //    {
-            //        SqlParameter UserName = new SqlParameter("@Name", Name);
-            //        SqlParameter UserPassword = new SqlParameter("@Password", Password);
-            //        command.Parameters.Add(UserName);
-            //        command.Parameters.Add(UserPassword);
-            //        DbDataReader reader = command.ExecuteReader();
-            //        return reader.HasRows;
-            //    }
-            //}
+
         }
+
+
 
         private void ChangePasword(int oldPassWord, int newPassWord)
         {

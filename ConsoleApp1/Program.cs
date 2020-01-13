@@ -98,16 +98,17 @@ namespace ConsoleApp1
             //new User { Name = "阿泰",Password="Aa123/"}.Save();
 
             User user = new User { Name = "百万", Password = "AZz12/" };
-            user.Register();
+            //user.Register();
             User user1 = new User { Name = "阿泰", Password = "Aa123/" };
-            user1.Register();
+            //user1.Register();
             User user2 = new User();
             user2.Name = "优秀";
             user2.Password = "Qq123/";
             //user2.Register();
-            bool result = user2.Login();
+            bool result = user1.Login();
             Console.WriteLine(result);
-
+            Console.WriteLine(user1.LatestLogonTime);
+            Console.WriteLine(DateTime.Now);
             //Repoistory<HelpMoney> helpMoney = new HelpMoneyRepository();
             //DatabaseFacade database = new Repoistory<HelpMoney>().Database;
             //DatabaseFacade database = new Repoistory<ArticleKind>().Database;
@@ -118,6 +119,7 @@ namespace ConsoleApp1
 
             Console.WriteLine("!O^O!");
             Console.ReadLine();
+
         }
         
         ////取字符值：GetUnicode()
