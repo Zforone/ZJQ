@@ -22,50 +22,65 @@ namespace ConsoleApp1.AboutDB
             get
             {
                 SqlConnection Connection = new SqlConnection(connectionString);
-                
+                Connection.Open();
                 return Connection;
             }
         }
 
         public int ExecuteNonQuery(string cmdText , params DbParameter[] parameters)
         {
-            using (Connection)
+            //using (DbConnection connection = new SqlConnection(connectionString))
+            //{
+            //    connection.Open();
+            //    DbCommand command = new SqlCommand();
+            //    command.Connection = connection;
+            //    command.CommandText = cmdText;
+            //    command.Parameters.AddRange(parameters);
+            //    return command.ExecuteNonQuery();
+            //}
+            using (DbCommand command = new SqlCommand(connectionString))
             {
-                DbCommand command = new SqlCommand();
-                command.Connection = Connection;
                 command.CommandText = cmdText;
+                command.Connection = Connection;
+                command.Parameters.AddRange(parameters);
                 return command.ExecuteNonQuery();
             }
-            
-            
+
         }
 
-        public object ExecuteScalar(string cmdText)
+        public object ExecuteScalar(string cmdText, params DbParameter[] parameters)
         {
-            using (Connection)
+            using (DbConnection connection = new SqlConnection(connectionString))
             {
-                Connection.Open();
+                connection.Open();
                 DbCommand command = new SqlCommand();
                 command.CommandText = cmdText;
-                command.Connection = Connection;
+                command.Connection = connection;
+                command.Parameters.AddRange(parameters);
                 return command.ExecuteScalar();
             }
-                
-            
-            
         }
         public DbDataReader ExecuteReader(string cmdText , params DbParameter[] parameters)
         {
-            using (Connection)
-            {
-                Connection.Open();
-                DbCommand command = new SqlCommand();
-                command.CommandText = cmdText;
-                command.Connection = Connection;
-                return command.ExecuteReader();
-            }
-                
+            //using (DbConnection connection = new SqlConnection(connectionString))
+            //{
+            //    connection.Open();
+            //    DbCommand command = new SqlCommand();
+            //    command.CommandText = cmdText;
+            //    command.Connection = connection;
+            //    command.Parameters.AddRange(parameters);
+            //    return command.ExecuteReader();
+            //}
             
+                //Connection.Open();
+                using (DbCommand command = new SqlCommand())
+                {
+                    command.CommandText = cmdText;
+                    command.Connection = Connection;
+                    command.Parameters.AddRange(parameters);
+                    DbDataReader reader = command.ExecuteReader();
+                    return reader;
+                }
         }
     }
 }
