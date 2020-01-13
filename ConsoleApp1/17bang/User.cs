@@ -174,6 +174,31 @@ namespace ConsoleApp1._17bang
             return users;
         }
 
+        //用事务完成帮帮币转移方法：void Sell(User buyer, int amount)，
+        //当前用户的帮帮币减少amount枚，买家（buyer）的帮帮币增加amount枚
+        public void Sell(User buyer, int amount)
+        {
+            string sqlText = $@"BEGIN TRANSACTION
+                                BEGIN TRY
+                                    UPDATE BMoney SET BangMoney = BangMoney + {amount} WHERE Name =@Name1
+                                    UPDATE BMoney SET BangMoney = BangMoney - {amount} WHERE Name =@Name2
+                                    COMMIT TRANSACTION
+                                END TRY
+                                BEGIN CATCH
+                                    IF @@TRANCOUNT > 0
+                                        ROLLBACK;
+                                        THROW;
+                                END CATCH";
+            _dbHepler.ExecuteNonQuery(sqlText,
+                new SqlParameter[]
+                      {
+                            new SqlParameter("@Name1", buyer.Name),
+                            new SqlParameter("@Name2", Name)
+                      }
+
+                );
+        }
+
         private void ChangePasword(int oldPassWord, int newPassWord)
         {
 

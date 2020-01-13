@@ -61,9 +61,5 @@ namespace ConsoleApp1.AboutDB
                 return reader;
             }
         }
-
-
-        //用事务完成帮帮币转移方法：void Sell(User buyer, int amount)，
-        //当前用户的帮帮币减少amount枚，买家（buyer）的帮帮币增加amount枚
     }
 }
