@@ -199,6 +199,23 @@ namespace ConsoleApp1._17bang
                 );
         }
 
+        //批量标记Message为已读
+        public int SetHasRead(params int[] ids)
+        {
+            string sqlText = $"UPDATE TMessage SET HasRead = 0 WHERE Id=@id";
+            for (int i = 0; i < ids.Length; i++)
+            {
+                _dbHepler.ExecuteNonQuery(sqlText,
+                new SqlParameter[]
+                      {
+                            new SqlParameter("@id", ids[i])
+                      }
+                      );
+            }
+            return ids.Length+1;
+        }
+
+
         private void ChangePasword(int oldPassWord, int newPassWord)
         {
 

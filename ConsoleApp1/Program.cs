@@ -108,13 +108,9 @@ namespace ConsoleApp1
             user2.Password = "Qq123/";
             //user2.Register();
             //user2.Login();
-            user1.Sell(user, 10);
-
-            //IList<User> users = user1.GetLatestLogon(2);
-            //for (int i = 0; i < users.Count; i++)
-            //{
-            //    Console.WriteLine(users[i].Name);
-            //}
+            //user1.Sell(user, 10);
+            user.SetHasRead(1, 2);
+            
 
             //Repoistory<HelpMoney> helpMoney = new HelpMoneyRepository();
             //DatabaseFacade database = new Repoistory<HelpMoney>().Database;
