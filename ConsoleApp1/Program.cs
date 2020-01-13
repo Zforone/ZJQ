@@ -110,11 +110,11 @@ namespace ConsoleApp1
             //user2.Login();
 
 
-            user1.GetLatestLogon(3);
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    Console.WriteLine(user1.GetLatestLogon(5)[i]);
-            //}
+            IList<User> users = user1.GetLatestLogon(2);
+            for (int i = 0; i < users.Count; i++)
+            {
+                Console.WriteLine(users[i].Name);
+            }
 
             //Repoistory<HelpMoney> helpMoney = new HelpMoneyRepository();
             //DatabaseFacade database = new Repoistory<HelpMoney>().Database;

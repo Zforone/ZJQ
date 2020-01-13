@@ -157,27 +157,22 @@ namespace ConsoleApp1._17bang
         //查找出最近登录的若干个同学：IList<User> GetLatestLogon(int amount)
         public IList<User> GetLatestLogon(int amount)
         {
-            string sqlText = $@"SELECT TOP({amount}) * FROM Users ORDER BY @LatestLogonTime DESC";
-            DbDataReader reader = _dbHepler.ExecuteReader(sqlText,
-                      new SqlParameter[]
-                      {
-                            new SqlParameter("@LatestLogonTime", LatestLogonTime),
-                      }
-                      );
+            string sqlText = $@"SELECT TOP({amount}) Name FROM Users ORDER BY LatestLogonTime DESC";
+            DbDataReader reader = _dbHepler.ExecuteReader(sqlText);
             IList<User> users = new List<User>();
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    for (int i = 0; i < amount; i++)
+                    User user = new User
                     {
-                        users[i] = (User)reader[i];
-                    }
+                        Name = reader["Name"].ToString(),
+                    };
+                    users.Add(user);
                 }
             }
             return users;
         }
-
 
         private void ChangePasword(int oldPassWord, int newPassWord)
         {
