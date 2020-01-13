@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1._17bang;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -16,7 +17,7 @@ namespace ConsoleApp1.AboutDB
     {
         public const string connectionString =
             @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17BANG;Integrated Security=True;";
-        
+
         public SqlConnection Connection
         {
             get
@@ -27,52 +28,41 @@ namespace ConsoleApp1.AboutDB
             }
         }
 
-        public int ExecuteNonQuery(string cmdText , params DbParameter[] parameters)
+        public int ExecuteNonQuery(string cmdText, params DbParameter[] parameters)
         {
-            //using (DbConnection connection = new SqlConnection(connectionString))
-            //{
-            //    connection.Open();
-            //    DbCommand command = new SqlCommand();
-            //    command.Connection = connection;
-            //    command.CommandText = cmdText;
-            //    command.Parameters.AddRange(parameters);
-            //    return command.ExecuteNonQuery();
-            //}
-            using (DbCommand command = new SqlCommand(connectionString))
+            using (DbCommand command = new SqlCommand())
             {
                 command.CommandText = cmdText;
                 command.Connection = Connection;
                 command.Parameters.AddRange(parameters);
                 return command.ExecuteNonQuery();
             }
-
         }
 
         public object ExecuteScalar(string cmdText, params DbParameter[] parameters)
         {
-            using (DbConnection connection = new SqlConnection(connectionString))
+            using (DbCommand command = new SqlCommand())
             {
-                connection.Open();
-                DbCommand command = new SqlCommand();
                 command.CommandText = cmdText;
-                command.Connection = connection;
+                command.Connection = Connection;
                 command.Parameters.AddRange(parameters);
                 return command.ExecuteScalar();
             }
         }
-        public DbDataReader ExecuteReader(string cmdText , params DbParameter[] parameters)
+
+        public DbDataReader ExecuteReader(string cmdText, params DbParameter[] parameters)
         {
-                using (DbCommand command = new SqlCommand())
-                {
-                    command.CommandText = cmdText;
-                    command.Connection = Connection;
-                    command.Parameters.AddRange(parameters);
-                    DbDataReader reader = command.ExecuteReader();
-                    return reader;
-                }
+            using (DbCommand command = new SqlCommand())
+            {
+                command.CommandText = cmdText;
+                command.Connection = Connection;
+                command.Parameters.AddRange(parameters);
+                DbDataReader reader = command.ExecuteReader();
+                return reader;
+            }
         }
-        //批量标记Message为已读
-        //查找出最近登录的若干个同学：IList<User> GetLatestLogon(int amount)
+
+
         //用事务完成帮帮币转移方法：void Sell(User buyer, int amount)，
         //当前用户的帮帮币减少amount枚，买家（buyer）的帮帮币增加amount枚
     }

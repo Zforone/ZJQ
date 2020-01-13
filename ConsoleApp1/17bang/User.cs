@@ -112,7 +112,7 @@ namespace ConsoleApp1._17bang
         {
             using (_dbHepler.Connection)
             {
-                string sqlText = "INSERT Users VALUES( @Name,@Password)";
+                string sqlText = "INSERT Users (Name,Password) VALUES( @Name,@Password)";
                 _dbHepler.ExecuteNonQuery(sqlText,
                       new SqlParameter[]
                       {
@@ -126,25 +126,57 @@ namespace ConsoleApp1._17bang
 
         //根据用户名和密码检查某用户能够成功登陆
         //如果用户成功登陆，将其最后登录时间（LatestLogonTime）改成当前时间
-        public DateTime LatestLogonTime { get; private set;}
+        public DateTime LatestLogonTime { get; private set; }
         internal bool Login()
         {
             LatestLogonTime = DateTime.Now;
             using (_dbHepler.Connection)
             {
-                string sqlText = @"SELECT * FROM Users WHERE [Name] = @Name AND [PassWord] = @Password";
+                string sqlText =
+                    @"SELECT * FROM Users WHERE [Name] = @Name AND [PassWord] = @Password";
                 DbDataReader reader = _dbHepler.ExecuteReader(sqlText,
                       new SqlParameter[]
                       {
-                    new SqlParameter("@Name", Name),
-                    new SqlParameter("@Password", Password)
+                            new SqlParameter("@Name", Name),
+                            new SqlParameter("@Password", Password)
                       }
                       );
+                string updateText =
+                    $@"UPDATE Users SET LatestLogonTime='{DateTime.Now}' WHERE Name=@Name";
+                _dbHepler.ExecuteNonQuery(updateText,
+                    new SqlParameter[]
+                      {
+                            new SqlParameter("@Name", Name)
+                      }
+                    );
                 return reader.Read();
             }
 
         }
 
+        //查找出最近登录的若干个同学：IList<User> GetLatestLogon(int amount)
+        public IList<User> GetLatestLogon(int amount)
+        {
+            string sqlText = $@"SELECT TOP({amount}) * FROM Users ORDER BY @LatestLogonTime DESC";
+            DbDataReader reader = _dbHepler.ExecuteReader(sqlText,
+                      new SqlParameter[]
+                      {
+                            new SqlParameter("@LatestLogonTime", LatestLogonTime),
+                      }
+                      );
+            IList<User> users = new List<User>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    for (int i = 0; i < amount; i++)
+                    {
+                        users[i] = (User)reader[i];
+                    }
+                }
+            }
+            return users;
+        }
 
 
         private void ChangePasword(int oldPassWord, int newPassWord)
@@ -152,14 +184,14 @@ namespace ConsoleApp1._17bang
 
         }
 
-        
+
     }
     public enum Role
     {
-        Admin=0,
-        Registered=1,
-        Visited=2,
-        Publishe=3
+        Admin = 0,
+        Registered = 1,
+        Visited = 2,
+        Publishe = 3
     }
 
     //声明一个令牌（Token）枚举，包含值：SuperAdmin、Admin、Blogger、Newbie、Registered

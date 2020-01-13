@@ -99,16 +99,23 @@ namespace ConsoleApp1
 
             User user = new User { Name = "百万", Password = "AZz12/" };
             //user.Register();
+            //user.Login();
             User user1 = new User { Name = "阿泰", Password = "Aa123/" };
             //user1.Register();
+            //user1.Login();
             User user2 = new User();
             user2.Name = "优秀";
             user2.Password = "Qq123/";
             //user2.Register();
-            bool result = user1.Login();
-            Console.WriteLine(result);
-            Console.WriteLine(user1.LatestLogonTime);
-            Console.WriteLine(DateTime.Now);
+            //user2.Login();
+
+
+            user1.GetLatestLogon(3);
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.WriteLine(user1.GetLatestLogon(5)[i]);
+            //}
+
             //Repoistory<HelpMoney> helpMoney = new HelpMoneyRepository();
             //DatabaseFacade database = new Repoistory<HelpMoney>().Database;
             //DatabaseFacade database = new Repoistory<ArticleKind>().Database;
