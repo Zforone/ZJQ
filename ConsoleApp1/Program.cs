@@ -109,7 +109,7 @@ namespace ConsoleApp1
             //user2.Register();
             //user2.Login();
             //user1.Sell(user, 10);
-            user.SetHasRead(1, 2);
+            Console.WriteLine(user.SetHasRead(1, 2)); 
             
 
             //Repoistory<HelpMoney> helpMoney = new HelpMoneyRepository();

@@ -212,7 +212,7 @@ namespace ConsoleApp1._17bang
                       }
                       );
             }
-            return ids.Length+1;
+            return ids.Length;
         }
 
 
