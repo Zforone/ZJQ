@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace WebApplicationCore.Pages.PageHelper
 {
-    [HtmlTargetElement("small", Attributes = "pageIndex, path")]
+    [HtmlTargetElement("datetime", Attributes = "asp-showicon, asp-only")]
     public class DateTimeTagHelper : TagHelper
     {
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            output.TagName = "a";   //原生标签名
-
+            output.TagName = "small";   //原生标签名
+            
             //分别取出pageIndex和path的值
-            object pageIndex = context.AllAttributes["pageIndex"].Value;
+            object showicon = context.AllAttributes["asp-showicon"].Value;
             //output.Attributes.Remove(context.AllAttributes["pageIndex"]);
 
-            object path = context.AllAttributes["path"].Value;
+            object only = context.AllAttributes["asp-only"].Value;
             //output.Attributes.RemoveAll("path");
 
-            //设置a标签里href的值
-            output.Attributes.Add("href", $"{path}/Page-{pageIndex}");
+            
+            //output.Attributes.Add("href", $"{only}/Page-{showicon}");
             base.Process(context, output);
         }
     }
