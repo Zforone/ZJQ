@@ -5,9 +5,9 @@
 }
 
 @section Add{
-    <div style="background-color:aquamarine">
-        Index页面的Section
-    </div>
+<div style="background-color:aquamarine">
+    Index页面的Section
+</div>
 }
 
 <h1>我是Index界面</h1>
@@ -32,7 +32,7 @@
         }
         else if (j == 7)
         {
-            <span style="color:blue ;float:left;margin-left:10px">@str</span><br />
+            <span style="color:red ;float:left;margin-left:10px">@str</span><br />
         }
         else if (j == 9)
         {
@@ -43,9 +43,9 @@
     }
 }
 
-<pager pageIndex="3" path="/">TagHelper标签</pager><br />
-<datetime >@(DateTime.Now.ToString("yyyy年MM月dd日 HH点mm分"))</datetime><br />
 
+
+<datetime asp-showicon="true" asp-only="date" >@(DateTime.Now)</datetime>
 
 
 
