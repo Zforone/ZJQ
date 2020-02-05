@@ -5,8 +5,46 @@
 }
 
 @section Add{
-<div style="background-color:aquamarine">
-    Index页面的Section
-</div>
+    <div style="background-color:aquamarine">
+        Index页面的Section
+    </div>
 }
 <h1>我是Index界面</h1>
+@{
+    string str = " i ";
+    for (int j = 1; j < 10;)
+    {
+
+        @if (j == 1)
+        {
+            <span style="color:blue ;float:left;margin-left:40px">@str</span><br />
+
+        }
+        else if (j == 3)
+        {
+            <span style="color:red;float:left;margin-left:30px">@str</span><br />
+
+        }
+        else if (j == 5)
+        {
+            <span style="color:blue ;float:left;margin-left:20px">@str</span><br />
+        }
+        else if (j == 7)
+        {
+            <span style="color:blue ;float:left;margin-left:10px">@str</span><br />
+        }
+        else if (j == 9)
+        {
+            <span style="color:blue ;float:left;margin-left:0px">@str</span><br />
+        }
+        str = str + " i i";
+        j += 2;
+    }
+}
+
+
+@*<!--空格--><span>&nbsp;</span>*@
+
+
+
+
