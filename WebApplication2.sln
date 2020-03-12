@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.779
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{11B4167D-C32E-4572-8464-62683DA6B918}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{8DAE4DA2-26B8-4CEC-8DDC-F96765931CF2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTest1", "NUnitTest1\NUnitTest1.csproj", "{643EEEA9-F357-494A-9ACB-421A3DD321A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{AA40204D-5F11-4B11-A640-249247E8DF5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationCore", "WebApplicationCore\WebApplicationCore.csproj", "{5B2847C4-336F-4F38-9754-9C5751F94C04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationCore", "WebApplicationCore\WebApplicationCore.csproj", "{5B2847C4-336F-4F38-9754-9C5751F94C04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{11B4167D-C32E-4572-8464-62683DA6B918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11B4167D-C32E-4572-8464-62683DA6B918}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11B4167D-C32E-4572-8464-62683DA6B918}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11B4167D-C32E-4572-8464-62683DA6B918}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8DAE4DA2-26B8-4CEC-8DDC-F96765931CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8DAE4DA2-26B8-4CEC-8DDC-F96765931CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DAE4DA2-26B8-4CEC-8DDC-F96765931CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU

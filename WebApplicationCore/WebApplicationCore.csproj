@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ConsoleApp1\ConsoleApp1.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Pages\Layout\_All.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
